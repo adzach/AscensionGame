@@ -22,7 +22,7 @@ GameObject:
   - component: {fileID: 212085661914429694}
   - component: {fileID: 54218394269961064}
   - component: {fileID: 135910998653269704}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Earthquake
   m_TagString: Earthquake
   m_Icon: {fileID: 0}

@@ -8,17 +8,17 @@ public class Zomphant : Enemy
     [Header("Set in Inspector: Zomphant")]
     public GameObject earthquakePrefab;
     public int startQuakes = 4;
-    public int maxQuakes = 25;
-    public int startDistDefault = 1;
+    public int maxQuakes = 50;
+    public float startDistDefault = 1f;
     public int maxDist = 3;
-    public float attackTime = .2f;
+    public float attackTime = .05f;
     
 
     [Header("Set Dynamically: Zomphant")]
     public float stopAttack;
     public GameObject[] earthquakes;
     public int attackNum = 0;
-    public int startDist = 0;
+    public float startDist = 0f;
     public int quakes = 0;
     public bool attacking = false;
     public float attackAnimTime = 0;
@@ -45,7 +45,12 @@ public class Zomphant : Enemy
         }
         if (attacking)
         {
+            speed = 0;
             attackAnimation();
+        }
+        else
+        {
+            speed = defaultSpeed;
         }
         
 
@@ -78,8 +83,8 @@ public class Zomphant : Enemy
                 earthquakes[i].GetComponent<Rigidbody>().position = toPolar(startDist, 360 / quakes * i * Mathf.PI / 180);
 
             }
-            startDist++;
-            quakes = quakes + 7;
+            startDist += .1f;
+            quakes++;
             attackAnimTime = Time.time + attackTime;
             if(attackNum == maxDist - 1)
             {
