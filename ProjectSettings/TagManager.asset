@@ -3,7 +3,14 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
-  tags: []
+  tags:
+  - BorderObject
+  - RightExit
+  - TopExit
+  - LeftExit
+  - Level
+  - BottomExit
+  - Hero
   layers:
   - Default
   - TransparentFX
