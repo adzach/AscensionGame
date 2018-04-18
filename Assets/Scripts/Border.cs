@@ -5,7 +5,6 @@ using UnityEngine;
 public class Border : MonoBehaviour {
 
 	void OnCollisionEnter2D(Collision2D coll) {
-		print ("Colliding!");
 		GameObject go = coll.gameObject;
 		switch (go.tag) {
 		case "Hero":
