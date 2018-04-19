@@ -47,15 +47,17 @@ public class Enemy : MonoBehaviour {
 
     public void followChar()
     {
-        Vector3 mousePos2D = Input.mousePosition;
-        mousePos2D.z = -Camera.main.transform.position.z;
-        Vector3 mousePos3D = Camera.main.ScreenToWorldPoint(mousePos2D);
+//        Vector3 mousePos2D = Input.mousePosition;
+//        mousePos2D.z = -Camera.main.transform.position.z;
+//        Vector3 mousePos3D = Camera.main.ScreenToWorldPoint(mousePos2D);
+
+		Vector3 heroPos = Hero.S.transform.position;
 
         float x = rigid.position.x;
         float y = rigid.position.y;
         Vector3 enemyPos = new Vector3(x, y, 0);
 
-        dir = mousePos3D - enemyPos;
+        dir = heroPos - enemyPos;
         distance = dir.magnitude;
 
         if (distance < attackRange)
