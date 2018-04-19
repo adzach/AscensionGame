@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class LineOfSight : MonoBehaviour {
-    public Collider coll;
+    public Collider2D coll;
     public bool looking = false;
     public List<GameObject> seeing = new List<GameObject>();
     public List<GameObject> visible = new List<GameObject>();
