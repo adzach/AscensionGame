@@ -11,6 +11,7 @@ public class Zomphant : Enemy
     public int maxQuakes = 50;
     public float startDistDefault = 1f;
     public int maxDist = 3;
+    public float distInc = 1f;
     public float attackTime = .05f;
     
 
@@ -83,8 +84,11 @@ public class Zomphant : Enemy
                 earthquakes[i].GetComponent<Rigidbody>().position = toPolar(startDist, 360 / quakes * i * Mathf.PI / 180);
 
             }
-            startDist += .1f;
-            quakes++;
+            startDist += distInc;
+            if (quakes < maxQuakes)
+            {
+                quakes++;
+            }
             attackAnimTime = Time.time + attackTime;
             if(attackNum == maxDist - 1)
             {

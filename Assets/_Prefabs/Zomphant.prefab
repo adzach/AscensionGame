@@ -39,7 +39,7 @@ Transform:
   m_GameObject: {fileID: 1068037357942098}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 20, y: 20, z: 2}
+  m_LocalScale: {x: 20, y: 20, z: 20}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -99,10 +99,11 @@ MonoBehaviour:
   offCooldown: 1
   earthquakePrefab: {fileID: 1713017036841904, guid: e5b495e72970554448c2eac2a47c33ae,
     type: 2}
-  startQuakes: 10
-  maxQuakes: 25
-  startDistDefault: 2
-  maxDist: 3
+  startQuakes: 40
+  maxQuakes: 60
+  startDistDefault: 20
+  maxDist: 30
+  distInc: 1
   attackTime: 0.2
   stopAttack: 0
   earthquakes:
