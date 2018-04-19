@@ -38,7 +38,7 @@ public class Main : MonoBehaviour {
 					if (child.tag == "BottomExit") {
 						GameObject bottomExit = child.gameObject;
 						Vector3 changePos = bottomExit.transform.position;
-						hero.transform.position = new Vector3 (changePos.x, changePos.y + 10, changePos.z);
+						hero.transform.position = new Vector3 (changePos.x, changePos.y + 15, changePos.z);
 						break;
 					}
 				}
@@ -50,7 +50,7 @@ public class Main : MonoBehaviour {
 					if (child.tag == "TopExit") {
 						GameObject bottomExit = child.gameObject;
 						Vector3 changePos = bottomExit.transform.position;
-						hero.transform.position = new Vector3 (changePos.x, changePos.y - 10, changePos.z);
+						hero.transform.position = new Vector3 (changePos.x, changePos.y - 15, changePos.z);
 						break;
 					}
 				}
@@ -62,7 +62,7 @@ public class Main : MonoBehaviour {
 					if (child.tag == "RightExit") {
 						GameObject bottomExit = child.gameObject;
 						Vector3 changePos = bottomExit.transform.position;
-						hero.transform.position = new Vector3 (changePos.x - 10, changePos.y, changePos.z);
+						hero.transform.position = new Vector3 (changePos.x - 15, changePos.y, changePos.z);
 						break;
 					}
 				}
@@ -74,7 +74,7 @@ public class Main : MonoBehaviour {
 					if (child.tag == "LeftExit") {
 						GameObject bottomExit = child.gameObject;
 						Vector3 changePos = bottomExit.transform.position;
-						hero.transform.position = new Vector3 (changePos.x + 10, changePos.y, changePos.z);
+						hero.transform.position = new Vector3 (changePos.x + 15, changePos.y, changePos.z);
 						break;
 					}
 				}
