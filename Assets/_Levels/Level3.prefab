@@ -1520,7 +1520,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 32dc442c6d6982641b228b21cd979a49, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  levelToLeadTo: {fileID: 0}
+  levelToLeadTo: {fileID: 1603134591587368, guid: 07d5a6b3816d0cf4f9ad6e5e3fc47980,
+    type: 2}
 --- !u!114 &114713597405584078
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1576,7 +1577,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 32dc442c6d6982641b228b21cd979a49, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  levelToLeadTo: {fileID: 0}
+  levelToLeadTo: {fileID: 1419428841696904, guid: 0f2ef8c3b790ae74f8c768f953ec9dad,
+    type: 2}
 --- !u!114 &114929916354245624
 MonoBehaviour:
   m_ObjectHideFlags: 1
