@@ -22,14 +22,16 @@ public class Enemy : MonoBehaviour {
 
 
     protected Animator anim;
-    protected Rigidbody rigid;
+    protected Animator attackanim;
+    protected Rigidbody2D rigid;
     protected SpriteRenderer sRend;
 
     protected virtual void Awake()
     {
         health = maxHealth;
         anim = GetComponent<Animator>();
-        rigid = GetComponent<Rigidbody>();
+        attackanim = GetComponent<Animator>();
+        rigid = GetComponent<Rigidbody2D>();
         sRend = GetComponent<SpriteRenderer>();
         coolDownDone = Time.time + attackCoolDown;
 
