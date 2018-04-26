@@ -39,28 +39,29 @@ public class LineOfSight : MonoBehaviour {
         {
             this.gameObject.transform.localEulerAngles = new Vector3(
                  this.gameObject.transform.localEulerAngles.x,
-                  this.gameObject.transform.localEulerAngles.y + i,
-                   this.gameObject.transform.localEulerAngles.z);
+                  this.gameObject.transform.localEulerAngles.y,
+                   this.gameObject.transform.localEulerAngles.z + i);
             //print(this.gameObject.transform.localEulerAngles.y+" "+i);
             markTarget();
 
             this.gameObject.transform.localEulerAngles = new Vector3(
-                 this.gameObject.transform.localEulerAngles.x,
-                  this.gameObject.transform.localEulerAngles.y - i,
-                   this.gameObject.transform.localEulerAngles.z);
+                  this.gameObject.transform.localEulerAngles.x,
+                  this.gameObject.transform.localEulerAngles.y,
+                   this.gameObject.transform.localEulerAngles.z - i);
         }
     }
 
     public void markTarget()
     {
         RaycastHit hit;
-        if (Physics.Raycast(transform.position, transform.TransformDirection(Vector3.forward), out hit, Mathf.Infinity))
+        if (Physics.Raycast(transform.position, transform.TransformDirection(Vector3.up), out hit, Mathf.Infinity))
         {
-            if (hit.collider.gameObject.layer == LayerMask.NameToLayer("LightWhenLooking"))
+            if (hit.collider.gameObject.CompareTag("hideLOS"))
             {
                 if (!seeing.Contains(hit.collider.gameObject))
                 {
                     seeing.Add(hit.collider.gameObject);
+                    print("did something");
                     
                 }
             }
@@ -71,12 +72,12 @@ public class LineOfSight : MonoBehaviour {
     {
         for (int i = 0; i < seeing.Count; i++)
         {
-            seeing[i].GetComponent<MeshRenderer>().enabled = true;
+            seeing[i].GetComponent<SpriteRenderer>().enabled = true;
             if (visible.Contains(seeing[i])) visible.Remove(seeing[i]);
         }
         for (int i = 0; i < visible.Count; i++)
         {
-            visible[i].GetComponent<MeshRenderer>().enabled = false;
+            visible[i].GetComponent<SpriteRenderer>().enabled = false;
             //print(visible.Count + "");
         }
         
