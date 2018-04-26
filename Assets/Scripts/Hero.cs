@@ -4,9 +4,12 @@ using UnityEngine;
 
 public class Hero : MonoBehaviour {
 	static public Hero S;
+    public HeroInfo heroInfo;
+    public HeroSelector heroSelector;
 
-	[Header ("Set in Inspector")]
+    [Header ("Set in Inspector")]
 	public float speed = 30;
+    public float health = 300;
 
 	void Awake () {
 		if (S == null) {
@@ -14,7 +17,9 @@ public class Hero : MonoBehaviour {
 		} else {
 			Debug.LogError ("Attempted to assign second hero");
 		}
-	}
+        PlayerPrefs.SetString("Hero_Name", "Cowboy");
+        selectHero();
+    }
 
 	// Use this for initialization
 	void Start () {
@@ -31,4 +36,47 @@ public class Hero : MonoBehaviour {
 		pos.y += yAxis * speed * Time.deltaTime;
 		transform.position = pos;
 	}
+    void changeHero(string character)
+    {
+        if (PlayerPrefs.HasKey("Hero_Name"))
+        {
+            string oldPlayer = PlayerPrefs.GetString("Hero_Name");
+            PlayerPrefs.SetString("Hero_Name", character);
+            if (!selectHero())
+            {
+                PlayerPrefs.SetString("Hero_Name", oldPlayer);
+            }
+        }
+        PlayerPrefs.SetString("Hero_Name", character);
+        if (!selectHero())
+        {
+            PlayerPrefs.DeleteKey("Hero_Name");
+        }
+    }
+    bool selectHero()
+    {
+        if (PlayerPrefs.HasKey("Hero_Name"))
+        {
+            string Name = PlayerPrefs.GetString("Hero_Name");
+            HeroInfo HI = heroSelector.getHero(Name);
+            if (heroInfo != null) {
+               heroInfo = HI;
+               return true;
+            }
+        }
+        Debug.LogError("failed to set character");
+        return false;
+    }
+    public void damage(float damage)
+    {
+        health -= damage;
+        if (health < 0)
+        {
+            die();
+        }
+    }
+    public void die()
+    {
+
+    }
 }
