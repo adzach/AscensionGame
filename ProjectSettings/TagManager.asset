@@ -12,6 +12,7 @@ TagManager:
   - BottomExit
   - Hero
   - Earthquake
+  - hideLOS
   layers:
   - Default
   - TransparentFX
