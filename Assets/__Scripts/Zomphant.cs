@@ -51,6 +51,7 @@ public class Zomphant : Enemy
         }
         else
         {
+            anim.CrossFade("Zomphant_Walk", 0);
             speed = defaultSpeed;
         }
         
@@ -65,6 +66,7 @@ public class Zomphant : Enemy
 
         if (attacking == false && offCooldown == true && distance < attackRange)
         {
+
             offCooldown = false;
             attacking = true;
             startDist = startDistDefault;
@@ -75,7 +77,7 @@ public class Zomphant : Enemy
 
     public void attackAnimation()
     {
-        
+        anim.CrossFade("Zomphant_Attack", 0);
         if (Time.time > attackAnimTime)
         {
             for (int i = 0; i < quakes; i++)

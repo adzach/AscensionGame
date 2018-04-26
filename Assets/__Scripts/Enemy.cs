@@ -22,7 +22,6 @@ public class Enemy : MonoBehaviour {
 
 
     protected Animator anim;
-    protected Animator attackanim;
     protected Rigidbody2D rigid;
     protected SpriteRenderer sRend;
 
@@ -30,7 +29,6 @@ public class Enemy : MonoBehaviour {
     {
         health = maxHealth;
         anim = GetComponent<Animator>();
-        attackanim = GetComponent<Animator>();
         rigid = GetComponent<Rigidbody2D>();
         sRend = GetComponent<SpriteRenderer>();
         coolDownDone = Time.time + attackCoolDown;
