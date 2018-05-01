@@ -1348,7 +1348,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 99ba983f676a44b4499984f10b77f464, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  level: {fileID: 0}
+  level: {fileID: 21300000, guid: c5cf9dba421cbdb4e88980ba2cf4d6ac, type: 3}
   borders: []
   exits: []
 --- !u!114 &114083802527175594
@@ -1577,7 +1577,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 32dc442c6d6982641b228b21cd979a49, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  levelToLeadTo: {fileID: 1419428841696904, guid: 0f2ef8c3b790ae74f8c768f953ec9dad,
+  levelToLeadTo: {fileID: 1789991605187314, guid: 797267554ef23854a8b8058768e355b3,
     type: 2}
 --- !u!114 &114929916354245624
 MonoBehaviour:
