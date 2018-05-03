@@ -12,6 +12,7 @@ public class fire : MonoBehaviour {
     // Use this for initialization
     void Start () {
         AS = GetComponent<AudioSource>();
+        print("hero health = " + this.transform.parent.GetComponent<Hero>().health);
         getHero(transform.parent.GetComponent<Hero>());
         getWeapon();
         getHead();
@@ -21,6 +22,7 @@ public class fire : MonoBehaviour {
 	void getHero(Hero Hero)
     {
         hero = Hero;
+        print("hero name:" + hero.heroInfo.HeroName);
     }
     public void updateCharacter()
     {

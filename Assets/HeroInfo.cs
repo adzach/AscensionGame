@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 [System.Serializable]
-public class HeroInfo : MonoBehaviour {
+public class HeroInfo{
         public string HeroName;
         public Sprite Head;
         public Animator Gun;

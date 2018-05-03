@@ -25,9 +25,10 @@ public class Hero : MonoBehaviour {
 	void Start () {
 		this.transform.position = new Vector3 (-5, -5, -1);
 	}
-	
-	// Update is called once per frame
-	void Update () {
+
+    // Update is called once per frame
+    /*
+    void Update () {
 		float xAxis = Input.GetAxis ("Horizontal");
 		float yAxis = Input.GetAxis ("Vertical");
 
@@ -36,6 +37,7 @@ public class Hero : MonoBehaviour {
 		pos.y += yAxis * speed * Time.deltaTime;
 		transform.position = pos;
 	}
+    */
     void changeHero(string character)
     {
         if (PlayerPrefs.HasKey("Hero_Name"))
@@ -59,10 +61,10 @@ public class Hero : MonoBehaviour {
         {
             string Name = PlayerPrefs.GetString("Hero_Name");
             HeroInfo HI = heroSelector.getHero(Name);
-            if (heroInfo != null) {
-               heroInfo = HI;
-               return true;
-            }
+            print("Hi =" + HI);
+            this.heroInfo = HI;
+            print(" test "+this.heroInfo.HeroName);
+            return true;
         }
         Debug.LogError("failed to set character");
         return false;

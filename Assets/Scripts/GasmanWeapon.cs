@@ -5,7 +5,7 @@ using UnityEngine;
 public class GasmanWeapon : Weapon {
 
     public string Name = "Gasman";
-    public GameObject ProjectilePrefab = Resources.Load("Prefabs/Gas") as GameObject;
+    public GameObject ProjectilePrefab;
     public GameObject Owner;
     public AudioClip Sound;
     public float Speed = 10f;
@@ -16,8 +16,8 @@ public class GasmanWeapon : Weapon {
 
     // Use this for initialization
     void Start () {
-		
-	}
+        ProjectilePrefab = Resources.Load("Prefabs/Gas") as GameObject;
+    }
 	
 	// Update is called once per frame
 	void Update () {

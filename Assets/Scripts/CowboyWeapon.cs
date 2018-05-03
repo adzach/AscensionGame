@@ -15,8 +15,8 @@ public class CowboyWeapon : Weapon {
 
     // Use this for initialization
     void Start () {
-		
-	}
+        ProjectilePrefab = Resources.Load("Prefabs/Cowboy Bullet") as GameObject;
+    }
 	
 	// Update is called once per frame
 	void Update () {
