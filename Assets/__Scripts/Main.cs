@@ -4,11 +4,18 @@ using UnityEngine;
 
 public class Main : MonoBehaviour {
 	static public Main M;
+    public int rocks = 10;
+    public int sticks = 10;
+    private Vector3 maxpos = new Vector3(70 ,40,0);
 
 	[Header ("Set in Inspector")]
 	public GameObject[] levels;
 	public Vector3 levelPos;
 	public GameObject hero;
+    public GameObject abilityHolder;
+    public GameObject Canvas;
+    public GameObject rock;
+    public GameObject stick;
 
 	[Header ("Set Dynamically")]
 	public GameObject level;
@@ -25,8 +32,24 @@ public class Main : MonoBehaviour {
 		level.transform.position = levelPos;
 
 		hero = Instantiate<GameObject> (hero);
+        hero.name = "Hero";
+        abilityHolder = Instantiate<GameObject>(abilityHolder);
+        abilityHolder.name = "abilityHolder";
+        Canvas = Instantiate<GameObject>(Canvas);
+        Canvas.name = "Canvas";
+        for (int i = 0; i < rocks; i++)
+        {
+            GameObject temprock = Instantiate<GameObject>(rock);
+            temprock.transform.position = new Vector3(Random.Range(-1f,1f) * maxpos.x, Random.Range(-1f, 1f) * maxpos.y, -1);
+        }
 
-		hero.transform.position = new Vector3 (hero.transform.position.x, hero.transform.position.y, hero.transform.position.z);
+        for (int i = 0; i < sticks; i++)
+        {
+            GameObject tempstick = Instantiate<GameObject>(stick);
+            tempstick.transform.position = new Vector3(Random.Range(-1f, 1f) * maxpos.x, Random.Range(-1f, 1f) * maxpos.y, -1);
+        }
+
+        hero.transform.position = new Vector3 (hero.transform.position.x, hero.transform.position.y, hero.transform.position.z);
 
 		CameraMain.hero = hero;
 	}

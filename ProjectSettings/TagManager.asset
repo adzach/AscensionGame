@@ -13,6 +13,8 @@ TagManager:
   - Hero
   - Earthquake
   - hideLOS
+  - rock
+  - stick
   layers:
   - Default
   - TransparentFX

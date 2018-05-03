@@ -14,6 +14,8 @@ public class abilityEngine : MonoBehaviour {
     // Use this for initialization
     void Start ()
     {
+        abilityHolder = GameObject.Find("abilityHolder");
+        countMan = GameObject.Find("ability1txt").GetComponent<countdownSM>();
     }
 	
 	// Update is called once per frame
