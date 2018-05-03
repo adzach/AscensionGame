@@ -5,8 +5,7 @@ using UnityEngine;
 public class Hero : MonoBehaviour {
 	static public Hero S;
     public HeroInfo heroInfo;
-    public HeroSelector heroSelector;
-
+    public HeroSelector heroSelector = GameObject.Find("Main Camera").GetComponent<HeroSelector>();
     [Header ("Set in Inspector")]
 	public float speed = 30;
     public float health = 300;

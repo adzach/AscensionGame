@@ -6,20 +6,23 @@ public class HeroSelector : MonoBehaviour {
     [Header("Set in Inspector")]
     public string[] HeroNames = { "Mage","Cowboy","Gasman"};
     public Sprite[] Heads;
-    public Animator[] Guns;
-    public float[] healths;
-    public float[] Firerates;
-    public GameObject[] projectiles;
-    public float[] Speeds;
+public Animator[] Guns; = { Resources.Load("Photoshop/ani2") as Animator, Resources.Load("Photoshop/ani2") as Animator, Resources.Load("Photoshop/ani2") as Animator};
+    public float[] healths = {300f, 200f, 150f};
+    public float[] Firerates = {0.5f, 1.0f, 0.1f};
+public GameObject[] projectiles; = {Resources.Load("Prefabs/Mage Bullet") as GameObject, Resources.Load("Prefabs/Cowboy Bullet") as GameObject, Resources.Load("Prefabs/Gas") as GameObject, };
+    public float[] Speeds = {10f, 7f, 5f};
     static Weapon CowboyWeapon = new CowboyWeapon();
     static Weapon MageWeapon = new MageWeapon();
     static Weapon GasManWeapon = new GasmanWeapon();
     public Weapon[] weapons = new Weapon[] {new MageWeapon(), new CowboyWeapon(),new GasmanWeapon()};
-    HeroInfo[] HeroInfos;
+    HeroInfo[] HeroInfos = new HeroInfo[3];
+
+    void awake(){
+        Heads = { Resources.Load("Photoshop/Mage head") as Sprite, Resources.Load("Photoshop/Cowboy head") as Sprite, Resources.Load("Photoshop/Gas Man") as Sprite};
+    }
 
     // Use this for initialization
     void StartHeroInfo () {
-        HeroInfos = new HeroInfo[HeroNames.Length];
         print("this is the hero info length: " + HeroInfos.Length);
 		for (int i = 0; i < HeroNames.Length; i++)
         {
