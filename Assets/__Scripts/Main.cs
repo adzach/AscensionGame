@@ -9,9 +9,14 @@ public class Main : MonoBehaviour {
 	public GameObject[] levels;
 	public Vector3 levelPos;
 	public GameObject hero;
+	public GameObject mainScreen;
+	public GameObject characterSelect;
 
 	[Header ("Set Dynamically")]
 	public GameObject level;
+
+	private GameObject _mainScreen;
+	private GameObject _characterSelect;
 
 	void Awake () {
 		if (M == null) {
@@ -21,6 +26,16 @@ public class Main : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
+		_mainScreen = Instantiate<GameObject> (mainScreen);
+	}
+
+	public void goToCharacterSelection() {
+		Destroy (_mainScreen);
+		_characterSelect = Instantiate<GameObject> (characterSelect);
+	}
+
+	public void startGame() {
+		Destroy (_characterSelect);
 		level = Instantiate<GameObject> (levels [0]);
 		level.transform.position = levelPos;
 
@@ -29,6 +44,7 @@ public class Main : MonoBehaviour {
 		hero.transform.position = new Vector3 (hero.transform.position.x, hero.transform.position.y, hero.transform.position.z);
 
 		CameraMain.hero = hero;
+		CameraMain.gameStarted = true;
 	}
 
 	public void changeLevel(GameObject levelToLeadTo, string directionComingFrom) {

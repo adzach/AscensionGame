@@ -8,11 +8,6 @@ public class pointatcursor : MonoBehaviour
 	int xnega = 1;
 	int ynega = 1;
 	public Vector3 diff;
-	// Use this for initialization
-	void Start () 
-	{
-		
-	}
 	
 	// Update is called once per frame
 	void Update () 

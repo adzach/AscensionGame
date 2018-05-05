@@ -188,6 +188,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 29e7a1dae27752a49842762c26908051, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  angle: 0
   diff: {x: 0, y: 0, z: 0}
 --- !u!212 &212138171481978168
 SpriteRenderer:
