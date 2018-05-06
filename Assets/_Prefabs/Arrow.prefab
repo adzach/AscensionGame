@@ -39,8 +39,9 @@ GameObject:
   - component: {fileID: 212055962503504312}
   - component: {fileID: 61261196405031324}
   - component: {fileID: 50190137803703650}
+  - component: {fileID: 114751898915038542}
   m_Layer: 9
-  m_Name: Cowboy Bullet
+  m_Name: Arrow
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -118,6 +119,17 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.08, y: 0.08}
   m_EdgeRadius: 0
+--- !u!114 &114751898915038542
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1228636520323090}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4d48aa4031b2e38488cbd6ccf2f4aed5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!198 &198814405300277670
 ParticleSystem:
   m_ObjectHideFlags: 1

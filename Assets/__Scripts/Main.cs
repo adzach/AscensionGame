@@ -12,10 +12,10 @@ public class Main : MonoBehaviour {
 	public GameObject[] levels;
 	public Vector3 levelPos;
 	public GameObject hero;
-  public GameObject abilityHolder;
-  public GameObject Canvas;
-  public GameObject rock;
-  public GameObject stick;
+	public GameObject abilityHolder;
+	public GameObject Canvas;
+	public GameObject rock;
+	public GameObject stick;
 	public GameObject mainScreen;
 	public GameObject characterSelect;
 
@@ -47,24 +47,24 @@ public class Main : MonoBehaviour {
 		level.transform.position = levelPos;
 
 		hero = Instantiate<GameObject> (hero);
-    hero.name = "Hero";
-    abilityHolder = Instantiate<GameObject>(abilityHolder);
-    abilityHolder.name = "abilityHolder";
-    Canvas = Instantiate<GameObject>(Canvas);
-    Canvas.name = "Canvas";
-    for (int i = 0; i < rocks; i++)
-    {
-        GameObject temprock = Instantiate<GameObject>(rock);
-        temprock.transform.position = new Vector3(Random.Range(-1f,1f) * maxpos.x, Random.Range(-1f, 1f) * maxpos.y, -1);
-    }
+	    hero.name = "Hero";
+	    abilityHolder = Instantiate<GameObject>(abilityHolder);
+	    abilityHolder.name = "abilityHolder";
+	    Canvas = Instantiate<GameObject>(Canvas);
+	    Canvas.name = "Canvas";
+	    for (int i = 0; i < rocks; i++)
+	    {
+	        GameObject temprock = Instantiate<GameObject>(rock);
+	        temprock.transform.position = new Vector3(Random.Range(-1f,1f) * maxpos.x, Random.Range(-1f, 1f) * maxpos.y, -1);
+	    }
 
-    for (int i = 0; i < sticks; i++)
-    {
-        GameObject tempstick = Instantiate<GameObject>(stick);
-        tempstick.transform.position = new Vector3(Random.Range(-1f, 1f) * maxpos.x, Random.Range(-1f, 1f) * maxpos.y, -1);
-    }
+	    for (int i = 0; i < sticks; i++)
+	    {
+	        GameObject tempstick = Instantiate<GameObject>(stick);
+	        tempstick.transform.position = new Vector3(Random.Range(-1f, 1f) * maxpos.x, Random.Range(-1f, 1f) * maxpos.y, -1);
+	    }
 
-    hero.transform.position = new Vector3 (hero.transform.position.x, hero.transform.position.y, hero.transform.position.z);
+	    hero.transform.position = new Vector3 (hero.transform.position.x, hero.transform.position.y, hero.transform.position.z);
 
 		CameraMain.hero = hero;
 		CameraMain.gameStarted = true;

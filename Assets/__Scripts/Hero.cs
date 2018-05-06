@@ -34,19 +34,20 @@ public class Hero : MonoBehaviour {
         } else {
           Debug.LogError ("Attempted to assign second hero");
         }
-        PlayerPrefs.SetString("Hero_Name", "Cowboy");
+        PlayerPrefs.SetString("Hero_Name", "Ooga");
 //        selectHero();
+		// Temporary fix to problem
+		heroInfo.HeroName = "Ooga";
+		heroInfo.weapon = new Weapon ();
 
         walkSpeed = (float)(speed + (agility));
         sprintSpeed = walkSpeed + (walkSpeed / 2);
 
         
     }
-//<<<<<<< HEAD
 
 	// Use this for initialization
 	void Start () {
-		this.transform.position = new Vector3 (-5, -5, -1);
         club = GameObject.Find("club");
         spear = GameObject.Find("spear");
         bow = GameObject.Find("bow");
@@ -60,7 +61,15 @@ public class Hero : MonoBehaviour {
 
     // Update is called once per frame
     void Update () {
-        moveCode2();
+//        moveCode2();
+
+		float xAxis = Input.GetAxis ("Horizontal");
+		float yAxis = Input.GetAxis ("Vertical");
+		Vector3 pos = transform.position;
+		pos.x += xAxis * speed * Time.deltaTime;
+		pos.y += yAxis * speed * Time.deltaTime;
+		transform.position = pos;
+
         if (sticks >= 3 && stones >= 3)
         {
             if (GetComponentInChildren<fire>().weaponNum < 2)
@@ -95,8 +104,6 @@ public class Hero : MonoBehaviour {
             }
         }
     }
-//=======
-//>>>>>>> 3f9082d3340662825f9812d48846f23d7608c641
     
     void changeHero(string character)
     {
@@ -121,9 +128,7 @@ public class Hero : MonoBehaviour {
         {
             string Name = PlayerPrefs.GetString("Hero_Name");
             HeroInfo HI = heroSelector.getHero(Name);
-            print("Hi =" + HI);
             this.heroInfo = HI;
-            print(" test "+this.heroInfo.HeroName);
             return true;
         }
         Debug.LogError("failed to set character");
@@ -140,13 +145,7 @@ public class Hero : MonoBehaviour {
     public void die()
     {
 
-    }
-	
-	// Update is called once per frame
-	
-
-//<<<<<<< HEAD
-    
+    }    
 
     private void OnTriggerEnter2D(Collider2D other)
     {
@@ -161,17 +160,14 @@ public class Hero : MonoBehaviour {
             stones++;
         }
     }
-//=======
 
-    void moveCode2()
-    {
-        curSpeed = walkSpeed;
-        maxSpeed = curSpeed;
-
-        // Move senteces
-        GetComponent<Rigidbody2D>().velocity = new Vector2(Mathf.Lerp(0, Input.GetAxis("Horizontal") * curSpeed, 0.8f),
-                                             Mathf.Lerp(0, Input.GetAxis("Vertical") * curSpeed, 0.8f));
-    }
-		
-//>>>>>>> 3f9082d3340662825f9812d48846f23d7608c641
+//    void moveCode2()
+//    {
+//        curSpeed = walkSpeed;
+//        maxSpeed = curSpeed;
+//
+//        // Move senteces
+//        GetComponent<Rigidbody2D>().velocity = new Vector2(Mathf.Lerp(0, Input.GetAxis("Horizontal") * curSpeed, 0.8f),
+//                                             Mathf.Lerp(0, Input.GetAxis("Vertical") * curSpeed, 0.8f));
+//    }
 }

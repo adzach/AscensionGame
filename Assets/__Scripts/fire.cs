@@ -14,17 +14,15 @@ public class fire : MonoBehaviour {
     // Use this for initialization
     void Start () {
         AS = GetComponent<AudioSource>();
-        print("hero health = " + this.transform.parent.GetComponent<Hero>().health);
-        getHero(transform.parent.GetComponent<Hero>());
+        getHero(this.transform.parent.GetComponent<Hero>());
         getWeapon();
         getHead();
-        getGun();
+//        getGun();
         AS.clip = weapon.Sound;
     }
 	void getHero(Hero Hero)
     {
         hero = Hero;
-        print("hero name:" + hero.heroInfo.HeroName);
     }
     public void updateCharacter()
     {
@@ -78,7 +76,6 @@ public class fire : MonoBehaviour {
                     dir = dir - (Mathf.PI / 2);
                     dir = -dir;
                     Vector3 direction = new Vector3(Mathf.Cos(dir), Mathf.Sin(dir), 0);
-                    //print(dir+" dir");
                     weapon.Fire();
                     AS.Play();
                     GameObject bullet = Instantiate<GameObject>(arrow);
@@ -86,7 +83,6 @@ public class fire : MonoBehaviour {
                     bullet.transform.eulerAngles = new Vector3(0, 0, this.transform.eulerAngles.z);
                     Rigidbody2D rigid = bullet.GetComponent<Rigidbody2D>();
                     rigid.velocity = Speed * transform.TransformDirection(Vector3.up);
-                    print(rigid.velocity);
                     bullet.AddComponent<DamageComponent>();
                     bullet.GetComponent<DamageComponent>().damage = weapon.Damage;
                 }
