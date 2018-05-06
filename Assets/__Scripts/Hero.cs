@@ -17,13 +17,17 @@ public class Hero : MonoBehaviour {
 
 	void Awake () {
         heroSelector = GameObject.Find("Main Camera").GetComponent<HeroSelector>();
+		if (heroSelector == null) {
+			Debug.LogError ("heroSelector not assigned!");
+		}
+
         if (S == null) {
 			    S = this;
         } else {
           Debug.LogError ("Attempted to assign second hero");
         }
         PlayerPrefs.SetString("Hero_Name", "Cowboy");
-        selectHero();
+//        selectHero();
 
         walkSpeed = (float)(speed + (agility));
         sprintSpeed = walkSpeed + (walkSpeed / 2);
