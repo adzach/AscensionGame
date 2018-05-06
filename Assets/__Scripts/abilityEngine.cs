@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class abilityEngine : MonoBehaviour {
-    public enum Character {Ooga, otherchar1, otherchar2};
+    public enum Character {Ooga, RaoulTheIlluminator, otherchar2};
     public Character curchar = Character.Ooga;
     public GameObject fireAbility;
     public GameObject abilityHolder;
@@ -14,6 +14,8 @@ public class abilityEngine : MonoBehaviour {
     // Use this for initialization
     void Start ()
     {
+        abilityHolder = GameObject.Find("abilityHolder");
+        countMan = GameObject.Find("ability1txt").GetComponent<countdownSM>();
     }
 	
 	// Update is called once per frame
