@@ -1,9 +1,11 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class Hero : MonoBehaviour {
 	static public Hero S;
+    [SerializeField]
     public HeroInfo heroInfo;
     public HeroSelector heroSelector;
     [Header ("Set in Inspector")]
@@ -11,14 +13,12 @@ public class Hero : MonoBehaviour {
     public float health = 300;
 
 	void Awake () {
-        heroSelector = GameObject.Find("Main Camera").GetComponent<HeroSelector>();
+        GetComponent<Health>().setHero(this);
         if (S == null) {
 			S = this;
 		} else {
 			Debug.LogError ("Attempted to assign second hero");
 		}
-        PlayerPrefs.SetString("Hero_Name", "Cowboy");
-        selectHero();
     }
 
 	// Use this for initialization
@@ -38,6 +38,7 @@ public class Hero : MonoBehaviour {
 		transform.position = pos;
 	}
     */
+    /*
     void changeHero(string character)
     {
         if (PlayerPrefs.HasKey("Hero_Name"))
@@ -69,6 +70,7 @@ public class Hero : MonoBehaviour {
         Debug.LogError("failed to set character");
         return false;
     }
+    */
     public void damage(float damage)
     {
         health -= damage;
@@ -79,6 +81,7 @@ public class Hero : MonoBehaviour {
     }
     public void die()
     {
-
+        print("you died");
+        this.gameObject.active = false;
     }
 }

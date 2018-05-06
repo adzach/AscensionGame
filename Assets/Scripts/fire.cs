@@ -33,7 +33,14 @@ public class fire : MonoBehaviour {
     }
     void getWeapon()
     {
-        weapon = hero.heroInfo.weapon;
+        string Name = PlayerPrefs.GetString("Hero_Name");
+        weapon = new CowboyWeapon();
+        switch (Name)
+        {
+            case "CowBoy":
+                weapon = new CowboyWeapon();
+                break;
+        }
     }
     void getHead()
     {
@@ -76,15 +83,17 @@ public class fire : MonoBehaviour {
                 Vector3 direction = new Vector3(Mathf.Cos(dir), Mathf.Sin(dir), 0);
                 //print(dir+" dir");
                 weapon.Fire();
+                
                 AS.Play();
                 GameObject bullet = Instantiate<GameObject>(weapon.ProjectilePrefab);
                 bullet.transform.position = transform.position;
                 bullet.transform.eulerAngles = new Vector3(0, 0, this.transform.eulerAngles.z);
                 Rigidbody rigid = bullet.GetComponent<Rigidbody>();
-                rigid.velocity = Speed * direction;
+                rigid.velocity = Speed * transform.TransformDirection(Vector3.up);
                 print(rigid.velocity);
                 bullet.AddComponent<DamageComponent>();
                 bullet.GetComponent<DamageComponent>().damage = weapon.Damage;
+                
             }
         }
     }
