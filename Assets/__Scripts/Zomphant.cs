@@ -13,6 +13,7 @@ public class Zomphant : Enemy
     public int maxDist = 3;
     public float distInc = 1f;
     public float attackTime = .05f;
+    public float offset = .4f;
     
 
     [Header("Set Dynamically: Zomphant")]
@@ -23,6 +24,7 @@ public class Zomphant : Enemy
     public int quakes = 0;
     public bool attacking = false;
     public float attackAnimTime = 0;
+    public float startRipple;
 
 
 
@@ -40,14 +42,16 @@ public class Zomphant : Enemy
         followChar();
 
         flip();
-        if(Time.time > attackAnimTime)
-        {
-            var clones = GameObject.FindGameObjectsWithTag("Earthquake"); foreach (var clone in clones) { Destroy(clone); }
-        }
         if (attacking)
         {
             speed = 0;
-            attackAnimation();
+
+            anim.CrossFade("Zomphant_Attack", 0);
+            if (Time.time > startRipple)
+            {
+                
+                attackAnimation();
+            }
         }
         else
         {
@@ -71,15 +75,17 @@ public class Zomphant : Enemy
             attacking = true;
             startDist = startDistDefault;
             quakes = startQuakes;
+            startRipple = Time.time + offset;
             
         }
     }
 
     public void attackAnimation()
     {
-        anim.CrossFade("Zomphant_Attack", 0);
+        
         if (Time.time > attackAnimTime)
         {
+            
             for (int i = 0; i < quakes; i++)
             {
                 earthquakes[i] = Instantiate<GameObject>(earthquakePrefab);
@@ -92,16 +98,20 @@ public class Zomphant : Enemy
                 quakes++;
             }
             attackAnimTime = Time.time + attackTime;
-            if(attackNum == maxDist - 1)
+            if (attackNum == maxDist - 1)
             {
                 attackNum = 0;
                 attacking = false;
+                var clones = GameObject.FindGameObjectsWithTag("Earthquake"); foreach (var clone in clones) { Destroy(clone); }
             }
             else
             {
                 attackNum++;
             }
+            
         }
+        
+       
     }
 
     public Vector3 toPolar(float r, float theta)

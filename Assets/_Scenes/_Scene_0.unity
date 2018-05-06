@@ -273,17 +273,27 @@ Prefab:
     - target: {fileID: 114402451614593474, guid: b4b438ca4c6f22e4b98476b7cfa9644a,
         type: 2}
       propertyPath: maxDist
-      value: 12
+      value: 11
       objectReference: {fileID: 0}
     - target: {fileID: 114402451614593474, guid: b4b438ca4c6f22e4b98476b7cfa9644a,
         type: 2}
       propertyPath: attackTime
-      value: 0.05
+      value: 0.02
       objectReference: {fileID: 0}
     - target: {fileID: 114402451614593474, guid: b4b438ca4c6f22e4b98476b7cfa9644a,
         type: 2}
       propertyPath: attackRange
       value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 114402451614593474, guid: b4b438ca4c6f22e4b98476b7cfa9644a,
+        type: 2}
+      propertyPath: offset
+      value: 0.4
+      objectReference: {fileID: 0}
+    - target: {fileID: 114402451614593474, guid: b4b438ca4c6f22e4b98476b7cfa9644a,
+        type: 2}
+      propertyPath: maxQuakes
+      value: 90
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: b4b438ca4c6f22e4b98476b7cfa9644a, type: 2}
