@@ -5,15 +5,15 @@ using UnityEngine;
 public class CameraMain : MonoBehaviour {
 	public static GameObject hero;
 	private Vector3 offset;
+	public static bool gameStarted = false;
 
-	// Use this for initialization
-	void Start () {
-
-
+	void Start() {
 		offset = transform.position; // - hero.transform.position;
 	}
 
 	void LateUpdate () {
-		transform.position = hero.transform.position + offset;
+		if (gameStarted) {
+			transform.position = hero.transform.position + offset;
+		}
 	}
 }

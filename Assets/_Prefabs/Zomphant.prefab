@@ -22,11 +22,11 @@ GameObject:
   - component: {fileID: 212276434807015508}
   - component: {fileID: 95447571518149750}
   - component: {fileID: 114402451614593474}
-  - component: {fileID: 58547695749689770}
-  - component: {fileID: 50236695524879768}
+  - component: {fileID: 50585103138206128}
+  - component: {fileID: 58675905216203822}
   m_Layer: 12
   m_Name: Zomphant
-  m_TagString: hideLOS
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -39,12 +39,12 @@ Transform:
   m_GameObject: {fileID: 1068037357942098}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 20, y: 20, z: 2}
+  m_LocalScale: {x: 20, y: 20, z: 20}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!50 &50236695524879768
+--- !u!50 &50585103138206128
 Rigidbody2D:
   serializedVersion: 4
   m_ObjectHideFlags: 1
@@ -58,13 +58,13 @@ Rigidbody2D:
   m_Mass: 1
   m_LinearDrag: 0
   m_AngularDrag: 0.05
-  m_GravityScale: 0
+  m_GravityScale: 1
   m_Material: {fileID: 0}
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
-  m_Constraints: 0
---- !u!58 &58547695749689770
+  m_Constraints: 4
+--- !u!58 &58675905216203822
 CircleCollider2D:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
@@ -119,10 +119,11 @@ MonoBehaviour:
   offCooldown: 1
   earthquakePrefab: {fileID: 1713017036841904, guid: e5b495e72970554448c2eac2a47c33ae,
     type: 2}
-  startQuakes: 10
-  maxQuakes: 25
-  startDistDefault: 2
-  maxDist: 3
+  startQuakes: 40
+  maxQuakes: 60
+  startDistDefault: 20
+  maxDist: 30
+  distInc: 1
   attackTime: 0.2
   stopAttack: 0
   earthquakes:

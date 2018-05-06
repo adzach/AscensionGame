@@ -15,36 +15,21 @@ public class Hero : MonoBehaviour {
     private float agility = 5;
     private float sprintSpeed;
 
-//<<<<<<< HEAD:Assets/__Scripts/Hero.cs
-    //void Awake () {
-//=======
 	void Awake () {
-//>>>>>>> origin/CharlieCharacterBranch:Assets/Scripts/Hero.cs
         heroSelector = GameObject.Find("Main Camera").GetComponent<HeroSelector>();
         if (S == null) {
-			S = this;
-		} else {
-			Debug.LogError ("Attempted to assign second hero");
-		}
+			    S = this;
+        } else {
+          Debug.LogError ("Attempted to assign second hero");
+        }
         PlayerPrefs.SetString("Hero_Name", "Cowboy");
         selectHero();
-        moveCode2();
 
         walkSpeed = (float)(speed + (agility));
         sprintSpeed = walkSpeed + (walkSpeed / 2);
 
         
     }
-
-	// Use this for initialization
-	void Start () {
-		this.transform.position = new Vector3 (-5, -5, -1);
-	}
-
-    // Update is called once per frame
-    void Update () {
-        moveCode2();
-	}
     
     void changeHero(string character)
     {
@@ -80,7 +65,7 @@ public class Hero : MonoBehaviour {
     public void damage(float damage)
     {
         health -= damage;
-        if (health < 0)
+        if (health <= 0)
         {
             die();
         }
@@ -89,14 +74,15 @@ public class Hero : MonoBehaviour {
     {
 
     }
-    void moveCode2()
-    {
-        curSpeed = walkSpeed;
-        maxSpeed = curSpeed;
+	
+	// Update is called once per frame
+	void Update () {
+		float xAxis = Input.GetAxis ("Horizontal");
+		float yAxis = Input.GetAxis ("Vertical");
 
-        // Move senteces
-        GetComponent<Rigidbody2D>().velocity = new Vector2(Mathf.Lerp(0, Input.GetAxis("Horizontal") * curSpeed, 0.8f),
-                                             Mathf.Lerp(0, Input.GetAxis("Vertical") * curSpeed, 0.8f));
-
-    }
+		Vector3 pos = transform.position;
+		pos.x += xAxis * speed * Time.deltaTime;
+		pos.y += yAxis * speed * Time.deltaTime;
+		transform.position = pos;
+	}
 }
