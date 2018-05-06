@@ -125,8 +125,8 @@ GameObject:
   - component: {fileID: 1150931302}
   - component: {fileID: 1150931301}
   - component: {fileID: 1150931305}
-  - component: {fileID: 1150931306}
   - component: {fileID: 1150931307}
+  - component: {fileID: 1150931306}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -244,16 +244,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 02c1d7cd548cc234094560e3b347b9f2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  HeroNames:
-  - Mage
-  - Cowboy
-  - Gasman
-  Heads: []
-  Guns: []
-  healths: []
-  Firerates: []
-  projectiles: []
-  Speeds: []
 --- !u!1 &1690350241
 GameObject:
   m_ObjectHideFlags: 0

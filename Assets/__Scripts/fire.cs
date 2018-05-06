@@ -9,6 +9,8 @@ public class fire : MonoBehaviour {
     public Animator gun;
     public Sprite head;
     public AudioSource AS;
+    public int weaponNum = 0;
+    public GameObject arrow;
     // Use this for initialization
     void Start () {
         AS = GetComponent<AudioSource>();
@@ -66,25 +68,36 @@ public class fire : MonoBehaviour {
         GetComponentsInChildren<Animator>()[0].SetBool("Firing", false);
         if (Input.GetMouseButtonDown(0))
         {
-            if (Time.time - weapon.LastFire > weapon.Firerate)
+            if (weaponNum == 2)
             {
-                weapon.LastFire = Time.time;
-                GetComponentsInChildren<Animator>()[0].SetBool("Firing", true);
-                float dir = ((this.transform.eulerAngles.z) * Mathf.PI) / 180;
-                dir = dir - (Mathf.PI / 2);
-                dir = -dir;
-                Vector3 direction = new Vector3(Mathf.Cos(dir), Mathf.Sin(dir), 0);
-                //print(dir+" dir");
-                weapon.Fire();
-                AS.Play();
-                GameObject bullet = Instantiate<GameObject>(weapon.ProjectilePrefab);
-                bullet.transform.position = transform.position;
-                bullet.transform.eulerAngles = new Vector3(0, 0, this.transform.eulerAngles.z);
-                Rigidbody rigid = bullet.GetComponent<Rigidbody>();
-                rigid.velocity = Speed * transform.TransformDirection(Vector3.up);
-                print(rigid.velocity);
-                bullet.AddComponent<DamageComponent>();
-                bullet.GetComponent<DamageComponent>().damage = weapon.Damage;
+                if (Time.time - weapon.LastFire > weapon.Firerate)
+                {
+                    weapon.LastFire = Time.time;
+                    GetComponentsInChildren<Animator>()[0].SetBool("Firing", true);
+                    float dir = ((this.transform.eulerAngles.z) * Mathf.PI) / 180;
+                    dir = dir - (Mathf.PI / 2);
+                    dir = -dir;
+                    Vector3 direction = new Vector3(Mathf.Cos(dir), Mathf.Sin(dir), 0);
+                    //print(dir+" dir");
+                    weapon.Fire();
+                    AS.Play();
+                    GameObject bullet = Instantiate<GameObject>(arrow);
+                    bullet.transform.position = transform.position;
+                    bullet.transform.eulerAngles = new Vector3(0, 0, this.transform.eulerAngles.z);
+                    Rigidbody2D rigid = bullet.GetComponent<Rigidbody2D>();
+                    rigid.velocity = Speed * transform.TransformDirection(Vector3.up);
+                    print(rigid.velocity);
+                    bullet.AddComponent<DamageComponent>();
+                    bullet.GetComponent<DamageComponent>().damage = weapon.Damage;
+                }
+            }
+            if (weaponNum == 1)
+            {
+                hero.spearcol.enabled = true;
+            }
+            if (weaponNum == 0)
+            {
+                hero.clubcol.enabled = true;
             }
         }
     }
