@@ -23,6 +23,8 @@ public class Main : MonoBehaviour {
 	void Start () {
 		level = Instantiate<GameObject> (levels [0]);
 		level.transform.position = levelPos;
+        hero = Instantiate<GameObject>(hero);
+        hero.transform.position = new Vector3(0,0,0);
 	}
 
 	public void changeLevel(GameObject levelToLeadTo, string directionComingFrom) {

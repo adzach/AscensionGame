@@ -5,13 +5,14 @@ using UnityEngine;
 public class Hero : MonoBehaviour {
 	static public Hero S;
     public HeroInfo heroInfo;
-    public HeroSelector heroSelector = GameObject.Find("Main Camera").GetComponent<HeroSelector>();
+    public HeroSelector heroSelector;
     [Header ("Set in Inspector")]
 	public float speed = 30;
     public float health = 300;
 
 	void Awake () {
-		if (S == null) {
+        heroSelector = GameObject.Find("Main Camera").GetComponent<HeroSelector>();
+        if (S == null) {
 			S = this;
 		} else {
 			Debug.LogError ("Attempted to assign second hero");

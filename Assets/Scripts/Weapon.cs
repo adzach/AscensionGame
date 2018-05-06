@@ -39,4 +39,8 @@ public class Weapon{
     public void Update () {
 
     }
+    public void Fire()
+    {
+
+    }
 }

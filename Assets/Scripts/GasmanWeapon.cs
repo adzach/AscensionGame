@@ -23,4 +23,8 @@ public class GasmanWeapon : Weapon {
 	void Update () {
 		
 	}
+    public void Fire()
+    {
+
+    }
 }

@@ -70,24 +70,21 @@ public class fire : MonoBehaviour {
             {
                 weapon.LastFire = Time.time;
                 GetComponentsInChildren<Animator>()[0].SetBool("Firing", true);
-                float dir = ((this.transform.eulerAngles.y) * Mathf.PI) / 180;
+                float dir = ((this.transform.eulerAngles.z) * Mathf.PI) / 180;
                 dir = dir - (Mathf.PI / 2);
                 dir = -dir;
-                Vector3 direction = new Vector3(Mathf.Cos(dir), 0, Mathf.Sin(dir));
+                Vector3 direction = new Vector3(Mathf.Cos(dir), Mathf.Sin(dir), 0);
                 //print(dir+" dir");
-                switch (weapon.Name)
-                {
-                    default:
-                        AS.Play();
-                        GameObject bullet = Instantiate<GameObject>(weapon.ProjectilePrefab);
-                        bullet.transform.position = transform.position;
-                        bullet.transform.eulerAngles = new Vector3(90, this.transform.eulerAngles.y, 0);
-                        Rigidbody rigid = bullet.GetComponent<Rigidbody>();
-                        rigid.velocity = Speed * direction;
-                        bullet.AddComponent<DamageComponent>();
-                        bullet.GetComponent<DamageComponent>().damage = weapon.Damage;
-                        break;
-                }
+                weapon.Fire();
+                AS.Play();
+                GameObject bullet = Instantiate<GameObject>(weapon.ProjectilePrefab);
+                bullet.transform.position = transform.position;
+                bullet.transform.eulerAngles = new Vector3(0, 0, this.transform.eulerAngles.z);
+                Rigidbody rigid = bullet.GetComponent<Rigidbody>();
+                rigid.velocity = Speed * direction;
+                print(rigid.velocity);
+                bullet.AddComponent<DamageComponent>();
+                bullet.GetComponent<DamageComponent>().damage = weapon.Damage;
             }
         }
     }
