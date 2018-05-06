@@ -125,8 +125,8 @@ GameObject:
   - component: {fileID: 1150931302}
   - component: {fileID: 1150931301}
   - component: {fileID: 1150931305}
-  - component: {fileID: 1150931306}
   - component: {fileID: 1150931307}
+  - component: {fileID: 1150931306}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -221,6 +221,9 @@ MonoBehaviour:
   Canvas: {fileID: 1791717648971434, guid: 6d317ca178396b3408cc0236d8f9c0e9, type: 2}
   rock: {fileID: 1920283753462156, guid: 8b5b12019a084494d90b381aab85e309, type: 2}
   stick: {fileID: 1432724704963936, guid: 6be1a93f0a60d844382f16dc489d38ea, type: 2}
+  mainScreen: {fileID: 1939037191035388, guid: f3dfdaac1ae93414a8dff01d8dd38697, type: 2}
+  characterSelect: {fileID: 1038853688541736, guid: 555149245f0740d499c427059d24565c,
+    type: 2}
   level: {fileID: 0}
 --- !u!114 &1150931306
 MonoBehaviour:
@@ -244,16 +247,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 02c1d7cd548cc234094560e3b347b9f2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  HeroNames:
-  - Mage
-  - Cowboy
-  - Gasman
-  Heads: []
-  Guns: []
-  healths: []
-  Firerates: []
-  projectiles: []
-  Speeds: []
 --- !u!1 &1690350241
 GameObject:
   m_ObjectHideFlags: 0

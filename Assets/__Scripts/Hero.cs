@@ -14,8 +14,16 @@ public class Hero : MonoBehaviour {
     private float maxSpeed;
     private float agility = 5;
     private float sprintSpeed;
+    public float sticks = 0;
+    public float stones = 0;
+    private GameObject club;
+    private GameObject spear;
+    private GameObject bow;
+    public Collider2D clubcol;
+    public Collider2D spearcol;
 
-	void Awake () {
+
+    void Awake () {
         heroSelector = GameObject.Find("Main Camera").GetComponent<HeroSelector>();
 		if (heroSelector == null) {
 			Debug.LogError ("heroSelector not assigned!");
@@ -34,6 +42,61 @@ public class Hero : MonoBehaviour {
 
         
     }
+//<<<<<<< HEAD
+
+	// Use this for initialization
+	void Start () {
+		this.transform.position = new Vector3 (-5, -5, -1);
+        club = GameObject.Find("club");
+        spear = GameObject.Find("spear");
+        bow = GameObject.Find("bow");
+        clubcol = club.GetComponent<Collider2D>();
+        spearcol = spear.GetComponent<Collider2D>();
+        spearcol.enabled = false;
+        bow.SetActive(false);
+        spear.SetActive(false);
+
+    }
+
+    // Update is called once per frame
+    void Update () {
+        moveCode2();
+        if (sticks >= 3 && stones >= 3)
+        {
+            if (GetComponentInChildren<fire>().weaponNum < 2)
+            {
+               club.SetActive(false);
+                spear.SetActive(false);
+                bow.SetActive(true);
+
+                GetComponentInChildren<fire>().weaponNum = 2;
+            }
+        }
+        else if (sticks >= 1 && stones >= 1)
+        {
+            if (GetComponentInChildren<fire>().weaponNum < 1)
+            {
+                club.SetActive(false);
+                spear.SetActive(true);
+                bow.SetActive(false);
+
+                GetComponentInChildren<fire>().weaponNum = 1;
+            }
+        }
+        else
+        {
+            if (GetComponentInChildren<fire>().weaponNum != 0)
+            {
+                club.SetActive(true);
+                spear.SetActive(false);
+                bow.SetActive(false);
+
+                GetComponentInChildren<fire>().weaponNum = 0;
+            }
+        }
+    }
+//=======
+//>>>>>>> 3f9082d3340662825f9812d48846f23d7608c641
     
     void changeHero(string character)
     {
@@ -80,13 +143,35 @@ public class Hero : MonoBehaviour {
     }
 	
 	// Update is called once per frame
-	void Update () {
-		float xAxis = Input.GetAxis ("Horizontal");
-		float yAxis = Input.GetAxis ("Vertical");
+	
 
-		Vector3 pos = transform.position;
-		pos.x += xAxis * speed * Time.deltaTime;
-		pos.y += yAxis * speed * Time.deltaTime;
-		transform.position = pos;
-	}
+//<<<<<<< HEAD
+    
+
+    private void OnTriggerEnter2D(Collider2D other)
+    {
+        if(other.CompareTag("stick"))
+        {
+            Destroy(other.gameObject);
+            sticks++;
+        }
+        if (other.CompareTag("rock"))
+        {
+            Destroy(other.gameObject);
+            stones++;
+        }
+    }
+//=======
+
+    void moveCode2()
+    {
+        curSpeed = walkSpeed;
+        maxSpeed = curSpeed;
+
+        // Move senteces
+        GetComponent<Rigidbody2D>().velocity = new Vector2(Mathf.Lerp(0, Input.GetAxis("Horizontal") * curSpeed, 0.8f),
+                                             Mathf.Lerp(0, Input.GetAxis("Vertical") * curSpeed, 0.8f));
+    }
+		
+//>>>>>>> 3f9082d3340662825f9812d48846f23d7608c641
 }

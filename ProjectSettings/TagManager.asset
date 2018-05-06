@@ -15,6 +15,9 @@ TagManager:
   - hideLOS
   - rock
   - stick
+  - gun
+  - head
+  - club
   layers:
   - Default
   - TransparentFX
