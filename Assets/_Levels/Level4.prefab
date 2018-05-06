@@ -109,6 +109,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4876280179927594}
   - component: {fileID: 212074321952046094}
+  - component: {fileID: 114405265159447038}
   m_Layer: 0
   m_Name: Level4
   m_TagString: Level
@@ -507,6 +508,20 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   level: {fileID: 0}
   velocity: 5
+--- !u!114 &114405265159447038
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1603134591587368}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 99ba983f676a44b4499984f10b77f464, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  level: {fileID: 21300000, guid: bb5c4f6df1c29734a9685b32832644ce, type: 3}
+  borders: []
+  exits: []
 --- !u!114 &114439998812083320
 MonoBehaviour:
   m_ObjectHideFlags: 1

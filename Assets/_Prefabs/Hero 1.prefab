@@ -143,7 +143,7 @@ GameObject:
   - component: {fileID: 4583397324852368}
   - component: {fileID: 61878687437222162}
   - component: {fileID: 50542023434976494}
-  - component: {fileID: 114509030804672050}
+  - component: {fileID: 114315610141613662}
   m_Layer: 8
   m_Name: Hero 1
   m_TagString: Hero
@@ -519,19 +519,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   angle: 0
   diff: {x: 0, y: 0, z: 0}
---- !u!114 &114432560400860404
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1483310565238170}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f632861e029c57e479bb74a0baaa7766, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  damage: 75
---- !u!114 &114509030804672050
+--- !u!114 &114315610141613662
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
@@ -539,7 +527,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1799879084446436}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6cf076e7cad0e5b48a1d93e27d42da4a, type: 3}
+  m_Script: {fileID: 11500000, guid: 4e4ebf8abd5c1844492b6bcb6e563268, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   heroInfo:
@@ -554,6 +542,18 @@ MonoBehaviour:
   stones: 0
   clubcol: {fileID: 0}
   spearcol: {fileID: 0}
+--- !u!114 &114432560400860404
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1483310565238170}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f632861e029c57e479bb74a0baaa7766, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  damage: 75
 --- !u!114 &114574713418114330
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -600,7 +600,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a921659e778eba140bc45d0e47e77571, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  hero: {fileID: 114509030804672050}
+  hero: {fileID: 0}
   Speed: 100
   gun: {fileID: 95039857605380356}
   head: {fileID: 0}

@@ -23,26 +23,22 @@ public class Hero : MonoBehaviour {
     public Collider2D spearcol;
 
 
-//<<<<<<< HEAD:Assets/__Scripts/Hero.cs
-    //void Awake () {
-//=======
-	void Awake () {
-//>>>>>>> origin/CharlieCharacterBranch:Assets/Scripts/Hero.cs
+    void Awake () {
         heroSelector = GameObject.Find("Main Camera").GetComponent<HeroSelector>();
         if (S == null) {
-			S = this;
-		} else {
-			Debug.LogError ("Attempted to assign second hero");
-		}
+			    S = this;
+        } else {
+          Debug.LogError ("Attempted to assign second hero");
+        }
         PlayerPrefs.SetString("Hero_Name", "Cowboy");
         selectHero();
-        moveCode2();
 
         walkSpeed = (float)(speed + (agility));
         sprintSpeed = walkSpeed + (walkSpeed / 2);
 
         
     }
+//<<<<<<< HEAD
 
 	// Use this for initialization
 	void Start () {
@@ -95,6 +91,8 @@ public class Hero : MonoBehaviour {
             }
         }
     }
+//=======
+//>>>>>>> 3f9082d3340662825f9812d48846f23d7608c641
     
     void changeHero(string character)
     {
@@ -130,7 +128,7 @@ public class Hero : MonoBehaviour {
     public void damage(float damage)
     {
         health -= damage;
-        if (health < 0)
+        if (health <= 0)
         {
             die();
         }
@@ -139,16 +137,12 @@ public class Hero : MonoBehaviour {
     {
 
     }
-    void moveCode2()
-    {
-        curSpeed = walkSpeed;
-        maxSpeed = curSpeed;
+	
+	// Update is called once per frame
+	
 
-        // Move senteces
-        GetComponent<Rigidbody2D>().velocity = new Vector2(Mathf.Lerp(0, Input.GetAxis("Horizontal") * curSpeed, 0.8f),
-                                             Mathf.Lerp(0, Input.GetAxis("Vertical") * curSpeed, 0.8f));
-
-    }
+//<<<<<<< HEAD
+    
 
     private void OnTriggerEnter2D(Collider2D other)
     {
@@ -163,4 +157,17 @@ public class Hero : MonoBehaviour {
             stones++;
         }
     }
+//=======
+
+    void moveCode2()
+    {
+        curSpeed = walkSpeed;
+        maxSpeed = curSpeed;
+
+        // Move senteces
+        GetComponent<Rigidbody2D>().velocity = new Vector2(Mathf.Lerp(0, Input.GetAxis("Horizontal") * curSpeed, 0.8f),
+                                             Mathf.Lerp(0, Input.GetAxis("Vertical") * curSpeed, 0.8f));
+    }
+		
+//>>>>>>> 3f9082d3340662825f9812d48846f23d7608c641
 }

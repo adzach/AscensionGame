@@ -1,4 +1,4 @@
-﻿using System.Collections;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -12,13 +12,18 @@ public class Main : MonoBehaviour {
 	public GameObject[] levels;
 	public Vector3 levelPos;
 	public GameObject hero;
-    public GameObject abilityHolder;
-    public GameObject Canvas;
-    public GameObject rock;
-    public GameObject stick;
+  public GameObject abilityHolder;
+  public GameObject Canvas;
+  public GameObject rock;
+  public GameObject stick;
+	public GameObject mainScreen;
+	public GameObject characterSelect;
 
 	[Header ("Set Dynamically")]
 	public GameObject level;
+
+	private GameObject _mainScreen;
+	private GameObject _characterSelect;
 
 	void Awake () {
 		if (M == null) {
@@ -28,35 +33,41 @@ public class Main : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
+		_mainScreen = Instantiate<GameObject> (mainScreen);
+	}
+
+	public void goToCharacterSelection() {
+		Destroy (_mainScreen);
+		_characterSelect = Instantiate<GameObject> (characterSelect);
+	}
+
+	public void startGame() {
+		Destroy (_characterSelect);
 		level = Instantiate<GameObject> (levels [0]);
 		level.transform.position = levelPos;
-//<<<<<<< HEAD
 
 		hero = Instantiate<GameObject> (hero);
-        hero.name = "Hero";
-        CameraMain.hero = hero;
-        abilityHolder = Instantiate<GameObject>(abilityHolder);
-        abilityHolder.name = "abilityHolder";
-        Canvas = Instantiate<GameObject>(Canvas);
-        Canvas.name = "Canvas";
-        for (int i = 0; i < rocks; i++)
-        {
-            GameObject temprock = Instantiate<GameObject>(rock);
-            temprock.transform.position = new Vector3(Random.Range(-1f,1f) * maxpos.x, Random.Range(-1f, 1f) * maxpos.y, -1);
-        }
+    hero.name = "Hero";
+    abilityHolder = Instantiate<GameObject>(abilityHolder);
+    abilityHolder.name = "abilityHolder";
+    Canvas = Instantiate<GameObject>(Canvas);
+    Canvas.name = "Canvas";
+    for (int i = 0; i < rocks; i++)
+    {
+        GameObject temprock = Instantiate<GameObject>(rock);
+        temprock.transform.position = new Vector3(Random.Range(-1f,1f) * maxpos.x, Random.Range(-1f, 1f) * maxpos.y, -1);
+    }
 
-        for (int i = 0; i < sticks; i++)
-        {
-            GameObject tempstick = Instantiate<GameObject>(stick);
-            tempstick.transform.position = new Vector3(Random.Range(-1f, 1f) * maxpos.x, Random.Range(-1f, 1f) * maxpos.y, -1);
-        }
+    for (int i = 0; i < sticks; i++)
+    {
+        GameObject tempstick = Instantiate<GameObject>(stick);
+        tempstick.transform.position = new Vector3(Random.Range(-1f, 1f) * maxpos.x, Random.Range(-1f, 1f) * maxpos.y, -1);
+    }
 
-        hero.transform.position = new Vector3 (hero.transform.position.x, hero.transform.position.y, hero.transform.position.z);
+    hero.transform.position = new Vector3 (hero.transform.position.x, hero.transform.position.y, hero.transform.position.z);
 
-		
-//=======
-        
-//>>>>>>> origin/CharlieCharacterBranch
+		CameraMain.hero = hero;
+		CameraMain.gameStarted = true;
 	}
 
 	public void changeLevel(GameObject levelToLeadTo, string directionComingFrom) {
