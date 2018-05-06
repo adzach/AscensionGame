@@ -8,6 +8,8 @@ public class CameraMain : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
+
+
 		offset = transform.position; // - hero.transform.position;
 	}
 

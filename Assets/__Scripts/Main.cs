@@ -30,9 +30,11 @@ public class Main : MonoBehaviour {
 	void Start () {
 		level = Instantiate<GameObject> (levels [0]);
 		level.transform.position = levelPos;
+//<<<<<<< HEAD
 
 		hero = Instantiate<GameObject> (hero);
         hero.name = "Hero";
+        CameraMain.hero = hero;
         abilityHolder = Instantiate<GameObject>(abilityHolder);
         abilityHolder.name = "abilityHolder";
         Canvas = Instantiate<GameObject>(Canvas);
@@ -51,7 +53,10 @@ public class Main : MonoBehaviour {
 
         hero.transform.position = new Vector3 (hero.transform.position.x, hero.transform.position.y, hero.transform.position.z);
 
-		CameraMain.hero = hero;
+		
+//=======
+        
+//>>>>>>> origin/CharlieCharacterBranch
 	}
 
 	public void changeLevel(GameObject levelToLeadTo, string directionComingFrom) {

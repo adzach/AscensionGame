@@ -6,7 +6,6 @@ public class Hero : MonoBehaviour {
 	static public Hero S;
     public HeroInfo heroInfo;
     public HeroSelector heroSelector;
-
     [Header ("Set in Inspector")]
     private float speed = 20;
     public float health = 300;
@@ -16,7 +15,11 @@ public class Hero : MonoBehaviour {
     private float agility = 5;
     private float sprintSpeed;
 
-    void Awake () {
+//<<<<<<< HEAD:Assets/__Scripts/Hero.cs
+    //void Awake () {
+//=======
+	void Awake () {
+//>>>>>>> origin/CharlieCharacterBranch:Assets/Scripts/Hero.cs
         heroSelector = GameObject.Find("Main Camera").GetComponent<HeroSelector>();
         if (S == null) {
 			S = this;
@@ -39,17 +42,10 @@ public class Hero : MonoBehaviour {
 	}
 
     // Update is called once per frame
-    /*
     void Update () {
-		float xAxis = Input.GetAxis ("Horizontal");
-		float yAxis = Input.GetAxis ("Vertical");
-
-		Vector3 pos = transform.position;
-		pos.x += xAxis * speed * Time.deltaTime;
-		pos.y += yAxis * speed * Time.deltaTime;
-		transform.position = pos;
+        moveCode2();
 	}
-    */
+    
     void changeHero(string character)
     {
         if (PlayerPrefs.HasKey("Hero_Name"))

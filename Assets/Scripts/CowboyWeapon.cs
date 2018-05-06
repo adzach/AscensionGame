@@ -22,4 +22,9 @@ public class CowboyWeapon : Weapon {
 	void Update () {
 		
 	}
+    public void Fire()
+    {
+
+    }
+
 }

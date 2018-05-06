@@ -36,6 +36,10 @@ public class pointatcursor : MonoBehaviour
 		//diff /= Mathf.Sqrt(90f);
 		//diff = new Vector3(Mathf.Pow(diff.x,2), Mathf.Pow(diff.y,2), diff.z);
 		//angle = Mathf.Atan2(diff.y, diff.x) * Mathf.Rad2Deg;
+//<<<<<<< HEAD:Assets/__Scripts/pointatcursor.cs
 		transform.rotation = Quaternion.Euler(0f, 0f,ynega * (-angle + 90) + 90);
+//=======
+		transform.rotation = Quaternion.Euler(0f, 0f, - ynega*(angle + 90)+90);
+//>>>>>>> origin/CharlieCharacterBranch:Assets/Scripts/pointatcursor.cs
 	}
 }

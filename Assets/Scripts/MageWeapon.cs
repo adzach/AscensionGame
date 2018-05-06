@@ -27,4 +27,8 @@ public class MageWeapon : Weapon {
     {
 
     }
+    public void Fire()
+    {
+
+    } 
 }
