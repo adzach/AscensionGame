@@ -1440,7 +1440,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 32dc442c6d6982641b228b21cd979a49, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  levelToLeadTo: {fileID: 0}
+  levelToLeadTo: {fileID: 1622898098240702, guid: 17ed93b8c317a284eaf8ac2c394df148,
+    type: 2}
 --- !u!114 &114429455980576808
 MonoBehaviour:
   m_ObjectHideFlags: 1
