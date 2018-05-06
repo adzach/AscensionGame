@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class abilityEngine : MonoBehaviour {
-    public enum Character {Ooga, otherchar1, otherchar2};
+    public enum Character {Ooga, RaoulTheIlluminator, otherchar2};
     public Character curchar = Character.Ooga;
     public GameObject fireAbility;
     public GameObject abilityHolder;

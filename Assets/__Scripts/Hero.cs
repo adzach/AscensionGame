@@ -3,12 +3,13 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class Hero : MonoBehaviour {
-    static public Hero S;
+	static public Hero S;
+    public HeroInfo heroInfo;
+    public HeroSelector heroSelector;
 
-    //[Header("Set in Inspector")]
+    [Header ("Set in Inspector")]
     private float speed = 20;
-    public enum MoveCode {moveCode1,moveCode2,moveCode3};
-    public MoveCode moveWith = MoveCode.moveCode1;
+    public float health = 300;
     private float walkSpeed;
     public float curSpeed;
     private float maxSpeed;
@@ -16,35 +17,82 @@ public class Hero : MonoBehaviour {
     private float sprintSpeed;
 
     void Awake () {
-		if (S == null) {
+        heroSelector = GameObject.Find("Main Camera").GetComponent<HeroSelector>();
+        if (S == null) {
 			S = this;
 		} else {
 			Debug.LogError ("Attempted to assign second hero");
 		}
+        PlayerPrefs.SetString("Hero_Name", "Cowboy");
+        selectHero();
+        moveCode2();
 
         walkSpeed = (float)(speed + (agility));
         sprintSpeed = walkSpeed + (walkSpeed / 2);
+
+        
     }
 
 	// Use this for initialization
-	
-	// Update is called once per frame
-	void Update () {
-        if(moveWith==MoveCode.moveCode1)moveCode1();
-        else if (moveWith == MoveCode.moveCode2) moveCode2();
-    }
+	void Start () {
+		this.transform.position = new Vector3 (-5, -5, -1);
+	}
 
-    void moveCode1()
+    // Update is called once per frame
+    /*
+    void Update () {
+		float xAxis = Input.GetAxis ("Horizontal");
+		float yAxis = Input.GetAxis ("Vertical");
+
+		Vector3 pos = transform.position;
+		pos.x += xAxis * speed * Time.deltaTime;
+		pos.y += yAxis * speed * Time.deltaTime;
+		transform.position = pos;
+	}
+    */
+    void changeHero(string character)
     {
-        float xAxis = Input.GetAxis("Horizontal");
-        float yAxis = Input.GetAxis("Vertical");
-
-        Vector3 pos = transform.position;
-        pos.x += xAxis * speed * Time.deltaTime;
-        pos.y += yAxis * speed * Time.deltaTime;
-        transform.position = pos;
+        if (PlayerPrefs.HasKey("Hero_Name"))
+        {
+            string oldPlayer = PlayerPrefs.GetString("Hero_Name");
+            PlayerPrefs.SetString("Hero_Name", character);
+            if (!selectHero())
+            {
+                PlayerPrefs.SetString("Hero_Name", oldPlayer);
+            }
+        }
+        PlayerPrefs.SetString("Hero_Name", character);
+        if (!selectHero())
+        {
+            PlayerPrefs.DeleteKey("Hero_Name");
+        }
     }
+    bool selectHero()
+    {
+        if (PlayerPrefs.HasKey("Hero_Name"))
+        {
+            string Name = PlayerPrefs.GetString("Hero_Name");
+            HeroInfo HI = heroSelector.getHero(Name);
+            print("Hi =" + HI);
+            this.heroInfo = HI;
+            print(" test "+this.heroInfo.HeroName);
+            return true;
+        }
+        Debug.LogError("failed to set character");
+        return false;
+    }
+    public void damage(float damage)
+    {
+        health -= damage;
+        if (health < 0)
+        {
+            die();
+        }
+    }
+    public void die()
+    {
 
+    }
     void moveCode2()
     {
         curSpeed = walkSpeed;
@@ -53,6 +101,6 @@ public class Hero : MonoBehaviour {
         // Move senteces
         GetComponent<Rigidbody2D>().velocity = new Vector2(Mathf.Lerp(0, Input.GetAxis("Horizontal") * curSpeed, 0.8f),
                                              Mathf.Lerp(0, Input.GetAxis("Vertical") * curSpeed, 0.8f));
-    
+
     }
 }
