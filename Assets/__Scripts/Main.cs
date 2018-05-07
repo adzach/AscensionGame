@@ -4,9 +4,6 @@ using UnityEngine;
 
 public class Main : MonoBehaviour {
 	static public Main M;
-    public int rocks = 10;
-    public int sticks = 10;
-    private Vector3 maxpos = new Vector3(70 ,40,0);
 
 	[Header ("Set in Inspector")]
 	public GameObject[] levels;
@@ -14,16 +11,16 @@ public class Main : MonoBehaviour {
 	public GameObject hero;
 	public GameObject abilityHolder;
 	public GameObject Canvas;
-	public GameObject rock;
-	public GameObject stick;
 	public GameObject mainScreen;
 	public GameObject characterSelect;
+	public AudioClip jungleMusic;
 
 	[Header ("Set Dynamically")]
 	public GameObject level;
 
 	private GameObject _mainScreen;
 	private GameObject _characterSelect;
+	private AudioSource mainAudio;
 
 	void Awake () {
 		if (M == null) {
@@ -34,6 +31,7 @@ public class Main : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
 		_mainScreen = Instantiate<GameObject> (mainScreen);
+		mainAudio = GetComponent<AudioSource> ();
 	}
 
 	public void goToCharacterSelection() {
@@ -42,6 +40,8 @@ public class Main : MonoBehaviour {
 	}
 
 	public void startGame() {
+		mainAudio.clip = jungleMusic;
+		mainAudio.Play ();
 		Destroy (_characterSelect);
 		level = Instantiate<GameObject> (levels [0]);
 		level.transform.position = levelPos;
@@ -52,17 +52,6 @@ public class Main : MonoBehaviour {
 	    abilityHolder.name = "abilityHolder";
 	    Canvas = Instantiate<GameObject>(Canvas);
 	    Canvas.name = "Canvas";
-	    for (int i = 0; i < rocks; i++)
-	    {
-	        GameObject temprock = Instantiate<GameObject>(rock);
-	        temprock.transform.position = new Vector3(Random.Range(-1f,1f) * maxpos.x, Random.Range(-1f, 1f) * maxpos.y, -1);
-	    }
-
-	    for (int i = 0; i < sticks; i++)
-	    {
-	        GameObject tempstick = Instantiate<GameObject>(stick);
-	        tempstick.transform.position = new Vector3(Random.Range(-1f, 1f) * maxpos.x, Random.Range(-1f, 1f) * maxpos.y, -1);
-	    }
 
 	    hero.transform.position = new Vector3 (hero.transform.position.x, hero.transform.position.y, hero.transform.position.z);
 
