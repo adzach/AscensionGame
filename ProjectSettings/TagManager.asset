@@ -3,7 +3,21 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
-  tags: []
+  tags:
+  - BorderObject
+  - RightExit
+  - TopExit
+  - LeftExit
+  - Level
+  - BottomExit
+  - Hero
+  - Earthquake
+  - hideLOS
+  - rock
+  - stick
+  - gun
+  - head
+  - club
   layers:
   - Default
   - TransparentFX
@@ -13,12 +27,12 @@ TagManager:
   - UI
   - 
   - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
+  - Hero
+  - Border
+  - Exit
+  - Enemy Projectiles
+  - Enemies
+  - LightWhenLooking
   - 
   - 
   - 
