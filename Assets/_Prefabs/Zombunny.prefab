@@ -107,7 +107,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9a122c2fe91c7a44f9685556b77f2b5e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  defaultSpeed: 20
+  defaultSpeed: 10
   maxHealth: 100
   attackRange: 100
   attackCoolDown: 5
@@ -117,8 +117,11 @@ MonoBehaviour:
   coolDownDone: 0
   distance: 0
   offCooldown: 1
-  attackSpeed: 40
-  attackDurration: 0.5
+  tempHero: {x: 0, y: 0, z: 0}
+  first: 1
+  heroPos: {x: 0, y: 0, z: 0}
+  attackSpeed: 20
+  attackDurration: 2
   stopAttack: 0
 --- !u!212 &212649405117096358
 SpriteRenderer:

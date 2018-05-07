@@ -19,7 +19,9 @@ public class Enemy : MonoBehaviour {
     public float coolDownDone;
     public float distance;
     public bool offCooldown = true;
-
+    public Vector3 tempHero;
+    public bool first = true;
+    public Vector3 heroPos;
 
     protected Animator anim;
     protected Rigidbody2D rigid;
@@ -47,27 +49,45 @@ public class Enemy : MonoBehaviour {
 
     public void followChar()
     {
-//        Vector3 mousePos2D = Input.mousePosition;
-//        mousePos2D.z = -Camera.main.transform.position.z;
-//        Vector3 mousePos3D = Camera.main.ScreenToWorldPoint(mousePos2D);
-
-		Vector3 heroPos = Hero.S.transform.position;
+        //        Vector3 mousePos2D = Input.mousePosition;
+        //        mousePos2D.z = -Camera.main.transform.position.z;
+        //        Vector3 mousePos3D = Camera.main.ScreenToWorldPoint(mousePos2D);
+        
+        if (first)
+        {
+             heroPos = Hero.S.transform.position;
+        }
+        first = false;
 
         float x = rigid.position.x;
         float y = rigid.position.y;
         Vector3 enemyPos = new Vector3(x, y, 0);
+        
 
         dir = heroPos - enemyPos;
         distance = dir.magnitude;
+        if (distance < 1.1f)
+        {
+            print("aaaaaaaaaaaaaaaaaaaaaaa");
+            offCooldown = true;
+        }
 
         if (distance < attackRange)
         {
+
             attack();
+            
         }
-        else
+
+        if(offCooldown)
         {
+            print("bbbbbbbbbbbbbbbbbbbbbbbbbb");
+            heroPos = Hero.S.transform.position;
             speed = defaultSpeed;
+            dir = heroPos - enemyPos;
+            distance = dir.magnitude;
         }
+        
 
         // update velocity
         dir.Normalize();
@@ -96,6 +116,7 @@ public class Enemy : MonoBehaviour {
             coolDownDone = Time.time + attackCoolDown;
             offCooldown = true;
         }
+        
     }
 
 }

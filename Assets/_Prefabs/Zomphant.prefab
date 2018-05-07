@@ -109,7 +109,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   defaultSpeed: 1
   maxHealth: 100
-  attackRange: 3
+  attackRange: 10
   attackCoolDown: 5
   speed: 1
   health: 100
@@ -117,14 +117,18 @@ MonoBehaviour:
   coolDownDone: 7
   distance: 23.153366
   offCooldown: 1
+  tempHero: {x: 0, y: 0, z: 0}
+  first: 1
+  heroPos: {x: 0, y: 0, z: 0}
   earthquakePrefab: {fileID: 1713017036841904, guid: e5b495e72970554448c2eac2a47c33ae,
     type: 2}
   startQuakes: 40
-  maxQuakes: 60
-  startDistDefault: 20
-  maxDist: 30
+  maxQuakes: 90
+  startDistDefault: 10
+  maxDist: 11
   distInc: 1
-  attackTime: 0.2
+  attackTime: 0.02
+  offset: 0.4
   stopAttack: 0
   earthquakes:
   - {fileID: 0}
@@ -157,6 +161,7 @@ MonoBehaviour:
   quakes: 0
   attacking: 0
   attackAnimTime: 0
+  startRipple: 0
 --- !u!212 &212276434807015508
 SpriteRenderer:
   m_ObjectHideFlags: 1
