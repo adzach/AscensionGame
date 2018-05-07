@@ -63,25 +63,21 @@ public class Enemy : MonoBehaviour {
         float y = rigid.position.y;
         Vector3 enemyPos = new Vector3(x, y, 0);
         
-
         dir = heroPos - enemyPos;
         distance = dir.magnitude;
-        if (distance < 1.1f)
-        {
-            print("aaaaaaaaaaaaaaaaaaaaaaa");
-            offCooldown = true;
-        }
 
         if (distance < attackRange)
         {
-
             attack();
-            
         }
 
-        if(offCooldown)
+        if (distance < 1.1f)
         {
-            print("bbbbbbbbbbbbbbbbbbbbbbbbbb");
+            offCooldown = true;
+        }
+
+        if (offCooldown)
+        {
             heroPos = Hero.S.transform.position;
             speed = defaultSpeed;
             dir = heroPos - enemyPos;

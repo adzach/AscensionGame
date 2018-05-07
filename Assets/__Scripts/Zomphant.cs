@@ -76,7 +76,10 @@ public class Zomphant : Enemy
             startDist = startDistDefault;
             quakes = startQuakes;
             startRipple = Time.time + offset;
-            
+        }
+        else
+        {
+            offCooldown = true;
         }
     }
 
@@ -110,6 +113,7 @@ public class Zomphant : Enemy
             }
             
         }
+        
         
        
     }
