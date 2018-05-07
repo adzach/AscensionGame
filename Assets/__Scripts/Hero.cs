@@ -6,6 +6,7 @@ public class Hero : MonoBehaviour {
 	static public Hero S;
     public HeroInfo heroInfo;
     public HeroSelector heroSelector;
+
     [Header ("Set in Inspector")]
     private float speed = 20;
     public float health = 300;
@@ -17,7 +18,7 @@ public class Hero : MonoBehaviour {
     public float sticks = 0;
     public float stones = 0;
     private GameObject club;
-    private GameObject spear;
+    public GameObject spear;
     private GameObject bow;
     public Collider2D clubcol;
     public Collider2D spearcol;
@@ -49,7 +50,6 @@ public class Hero : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
         club = GameObject.Find("club");
-        spear = GameObject.Find("spear");
         bow = GameObject.Find("bow");
         clubcol = club.GetComponent<Collider2D>();
         spearcol = spear.GetComponent<Collider2D>();

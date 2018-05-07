@@ -107,6 +107,7 @@ GameObject:
   - component: {fileID: 114279013359240858}
   - component: {fileID: 82551098130597924}
   - component: {fileID: 114973932974273022}
+  - component: {fileID: 95980098782556276}
   m_Layer: 8
   m_Name: Body
   m_TagString: Untagged
@@ -227,7 +228,7 @@ Transform:
   m_GameObject: {fileID: 1690682462252516}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 20, y: 20, z: 20}
   m_Children:
   - {fileID: 4554127681132402}
   - {fileID: 4036366601513934}
@@ -484,6 +485,23 @@ Animator:
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
+--- !u!95 &95980098782556276
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1690682462252516}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 64e77c1187e42284f9850a880697fdd2, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
 --- !u!114 &114130831191195720
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -540,6 +558,7 @@ MonoBehaviour:
   curSpeed: 0
   sticks: 0
   stones: 0
+  spear: {fileID: 1471627055652612, guid: bf97996541e33ad4b857b103d3d9a299, type: 2}
   clubcol: {fileID: 0}
   spearcol: {fileID: 0}
 --- !u!114 &114432560400860404
@@ -653,7 +672,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 1
-  m_Sprite: {fileID: 21300000, guid: a9d0c215f28bff043878371799d8d969, type: 3}
+  m_Sprite: {fileID: 21300004, guid: 0a2223fe9050de046bb0bd8784e1ffaa, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
