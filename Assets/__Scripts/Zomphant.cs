@@ -95,7 +95,7 @@ public class Zomphant : Enemy
             startDist += distInc;
             if (quakes < maxQuakes)
             {
-                quakes++;
+                //quakes++;
             }
             attackAnimTime = Time.time + attackTime;
             if (attackNum == maxDist - 1)
