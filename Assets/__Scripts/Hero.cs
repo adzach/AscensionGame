@@ -96,9 +96,9 @@ public class Hero : MonoBehaviour {
         {
             if (GetComponentInChildren<fire>().weaponNum != 0)
             {
-                club.SetActive(false);
-                spear.SetActive(true);
-                bow.SetActive(false);
+                club.SetActive(true);
+                spear.SetActive(false);
+                bow.SetActive(true);
 
                 GetComponentInChildren<fire>().weaponNum = 0;
             }
