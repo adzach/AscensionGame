@@ -72,7 +72,7 @@ public class Hero : MonoBehaviour {
         {
             if (GetComponentInChildren<fire>().weaponNum < 2)
             {
-               club.SetActive(false);
+            	club.SetActive(false);
                 spear.SetActive(false);
                 bow.SetActive(true);
 
