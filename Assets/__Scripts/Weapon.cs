@@ -15,7 +15,7 @@ public class WeaponDefinition
 }
 
 public class Weapon{
-    public string Name = "";
+    public string Name;
     public GameObject ProjectilePrefab;
     public GameObject Owner;
     public AudioClip Sound;
@@ -28,14 +28,5 @@ public class Weapon{
     public void assignOwner(GameObject owner)
     {
         Owner = owner;
-    }
-
-    // Update is called once per frame
-    public void Update () {
-
-    }
-    public void Fire()
-    {
-
     }
 }

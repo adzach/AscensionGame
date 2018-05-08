@@ -5,15 +5,15 @@ using UnityEngine;
 public class Hero : MonoBehaviour {
 	static public Hero S;
     public HeroInfo heroInfo;
-    public HeroSelector heroSelector;
+//    public HeroSelector heroSelector;
     [Header ("Set in Inspector")]
     private float speed = 20;
     public float health = 300;
-    private float walkSpeed;
+//    private float walkSpeed;
     public float curSpeed;
     private float maxSpeed;
-    private float agility = 5;
-    private float sprintSpeed;
+//    private float agility = 5;
+//    private float sprintSpeed;
     public float sticks = 0;
     public float stones = 0;
     private GameObject club;
@@ -24,10 +24,10 @@ public class Hero : MonoBehaviour {
 
 
     void Awake () {
-        heroSelector = GameObject.Find("Main Camera").GetComponent<HeroSelector>();
-		if (heroSelector == null) {
-			Debug.LogError ("heroSelector not assigned!");
-		}
+//        heroSelector = GameObject.Find("Main Camera").GetComponent<HeroSelector>();
+//		if (heroSelector == null) {
+//			Debug.LogError ("heroSelector not assigned!");
+//		}
 
         if (S == null) {
 			    S = this;
@@ -40,10 +40,8 @@ public class Hero : MonoBehaviour {
 		heroInfo.HeroName = "Ooga";
 		heroInfo.weapon = new Weapon ();
 
-        walkSpeed = (float)(speed + (agility));
-        sprintSpeed = walkSpeed + (walkSpeed / 2);
-
-        
+//        walkSpeed = (float)(speed + (agility));
+//        sprintSpeed = walkSpeed + (walkSpeed / 2); 
     }
 
 	// Use this for initialization
@@ -105,35 +103,35 @@ public class Hero : MonoBehaviour {
         }
     }
     
-    void changeHero(string character)
-    {
-        if (PlayerPrefs.HasKey("Hero_Name"))
-        {
-            string oldPlayer = PlayerPrefs.GetString("Hero_Name");
-            PlayerPrefs.SetString("Hero_Name", character);
-            if (!selectHero())
-            {
-                PlayerPrefs.SetString("Hero_Name", oldPlayer);
-            }
-        }
-        PlayerPrefs.SetString("Hero_Name", character);
-        if (!selectHero())
-        {
-            PlayerPrefs.DeleteKey("Hero_Name");
-        }
-    }
-    bool selectHero()
-    {
-        if (PlayerPrefs.HasKey("Hero_Name"))
-        {
-            string Name = PlayerPrefs.GetString("Hero_Name");
-            HeroInfo HI = heroSelector.getHero(Name);
-            this.heroInfo = HI;
-            return true;
-        }
-        Debug.LogError("failed to set character");
-        return false;
-    }
+//    void changeHero(string character)
+//    {
+//        if (PlayerPrefs.HasKey("Hero_Name"))
+//        {
+//            string oldPlayer = PlayerPrefs.GetString("Hero_Name");
+//            PlayerPrefs.SetString("Hero_Name", character);
+//            if (!selectHero())
+//            {
+//                PlayerPrefs.SetString("Hero_Name", oldPlayer);
+//            }
+//        }
+//        PlayerPrefs.SetString("Hero_Name", character);
+//        if (!selectHero())
+//        {
+//            PlayerPrefs.DeleteKey("Hero_Name");
+//        }
+//    }
+//    bool selectHero()
+//    {
+//        if (PlayerPrefs.HasKey("Hero_Name"))
+//        {
+//            string Name = PlayerPrefs.GetString("Hero_Name");
+//            HeroInfo HI = heroSelector.getHero(Name);
+//            this.heroInfo = HI;
+//            return true;
+//        }
+//        Debug.LogError("failed to set character");
+//        return false;
+//    }
     public void damage(float damage)
     {
         health -= damage;
@@ -160,14 +158,4 @@ public class Hero : MonoBehaviour {
             stones++;
         }
     }
-
-//    void moveCode2()
-//    {
-//        curSpeed = walkSpeed;
-//        maxSpeed = curSpeed;
-//
-//        // Move senteces
-//        GetComponent<Rigidbody2D>().velocity = new Vector2(Mathf.Lerp(0, Input.GetAxis("Horizontal") * curSpeed, 0.8f),
-//                                             Mathf.Lerp(0, Input.GetAxis("Vertical") * curSpeed, 0.8f));
-//    }
 }
