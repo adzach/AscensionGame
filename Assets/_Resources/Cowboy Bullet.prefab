@@ -39,6 +39,7 @@ GameObject:
   - component: {fileID: 212055962503504312}
   - component: {fileID: 61261196405031324}
   - component: {fileID: 50190137803703650}
+  - component: {fileID: 114664309997400686}
   m_Layer: 9
   m_Name: Cowboy Bullet
   m_TagString: Untagged
@@ -118,6 +119,18 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.08, y: 0.08}
   m_EdgeRadius: 0
+--- !u!114 &114664309997400686
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1228636520323090}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f632861e029c57e479bb74a0baaa7766, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  damage: 50
 --- !u!198 &198814405300277670
 ParticleSystem:
   m_ObjectHideFlags: 1

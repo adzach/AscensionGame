@@ -135,7 +135,7 @@ public class Hero : MonoBehaviour {
     }
     public void die()
     {
-
+        Destroy(gameObject);
     }
 	
 	// Update is called once per frame

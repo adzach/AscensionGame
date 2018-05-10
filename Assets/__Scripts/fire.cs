@@ -72,6 +72,7 @@ public class fire : MonoBehaviour {
             {
                 if (Time.time - weapon.LastFire > weapon.Firerate)
                 {
+                    GameObject.Find("bow").GetComponent<Animator>().Play("bowAnim");
                     weapon.LastFire = Time.time;
                     GetComponentsInChildren<Animator>()[0].SetBool("Firing", true);
                     float dir = ((this.transform.eulerAngles.z) * Mathf.PI) / 180;
