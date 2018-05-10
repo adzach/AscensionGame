@@ -22,6 +22,9 @@ public class Hero : MonoBehaviour {
     private GameObject bow;
     public Collider2D clubcol;
     public Collider2D spearcol;
+    protected Animator anim;
+    protected SpriteRenderer sRend;
+
 
 
     void Awake () {
@@ -39,12 +42,13 @@ public class Hero : MonoBehaviour {
 //        selectHero();
 		// Temporary fix to problem
 		heroInfo.HeroName = "Ooga";
-		heroInfo.weapon = new Weapon ();
+		heroInfo.weapon = new Weapon();
 
         walkSpeed = (float)(speed + (agility));
         sprintSpeed = walkSpeed + (walkSpeed / 2);
 
-        
+        anim = GameObject.Find("Body").GetComponent<Animator>();
+        sRend = GameObject.Find("Body").GetComponent<SpriteRenderer>();
     }
 
 	// Use this for initialization
@@ -61,7 +65,9 @@ public class Hero : MonoBehaviour {
 
     // Update is called once per frame
     void Update () {
-//        moveCode2();
+        //        moveCode2();
+
+        
 
 		float xAxis = Input.GetAxis ("Horizontal");
 		float yAxis = Input.GetAxis ("Vertical");
@@ -70,7 +76,21 @@ public class Hero : MonoBehaviour {
 		pos.y += yAxis * speed * Time.deltaTime;
 		transform.position = pos;
 
-        if (sticks >= 3 && stones >= 3)
+        Vector3 mousPos2D = Input.mousePosition;
+        mousPos2D.z = -Camera.main.transform.position.z;
+        Vector3 mousePos3D = Camera.main.ScreenToWorldPoint(mousPos2D);
+
+        Vector3 mouseDelta = mousePos3D - pos;
+
+        if (mouseDelta.x < 0)
+        {
+            sRend.flipX = false;
+        } else
+        {
+            sRend.flipX = true;
+        }
+
+            if (sticks >= 3 && stones >= 3)
         {
             if (GetComponentInChildren<fire>().weaponNum < 2)
             {
