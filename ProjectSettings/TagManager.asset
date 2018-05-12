@@ -18,6 +18,8 @@ TagManager:
   - gun
   - head
   - club
+  - Chest
+  - Bramble
   layers:
   - Default
   - TransparentFX
