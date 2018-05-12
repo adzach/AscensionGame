@@ -222,6 +222,9 @@ MonoBehaviour:
   characterSelect: {fileID: 1038853688541736, guid: 555149245f0740d499c427059d24565c,
     type: 2}
   jungleMusic: {fileID: 8300000, guid: f662bd5280b8c4e428fd6bb9603ceae8, type: 3}
+  numLevel2Enemies: 3
+  numLevel3Enemies: 3
+  numLevel4Enemies: 3
   level: {fileID: 0}
 --- !u!114 &1150931306
 MonoBehaviour:

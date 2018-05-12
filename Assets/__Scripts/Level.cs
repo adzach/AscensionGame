@@ -9,6 +9,7 @@ public class Level : MonoBehaviour {
 	public Sprite level; // Sets the current level sprite for loading later.
 	public GameObject rock;
 	public GameObject stick;
+	public GameObject zomBunny;
 	public int numRocks;
 	public int numSticks;
 
@@ -30,7 +31,11 @@ public class Level : MonoBehaviour {
 				}
 			}
 		}
+		spawnTerrain ();
+		spawnEnemies ();
+	}
 
+	public void spawnTerrain() {
 		for (int i = 0; i < numRocks; i++)
 		{
 			GameObject temprock = Instantiate<GameObject>(rock);
@@ -43,6 +48,36 @@ public class Level : MonoBehaviour {
 			GameObject tempstick = Instantiate<GameObject>(stick);
 			tempstick.transform.parent = transform;
 			tempstick.transform.position = new Vector3(Random.Range(-1f, 1f) * maxpos.x, Random.Range(-1f, 1f) * maxpos.y, -1);
+		}
+	}
+
+	public void spawnEnemies() {
+		switch (transform.name) {
+		case "Level2(Clone)":
+			for (int i = 0; i < Main.M.numLevel2Enemies; i++) {
+				GameObject bunny = Instantiate<GameObject> (zomBunny);
+				bunny.transform.parent = transform;
+				bunny.transform.position = new Vector3 (Random.Range (-1f, 1f) * maxpos.x, Random.Range (-1f, 1f) * maxpos.y, -1);
+			}
+			break;
+		case "Level3(Clone)":
+			for (int i = 0; i < Main.M.numLevel3Enemies; i++) {
+				GameObject bunny = Instantiate<GameObject> (zomBunny);
+				bunny.transform.parent = transform;
+				bunny.transform.position = new Vector3 (Random.Range (-1f, 1f) * maxpos.x, Random.Range (-1f, 1f) * maxpos.y, -1);
+			}
+			break;
+
+		case "Level4(Clone)":
+			for (int i = 0; i < Main.M.numLevel4Enemies; i++) {
+				GameObject bunny = Instantiate<GameObject> (zomBunny);
+				bunny.transform.parent = transform;
+				bunny.transform.position = new Vector3 (Random.Range (-1f, 1f) * maxpos.x, Random.Range (-1f, 1f) * maxpos.y, -1);
+			}
+			break;
+
+		default:
+			break;
 		}
 	}
 }

@@ -14,6 +14,9 @@ public class Main : MonoBehaviour {
 	public GameObject mainScreen;
 	public GameObject characterSelect;
 	public AudioClip jungleMusic;
+	public int numLevel2Enemies;
+	public int numLevel3Enemies;
+	public int numLevel4Enemies;
 
 	[Header ("Set Dynamically")]
 	public GameObject level;
