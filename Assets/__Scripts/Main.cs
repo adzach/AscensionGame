@@ -17,6 +17,7 @@ public class Main : MonoBehaviour {
 	public int numLevel2Enemies;
 	public int numLevel3Enemies;
 	public int numLevel4Enemies;
+	public int numLevel6Enemies;
 
 	[Header ("Set Dynamically")]
 	public GameObject level;

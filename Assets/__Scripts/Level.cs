@@ -76,6 +76,14 @@ public class Level : MonoBehaviour {
 			}
 			break;
 
+		case "Level6(Clone)":
+			for (int i = 0; i < Main.M.numLevel6Enemies; i++) {
+				GameObject bunny = Instantiate<GameObject> (zomBunny);
+				bunny.transform.parent = transform;
+				bunny.transform.position = new Vector3 (Random.Range (-1f, 1f) * maxpos.x, Random.Range (-1f, 1f) * maxpos.y, -1);
+			}
+			break;
+
 		default:
 			break;
 		}
