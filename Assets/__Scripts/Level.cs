@@ -14,25 +14,45 @@ public class Level : MonoBehaviour {
 	public int numSticks;
 
 	[Header ("Set Dynamically")]
-	public List<Border> borders;
-	public List<Exit> exits;
+	public int enemyCount;
+	public GameObject bramble;
 
 	// Use this for initialization
 	void Start () {
-		borders = new List<Border> ();
-		exits = new List<Exit> ();
 		
 		foreach (Transform t in this.GetComponentsInChildren<Transform>()) {
-			if (t.tag == "BorderObject") { // Adds collidable borders to list
-				borders.Add (t.GetComponent<Border> ());
-			} else {
-				if (t.tag != "Untagged") { // What's remaining is an exit, so add it
-					exits.Add(t.GetComponent<Exit> ());
-				}
+			if (t.tag == "Bramble") {
+				bramble = t.gameObject;
+				break;
 			}
 		}
 		spawnTerrain ();
 		spawnEnemies ();
+	}
+
+	void Update() {
+		switch (transform.name) {
+		case "Level2(Clone)":
+			enemyCount = Main.M.numLevel2Enemies;
+			break;
+		case "Level3(Clone)":
+			enemyCount = Main.M.numLevel3Enemies;
+			break;
+		case "Level4(Clone)":
+			enemyCount = Main.M.numLevel4Enemies;
+			break;
+		case "Level6(Clone)":
+			enemyCount = Main.M.numLevel6Enemies;
+			break;
+		default:
+			break;
+		}
+
+		if (enemyCount != null) {
+			if (enemyCount == 0) {
+				Destroy (bramble);
+			}
+		}
 	}
 
 	public void spawnTerrain() {
@@ -59,6 +79,7 @@ public class Level : MonoBehaviour {
 				bunny.transform.parent = transform;
 				bunny.transform.position = new Vector3 (Random.Range (-1f, 1f) * maxpos.x, Random.Range (-1f, 1f) * maxpos.y, -1);
 			}
+			enemyCount = Main.M.numLevel2Enemies;
 			break;
 		case "Level3(Clone)":
 			for (int i = 0; i < Main.M.numLevel3Enemies; i++) {
@@ -66,6 +87,7 @@ public class Level : MonoBehaviour {
 				bunny.transform.parent = transform;
 				bunny.transform.position = new Vector3 (Random.Range (-1f, 1f) * maxpos.x, Random.Range (-1f, 1f) * maxpos.y, -1);
 			}
+			enemyCount = Main.M.numLevel3Enemies;
 			break;
 
 		case "Level4(Clone)":
@@ -74,6 +96,7 @@ public class Level : MonoBehaviour {
 				bunny.transform.parent = transform;
 				bunny.transform.position = new Vector3 (Random.Range (-1f, 1f) * maxpos.x, Random.Range (-1f, 1f) * maxpos.y, -1);
 			}
+			enemyCount = Main.M.numLevel4Enemies;
 			break;
 
 		case "Level6(Clone)":
@@ -82,6 +105,7 @@ public class Level : MonoBehaviour {
 				bunny.transform.parent = transform;
 				bunny.transform.position = new Vector3 (Random.Range (-1f, 1f) * maxpos.x, Random.Range (-1f, 1f) * maxpos.y, -1);
 			}
+			enemyCount = Main.M.numLevel6Enemies;
 			break;
 
 		default:

@@ -124,4 +124,8 @@ public class Main : MonoBehaviour {
 			}
 		}
 	}
+
+	public void triggerMemory() {
+		// Enemies should all be dead in level, so just freeze hero position and put the memory over the level
+	}
 }

@@ -147,15 +147,16 @@ public class Hero : MonoBehaviour {
 
     private void OnTriggerEnter2D(Collider2D other)
     {
-        if(other.CompareTag("stick"))
-        {
+        if(other.CompareTag("stick")) {
             Destroy(other.gameObject);
             sticks++;
         }
-        if (other.CompareTag("rock"))
-        {
+        if (other.CompareTag("rock")) {
             Destroy(other.gameObject);
             stones++;
         }
+		if (other.CompareTag ("Chest")) {
+			Main.M.triggerMemory ();
+		}
     }
 }
