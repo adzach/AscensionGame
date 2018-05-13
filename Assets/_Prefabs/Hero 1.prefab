@@ -535,13 +535,13 @@ MonoBehaviour:
     Head: {fileID: 0}
     Gun: {fileID: 0}
     health: 0
-  heroSelector: {fileID: 0}
   health: 300
   curSpeed: 0
   sticks: 0
   stones: 0
   clubcol: {fileID: 0}
   spearcol: {fileID: 0}
+  leftHandedMode: 1
 --- !u!114 &114432560400860404
 MonoBehaviour:
   m_ObjectHideFlags: 1

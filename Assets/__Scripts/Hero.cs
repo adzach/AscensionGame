@@ -60,7 +60,6 @@ public class Hero : MonoBehaviour {
     // Update is called once per frame
     void Update () {
 //        moveCode2();
-
 		float xAxis = Input.GetAxis ("Horizontal");
 		float yAxis = Input.GetAxis ("Vertical");
 		Vector3 pos = transform.position;

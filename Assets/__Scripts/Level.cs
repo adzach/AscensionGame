@@ -47,9 +47,8 @@ public class Level : MonoBehaviour {
 		default:
 			break;
 		}
-
-		if (enemyCount != null) {
-			if (enemyCount == 0) {
+		if (enemyCount == 0) {
+			if (bramble != null) {
 				Destroy (bramble);
 			}
 		}
