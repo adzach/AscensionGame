@@ -38,6 +38,7 @@ GameObject:
   - component: {fileID: 114029390919502154}
   - component: {fileID: 61970701243352896}
   - component: {fileID: 50752368212009138}
+  - component: {fileID: 114622242176847360}
   m_Layer: 8
   m_Name: Hero
   m_TagString: Hero
@@ -159,8 +160,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4e4ebf8abd5c1844492b6bcb6e563268, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 20
-  moveWith: 0
+  heroInfo:
+    HeroName: 
+    Head: {fileID: 0}
+    Gun: {fileID: 0}
+    health: 0
+  heroselector: {fileID: 0}
+  health: 300
+  curSpeed: 0
+  sticks: 0
+  stones: 0
+  clubcol: {fileID: 0}
+  spearcol: {fileID: 0}
 --- !u!114 &114140001653783180
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -178,6 +189,17 @@ MonoBehaviour:
   visible: []
   angleRange: 30
   precision: 50
+--- !u!114 &114622242176847360
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1376555026635486}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 55a87b4327e53d3498b92dd10789a61f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &114915532846862816
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -233,5 +255,5 @@ SpriteRenderer:
   m_Size: {x: 1, y: 1}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
+  m_WasSpriteAssigned: 0
   m_MaskInteraction: 0

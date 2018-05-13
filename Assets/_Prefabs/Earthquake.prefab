@@ -22,6 +22,7 @@ GameObject:
   - component: {fileID: 212085661914429694}
   - component: {fileID: 54218394269961064}
   - component: {fileID: 135910998653269704}
+  - component: {fileID: 114402334214619690}
   m_Layer: 11
   m_Name: Earthquake
   m_TagString: Earthquake
@@ -57,6 +58,18 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 120
   m_CollisionDetection: 0
+--- !u!114 &114402334214619690
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1713017036841904}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f632861e029c57e479bb74a0baaa7766, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  damage: 10
 --- !u!135 &135910998653269704
 SphereCollider:
   m_ObjectHideFlags: 1
@@ -111,5 +124,5 @@ SpriteRenderer:
   m_Size: {x: 0.32, y: 0.32}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
+  m_WasSpriteAssigned: 0
   m_MaskInteraction: 0
