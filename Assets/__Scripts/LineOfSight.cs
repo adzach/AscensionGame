@@ -53,19 +53,18 @@ public class LineOfSight : MonoBehaviour {
 
     public void markTarget()
     {
-        RaycastHit hit;
-        if (Physics.Raycast(transform.position, transform.TransformDirection(Vector3.up), out hit, Mathf.Infinity))
+        RaycastHit2D hit = Physics2D.Raycast(transform.position, transform.TransformDirection(Vector2.up));
+        
+        if (hit && hit.collider.gameObject.CompareTag("hideLOS"))
         {
-            if (hit.collider.gameObject.CompareTag("hideLOS"))
+            if (!seeing.Contains(hit.collider.gameObject))
             {
-                if (!seeing.Contains(hit.collider.gameObject))
-                {
-                    seeing.Add(hit.collider.gameObject);
-                    print("did something");
+                seeing.Add(hit.collider.gameObject);
+                print("did something 010");
                     
-                }
             }
         }
+
     }
 
     public void displayTargets()

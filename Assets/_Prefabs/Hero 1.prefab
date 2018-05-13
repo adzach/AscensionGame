@@ -74,6 +74,7 @@ GameObject:
   - component: {fileID: 114277771698525182}
   - component: {fileID: 114432560400860404}
   - component: {fileID: 95085269134018698}
+  - component: {fileID: 114825480789684480}
   m_Layer: 0
   m_Name: spear
   m_TagString: Untagged
@@ -129,6 +130,7 @@ GameObject:
   - component: {fileID: 114998783452589034}
   - component: {fileID: 95871088012903920}
   - component: {fileID: 212644869338566036}
+  - component: {fileID: 114316654309577134}
   m_Layer: 0
   m_Name: club
   m_TagString: Untagged
@@ -596,8 +598,21 @@ MonoBehaviour:
   curSpeed: 0
   sticks: 0
   stones: 0
+  spear: {fileID: 0}
   clubcol: {fileID: 0}
   spearcol: {fileID: 0}
+--- !u!114 &114316654309577134
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1743948404547838}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a5dbe1395fde98140950f3b16e68e9bc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  blood: {fileID: 1960361784622668, guid: f8b1776581a29f24287621d8f24b56d3, type: 2}
 --- !u!114 &114432560400860404
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -645,6 +660,18 @@ MonoBehaviour:
   canAbility1: 1
   countMan: {fileID: 0}
   cooldownVal: 10
+--- !u!114 &114825480789684480
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1483310565238170}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a5dbe1395fde98140950f3b16e68e9bc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  blood: {fileID: 1960361784622668, guid: f8b1776581a29f24287621d8f24b56d3, type: 2}
 --- !u!114 &114973932974273022
 MonoBehaviour:
   m_ObjectHideFlags: 1

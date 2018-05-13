@@ -14,17 +14,15 @@ public class fire : MonoBehaviour {
     // Use this for initialization
     void Start () {
         AS = GetComponent<AudioSource>();
-        print("hero health = " + this.transform.parent.GetComponent<Hero>().health);
-        getHero(transform.parent.GetComponent<Hero>());
+        getHero(this.transform.parent.GetComponent<Hero>());
         getWeapon();
         getHead();
-        getGun();
+//        getGun();
         AS.clip = weapon.Sound;
     }
 	void getHero(Hero Hero)
     {
         hero = Hero;
-        print("hero name:" + hero.heroInfo.HeroName);
     }
     public void updateCharacter()
     {
@@ -63,6 +61,17 @@ public class fire : MonoBehaviour {
         }
         a = gun;
     }
+    void decreaseCount()
+    {
+        hero.stones -= 0.1f;
+        hero.sticks -= 0.1f;
+        GameObject.Find("sticktxt").GetComponent<setText>().set("" + Mathf.Round(hero.sticks + 0.49f));
+        GameObject.Find("rocktxt").GetComponent<setText>().set("" + Mathf.Round(hero.stones + 0.49f));
+    }
+    public void enemyHit()
+    {
+        if (weaponNum == 1) decreaseCount();
+    }
 	// Update is called once per frame
 	void Update () {
         GetComponentsInChildren<Animator>()[0].SetBool("Firing", false);
@@ -72,6 +81,7 @@ public class fire : MonoBehaviour {
             {
                 if (Time.time - weapon.LastFire > weapon.Firerate)
                 {
+                    decreaseCount();
                     GameObject.Find("bow").GetComponent<Animator>().Play("bowAnim");
                     weapon.LastFire = Time.time;
                     GetComponentsInChildren<Animator>()[0].SetBool("Firing", true);
@@ -79,7 +89,6 @@ public class fire : MonoBehaviour {
                     dir = dir - (Mathf.PI / 2);
                     dir = -dir;
                     Vector3 direction = new Vector3(Mathf.Cos(dir), Mathf.Sin(dir), 0);
-                    //print(dir+" dir");
                     weapon.Fire();
                     AS.Play();
                     GameObject bullet = Instantiate<GameObject>(arrow);
@@ -87,7 +96,6 @@ public class fire : MonoBehaviour {
                     bullet.transform.eulerAngles = new Vector3(0, 0, this.transform.eulerAngles.z);
                     Rigidbody2D rigid = bullet.GetComponent<Rigidbody2D>();
                     rigid.velocity = Speed * transform.TransformDirection(Vector3.up);
-                    print(rigid.velocity);
                     bullet.AddComponent<DamageComponent>();
                     bullet.GetComponent<DamageComponent>().damage = weapon.Damage;
                 }

@@ -26,7 +26,7 @@ GameObject:
   - component: {fileID: 58675905216203822}
   m_Layer: 12
   m_Name: Zomphant
-  m_TagString: Untagged
+  m_TagString: hideLOS
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -38,7 +38,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1068037357942098}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: -1}
   m_LocalScale: {x: 20, y: 20, z: 20}
   m_Children: []
   m_Father: {fileID: 0}
@@ -88,7 +88,7 @@ Animator:
   m_GameObject: {fileID: 1068037357942098}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: b43e8604bedbba6499e470c4a0352c1b, type: 2}
+  m_Controller: {fileID: 9100000, guid: 49ca7f963b61704448e03977082cf95b, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -109,22 +109,26 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   defaultSpeed: 1
   maxHealth: 100
-  attackRange: 3
+  attackRange: 10
   attackCoolDown: 5
-  speed: 1
+  speed: 2
   health: 100
   dir: {x: 0.81720394, y: 0.57634854, z: 0}
   coolDownDone: 7
   distance: 23.153366
   offCooldown: 1
+  tempHero: {x: 0, y: 0, z: 0}
+  first: 1
+  heroPos: {x: 0, y: 0, z: 0}
   earthquakePrefab: {fileID: 1713017036841904, guid: e5b495e72970554448c2eac2a47c33ae,
     type: 2}
   startQuakes: 40
-  maxQuakes: 60
-  startDistDefault: 20
-  maxDist: 30
+  maxQuakes: 90
+  startDistDefault: 10
+  maxDist: 11
   distInc: 1
-  attackTime: 0.2
+  attackTime: 0.02
+  offset: 0.4
   stopAttack: 0
   earthquakes:
   - {fileID: 0}
@@ -157,6 +161,7 @@ MonoBehaviour:
   quakes: 0
   attacking: 0
   attackAnimTime: 0
+  startRipple: 0
 --- !u!212 &212276434807015508
 SpriteRenderer:
   m_ObjectHideFlags: 1

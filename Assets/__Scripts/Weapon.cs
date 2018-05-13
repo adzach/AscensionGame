@@ -25,11 +25,6 @@ public class Weapon{
     public float LastFire = -0.5f;
     public Color color = Color.white;
 
-    // Use this for initialization
-    void Start() {
-
-    }
-
     public void assignOwner(GameObject owner)
     {
         Owner = owner;

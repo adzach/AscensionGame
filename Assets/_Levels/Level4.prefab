@@ -520,6 +520,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   level: {fileID: 21300000, guid: bb5c4f6df1c29734a9685b32832644ce, type: 3}
+  rock: {fileID: 1920283753462156, guid: 8b5b12019a084494d90b381aab85e309, type: 2}
+  stick: {fileID: 1432724704963936, guid: 6be1a93f0a60d844382f16dc489d38ea, type: 2}
+  numRocks: 3
+  numSticks: 3
   borders: []
   exits: []
 --- !u!114 &114439998812083320

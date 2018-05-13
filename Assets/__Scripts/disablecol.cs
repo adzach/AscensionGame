@@ -5,9 +5,8 @@ using UnityEngine;
 public class disablecol : MonoBehaviour {
     Collider2D col;
     bool start = true;
-    float starttime;
-    float dur = 0.5f;
     public string animname = "";
+    bool animing= false;
 
 	// Use this for initialization
 	void Awake () {
@@ -16,16 +15,22 @@ public class disablecol : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		if(col.isActiveAndEnabled && start)
+        
+        if (col.isActiveAndEnabled && start)
         {
-            starttime = Time.time;
             start = false;
             GetComponent<Animator>().Play(animname);
         }
-        if(!start && (Time.time-starttime)>dur)
+        if (!start && animing && (!GetComponent<Animator>().GetCurrentAnimatorStateInfo(0).IsName(animname)))
         {
             col.enabled = false;
             start = true;
+            animing = false;
         }
-	}
+        if (!animing && GetComponent<Animator>().GetCurrentAnimatorStateInfo(0).IsName(animname))
+        {
+            animing = true;
+        }
+        
+    }
 }
