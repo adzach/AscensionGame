@@ -16,6 +16,7 @@ public class Level : MonoBehaviour {
 	[Header ("Set Dynamically")]
 	public int enemyCount;
 	public GameObject bramble;
+	public GameObject brambleFinal;
 
 	// Use this for initialization
 	void Start () {
@@ -23,7 +24,9 @@ public class Level : MonoBehaviour {
 		foreach (Transform t in this.GetComponentsInChildren<Transform>()) {
 			if (t.tag == "Bramble") {
 				bramble = t.gameObject;
-				break;
+			}
+			if (t.tag == "BrambleFinal") {
+				brambleFinal = t.gameObject;
 			}
 		}
 		spawnTerrain ();
@@ -51,6 +54,11 @@ public class Level : MonoBehaviour {
 			if (bramble != null) {
 				Destroy (bramble);
 			}
+		}
+
+		bool allChestsCleared = Main.M.level2ChestOpened && Main.M.level3ChestOpened && Main.M.level6ChestOpened;
+		if (brambleFinal != null && allChestsCleared) {
+			Destroy (brambleFinal);
 		}
 	}
 
