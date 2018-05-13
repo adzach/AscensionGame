@@ -44,6 +44,7 @@ public class Enemy : MonoBehaviour {
         followChar();
 
         flip();
+        if (health <= 0) Destroy(gameObject);
 
     }
 
@@ -98,6 +99,11 @@ public class Enemy : MonoBehaviour {
             coolDownDone = Time.time + attackCoolDown;
             offCooldown = true;
         }
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        health -= collision.gameObject.GetComponent<DamageComponent>().damage;
     }
 
 }

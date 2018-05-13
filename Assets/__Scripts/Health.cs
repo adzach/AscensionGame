@@ -1,33 +1,50 @@
+using System.Collections;
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class Health : MonoBehaviour {
-    private Hero hero;
-	// Use this for initialization
-	void Start () {
-		
-	}
+    Hero hero;
+    private float LastDamage = -1;
+    private float invTime = 1f;
+    // Use this for initialization
+    void Start () {
+        Hero hero = GetComponent<Hero>();
+    }
 	
 	// Update is called once per frame
 	void Update () {
 		
 	}
-    private void OnTriggerEnter(Collider other)
+    /*
+    private void OnCollisionEnter2D(Collision2D collision)
     {
-        if (other.tag == "Enemy")
+        if (Time.time - LastDamage > invTime)
         {
-            hero.damage(10f);
-        }
-        if (other.tag == "Enemy Projectiles")
-        {
-            hero.damage(other.GetComponent<DamageComponent>().damage);
+            GameObject GO = collision.gameObject;
+            print("collison: " + GO.tag +" "+ GO.name);
+            if (GO.tag.Equals("Enemy") || GO.tag.Equals("Enemy Bullet"))
+            {
+                Hero hero = GetComponent<Hero>();
+                hero.damage(collision.gameObject.GetComponent<DamageComponent>().damage);
+                LastDamage = Time.time;
+            }
         }
     }
-
-    internal void setHero(Hero hero)
+    */
+    private void OnCollisionStay2D(Collision2D collision)
     {
-        this.hero = hero;
+        if (Time.time - LastDamage > invTime)
+        {
+            GameObject GO = collision.gameObject;
+            //print("collison: " + GO.tag + " " + GO.name);
+            if (GO.tag.Equals("Enemy") || GO.tag.Equals("Enemy Bullet"))
+            {
+                Hero hero = GetComponent<Hero>();
+                hero.damage(collision.gameObject.GetComponent<DamageComponent>().damage);
+                LastDamage = Time.time;
+            }
+        }
     }
 }

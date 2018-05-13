@@ -6,7 +6,8 @@ public class disablecol : MonoBehaviour {
     Collider2D col;
     bool start = true;
     float starttime;
-    float dur = 1f;
+    float dur = 0.5f;
+    public string animname = "";
 
 	// Use this for initialization
 	void Awake () {
@@ -19,6 +20,7 @@ public class disablecol : MonoBehaviour {
         {
             starttime = Time.time;
             start = false;
+            GetComponent<Animator>().Play(animname);
         }
         if(!start && (Time.time-starttime)>dur)
         {
