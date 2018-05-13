@@ -227,6 +227,9 @@ MonoBehaviour:
   numLevel3Enemies: 3
   numLevel4Enemies: 0
   numLevel6Enemies: 2
+  level2ChestOpened: 0
+  level3ChestOpened: 0
+  level6ChestOpened: 0
   level: {fileID: 0}
 --- !u!114 &1150931306
 MonoBehaviour:
