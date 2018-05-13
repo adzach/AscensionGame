@@ -18,6 +18,9 @@ public class Main : MonoBehaviour {
 	public int numLevel3Enemies;
 	public int numLevel4Enemies;
 	public int numLevel6Enemies;
+	public bool level2ChestOpened;
+	public bool level3ChestOpened;
+	public bool level6ChestOpened;
 
 	[Header ("Set Dynamically")]
 	public GameObject level;
@@ -127,5 +130,6 @@ public class Main : MonoBehaviour {
 
 	public void triggerMemory() {
 		// Enemies should all be dead in level, so just freeze hero position and put the memory over the level
+		print ("Memory triggered");
 	}
 }

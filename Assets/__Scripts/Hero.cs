@@ -142,7 +142,7 @@ public class Hero : MonoBehaviour {
     public void die()
     {
 
-    }    
+    }
 
     private void OnTriggerEnter2D(Collider2D other)
     {
@@ -154,8 +154,36 @@ public class Hero : MonoBehaviour {
             Destroy(other.gameObject);
             stones++;
         }
-		if (other.CompareTag ("Chest")) {
-			Main.M.triggerMemory ();
-		}
     }
+
+	void OnCollisionEnter2D(Collision2D coll) {
+		GameObject other = coll.gameObject;
+		if (other.CompareTag ("Chest")) {
+			switch (other.transform.parent.name) {
+			case "Level2(Clone)":
+				if (!Main.M.level2ChestOpened) {
+					Main.M.triggerMemory ();
+				}
+				Main.M.level2ChestOpened = true;
+				break;
+
+			case "Level3(Clone)":
+				if (!Main.M.level3ChestOpened) {
+					Main.M.triggerMemory ();
+				}
+				Main.M.level3ChestOpened = true;
+				break;
+
+			case "Level6(Clone)":
+				if (!Main.M.level6ChestOpened) {
+					Main.M.triggerMemory ();
+				}
+				Main.M.level6ChestOpened = true;
+				break;
+
+			default:
+				break;
+			}
+		}
+	}
 }
