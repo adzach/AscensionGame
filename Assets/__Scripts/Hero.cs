@@ -22,6 +22,9 @@ public class Hero : MonoBehaviour {
     private GameObject bow;
     public Collider2D clubcol;
     public Collider2D spearcol;
+    protected Animator anim;
+    protected SpriteRenderer sRend;
+
 
 
     void Awake () {
@@ -39,12 +42,13 @@ public class Hero : MonoBehaviour {
 //        selectHero();
 		// Temporary fix to problem
 		heroInfo.HeroName = "Ooga";
-		heroInfo.weapon = new Weapon ();
+		heroInfo.weapon = new Weapon();
 
         walkSpeed = (float)(speed + (agility));
         sprintSpeed = walkSpeed + (walkSpeed / 2);
 
-        
+        anim = GameObject.Find("Body").GetComponent<Animator>();
+        sRend = GameObject.Find("Body").GetComponent<SpriteRenderer>();
     }
 
 	// Use this for initialization
@@ -62,7 +66,13 @@ public class Hero : MonoBehaviour {
 
     // Update is called once per frame
     void Update () {
+//<<<<<<< HEAD
                 moveCode2();
+        //=======
+        //        moveCode2();
+
+
+        //>>>>>>> origin/caveman
 
         /*float xAxis = Input.GetAxis ("Horizontal");
 		float yAxis = Input.GetAxis ("Vertical");
@@ -71,11 +81,12 @@ public class Hero : MonoBehaviour {
 		pos.y += yAxis * speed * Time.deltaTime;
 		transform.position = pos;*/
 
+        //<<<<<<< HEAD
         if (sticks > 2 && stones > 2)
         {
             if (GetComponentInChildren<fire>().weaponNum != 2)
             {
-               club.SetActive(false);
+                club.SetActive(false);
                 spear.SetActive(false);
                 bow.SetActive(true);
 
