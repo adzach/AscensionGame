@@ -18,6 +18,8 @@ TagManager:
   - gun
   - head
   - club
+  - PlayerBullet
+  - Enemy
   layers:
   - Default
   - TransparentFX

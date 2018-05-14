@@ -5,8 +5,6 @@ using UnityEngine;
 public class Hero : MonoBehaviour {
 	static public Hero S;
     public HeroInfo heroInfo;
-    public HeroSelector heroSelector;
-
     [Header ("Set in Inspector")]
     private float speed = 20;
     public float health = 300;
@@ -24,35 +22,38 @@ public class Hero : MonoBehaviour {
     public Collider2D spearcol;
     protected Animator anim;
     protected SpriteRenderer sRend;
-
-
+    public TextSetter TS;
+    public HeroSelector heroselector;
 
     void Awake () {
-        heroSelector = GameObject.Find("Main Camera").GetComponent<HeroSelector>();
+        /*
+        heroselector = GameObject.Find("Main Camera").GetComponent<HeroSelector>();
 		if (heroSelector == null) {
 			Debug.LogError ("heroSelector not assigned!");
 		}
-
+        */
         if (S == null) {
 			    S = this;
         } else {
           Debug.LogError ("Attempted to assign second hero");
         }
-        PlayerPrefs.SetString("Hero_Name", "Ooga");
+        PlayerPrefs.SetString("Hero_Name", "Cowboy");
 //        selectHero();
 		// Temporary fix to problem
 		heroInfo.HeroName = "Ooga";
 		heroInfo.weapon = new Weapon();
-
-        walkSpeed = (float)(speed + (agility));
+        walkSpeed = (float)(speed + (this.agility));
         sprintSpeed = walkSpeed + (walkSpeed / 2);
 
         anim = GameObject.Find("Body").GetComponent<Animator>();
         sRend = GameObject.Find("Body").GetComponent<SpriteRenderer>();
     }
-
-	// Use this for initialization
-	void Start () {
+    void Start()
+    {
+        heroInfo.HeroName = "Ooga";
+        heroInfo.weapon = new Weapon();
+        walkSpeed = (float)(speed + (agility));
+        sprintSpeed = walkSpeed + (walkSpeed / 2);
         club = GameObject.Find("club");
         spear = GameObject.Find("spear");
         bow = GameObject.Find("bow");
@@ -66,13 +67,7 @@ public class Hero : MonoBehaviour {
 
     // Update is called once per frame
     void Update () {
-//<<<<<<< HEAD
                 moveCode2();
-        //=======
-        //        moveCode2();
-
-
-        //>>>>>>> origin/caveman
 
         /*float xAxis = Input.GetAxis ("Horizontal");
 		float yAxis = Input.GetAxis ("Vertical");
@@ -80,8 +75,6 @@ public class Hero : MonoBehaviour {
 		pos.x += xAxis * speed * Time.deltaTime;
 		pos.y += yAxis * speed * Time.deltaTime;
 		transform.position = pos;*/
-
-        //<<<<<<< HEAD
         if (sticks > 2 && stones > 2)
         {
             if (GetComponentInChildren<fire>().weaponNum != 2)
@@ -115,8 +108,8 @@ public class Hero : MonoBehaviour {
                 GetComponentInChildren<fire>().weaponNum = 0;
             }
         }
+        damage(0);
     }
-    
     void changeHero(string character)
     {
         if (PlayerPrefs.HasKey("Hero_Name"))
@@ -139,8 +132,10 @@ public class Hero : MonoBehaviour {
         if (PlayerPrefs.HasKey("Hero_Name"))
         {
             string Name = PlayerPrefs.GetString("Hero_Name");
-            HeroInfo HI = heroSelector.getHero(Name);
+            HeroInfo HI = heroselector.getHero(Name);
+            print("Hi =" + HI);
             this.heroInfo = HI;
+            print(" test "+this.heroInfo.HeroName);
             return true;
         }
         Debug.LogError("failed to set character");
@@ -149,6 +144,7 @@ public class Hero : MonoBehaviour {
     public void damage(float damage)
     {
         health -= damage;
+        GameObject.Find("healthtxt").GetComponent<TextSetter>().setText("Health: " + health);
         if (health <= 0)
         {
             die();
@@ -156,23 +152,13 @@ public class Hero : MonoBehaviour {
     }
     public void die()
     {
-//<<<<<<< HEAD
-        Destroy(gameObject);
+        print("dead");
     }
 	
-	// Update is called once per frame
 	
-
-//<<<<<<< HEAD
-    
-//=======
-
-    //}    
-//>>>>>>> origin/caveman
-
     private void OnTriggerEnter2D(Collider2D other)
     {
-        if(other.CompareTag("stick"))
+        if (other.CompareTag("stick"))
         {
             Destroy(other.gameObject);
             sticks++;

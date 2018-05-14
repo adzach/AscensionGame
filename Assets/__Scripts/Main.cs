@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -35,7 +36,12 @@ public class Main : MonoBehaviour {
 		mainAudio = GetComponent<AudioSource> ();
 	}
 
-	public void goToCharacterSelection() {
+    internal void Restart()
+    {
+        throw new NotImplementedException();
+    }
+
+    public void goToCharacterSelection() {
 		Destroy (_mainScreen);
 		_characterSelect = Instantiate<GameObject> (characterSelect);
 	}

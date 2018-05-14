@@ -36,6 +36,16 @@ public class Weapon{
     }
     public void Fire()
     {
-
+        /*
+        AS.Play();
+        GameObject bullet = Instantiate<GameObject>(weapon.ProjectilePrefab);
+        bullet.transform.position = transform.position;
+        bullet.transform.eulerAngles = new Vector3(0, 0, this.transform.eulerAngles.z);
+        Rigidbody rigid = bullet.GetComponent<Rigidbody>();
+        rigid.velocity = Speed * direction;
+        print(rigid.velocity);
+        bullet.AddComponent<DamageComponent>();
+        bullet.GetComponent<DamageComponent>().damage = weapon.Damage;
+        */
     }
 }

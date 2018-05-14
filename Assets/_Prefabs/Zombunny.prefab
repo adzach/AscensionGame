@@ -24,6 +24,7 @@ GameObject:
   - component: {fileID: 114727517922283640}
   - component: {fileID: 50812370205411400}
   - component: {fileID: 58014698459118970}
+  - component: {fileID: 114213497553618366}
   m_Layer: 12
   m_Name: Zombunny
   m_TagString: hideLOS
@@ -96,6 +97,18 @@ Animator:
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
+--- !u!114 &114213497553618366
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1072193938843996}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f632861e029c57e479bb74a0baaa7766, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  damage: 100
 --- !u!114 &114727517922283640
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -165,5 +178,5 @@ SpriteRenderer:
   m_Size: {x: 1, y: 1}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
+  m_WasSpriteAssigned: 0
   m_MaskInteraction: 0

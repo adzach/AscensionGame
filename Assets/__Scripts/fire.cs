@@ -18,7 +18,7 @@ public class fire : MonoBehaviour {
         getWeapon();
         getHead();
 //        getGun();
-        AS.clip = weapon.Sound;
+        //AS.clip = weapon.Sound;
     }
 	void getHero(Hero Hero)
     {
@@ -33,7 +33,7 @@ public class fire : MonoBehaviour {
     }
     void getWeapon()
     {
-        weapon = hero.heroInfo.weapon;
+        weapon = new CowboyWeapon();
     }
     void getHead()
     {
@@ -43,7 +43,7 @@ public class fire : MonoBehaviour {
         {
             if (s.tag == "head")
             {
-                s.sprite = head;
+                //s.sprite = head;
             }
         }
     }
@@ -74,7 +74,8 @@ public class fire : MonoBehaviour {
     }
 	// Update is called once per frame
 	void Update () {
-        GetComponentsInChildren<Animator>()[0].SetBool("Firing", false);
+        hero.enabled = true;
+        GetComponentsInChildren<Animator>()[0].SetBool("Walking", false);
         if (Input.GetMouseButtonDown(0))
         {
             if (weaponNum == 2)
@@ -84,7 +85,7 @@ public class fire : MonoBehaviour {
                     decreaseCount();
                     GameObject.Find("bow").GetComponent<Animator>().Play("bowAnim");
                     weapon.LastFire = Time.time;
-                    GetComponentsInChildren<Animator>()[0].SetBool("Firing", true);
+                    GetComponentsInChildren<Animator>()[0].SetBool("Walking", true);
                     float dir = ((this.transform.eulerAngles.z) * Mathf.PI) / 180;
                     dir = dir - (Mathf.PI / 2);
                     dir = -dir;
