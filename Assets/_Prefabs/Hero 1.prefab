@@ -385,7 +385,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1, y: 1}
+  m_Size: {x: 1.5, y: 1.5}
   m_EdgeRadius: 0
 --- !u!82 &82551098130597924
 AudioSource:
@@ -535,7 +535,7 @@ MonoBehaviour:
     Head: {fileID: 0}
     Gun: {fileID: 0}
     health: 0
-  speed: 50
+  speed: 20
   health: 300
   curSpeed: 0
   sticks: 0
