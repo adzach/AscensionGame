@@ -17,6 +17,7 @@ public class Main : MonoBehaviour {
 	public int numLevel2Enemies;
 	public int numLevel3Enemies;
 	public int numLevel4Enemies;
+	public int numLevel5Enemies;
 	public int numLevel6Enemies;
 	public GameObject[] memories;
 	public GameObject memoryCanvas;
@@ -150,5 +151,9 @@ public class Main : MonoBehaviour {
 		go.transform.SetParent (memoryCanvas.transform);
 		button.transform.SetParent (memoryCanvas.transform);
 		memoryCount++;
+	}
+
+	public void endGame() {
+		// Do something to end the game.
 	}
 }

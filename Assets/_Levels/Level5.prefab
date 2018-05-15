@@ -5181,10 +5181,12 @@ MonoBehaviour:
   rock: {fileID: 1920283753462156, guid: 8b5b12019a084494d90b381aab85e309, type: 2}
   stick: {fileID: 1432724704963936, guid: 6be1a93f0a60d844382f16dc489d38ea, type: 2}
   zomBunny: {fileID: 1072193938843996, guid: 81e2e669307293f448e70e29c55b59ed, type: 2}
+  zomPhant: {fileID: 1068037357942098, guid: b4b438ca4c6f22e4b98476b7cfa9644a, type: 2}
   numRocks: 3
   numSticks: 3
-  borders: []
-  exits: []
+  enemyCount: 0
+  bramble: {fileID: 0}
+  brambleFinal: {fileID: 0}
 --- !u!114 &114466100763209964
 MonoBehaviour:
   m_ObjectHideFlags: 1

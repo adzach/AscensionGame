@@ -319,6 +319,7 @@ MonoBehaviour:
   numLevel2Enemies: 0
   numLevel3Enemies: 0
   numLevel4Enemies: 0
+  numLevel5Enemies: 1
   numLevel6Enemies: 0
   memories:
   - {fileID: 1200743709946518, guid: 3992524185e59e94ca7a9a27c801e456, type: 2}

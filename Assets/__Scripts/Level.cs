@@ -10,6 +10,7 @@ public class Level : MonoBehaviour {
 	public GameObject rock;
 	public GameObject stick;
 	public GameObject zomBunny;
+	public GameObject zomPhant;
 	public int numRocks;
 	public int numSticks;
 
@@ -44,6 +45,9 @@ public class Level : MonoBehaviour {
 		case "Level4(Clone)":
 			enemyCount = Main.M.numLevel4Enemies;
 			break;
+		case "Level5(Clone)":
+			enemyCount = Main.M.numLevel5Enemies;
+			break;
 		case "Level6(Clone)":
 			enemyCount = Main.M.numLevel6Enemies;
 			break;
@@ -53,6 +57,9 @@ public class Level : MonoBehaviour {
 		if (enemyCount == 0) {
 			if (bramble != null) {
 				Destroy (bramble);
+			}
+			if (transform.name == "Level5(Clone)") {
+				Main.M.endGame ();
 			}
 		}
 
@@ -104,6 +111,13 @@ public class Level : MonoBehaviour {
 				bunny.transform.position = new Vector3 (Random.Range (-1f, 1f) * maxpos.x, Random.Range (-1f, 1f) * maxpos.y, -1);
 			}
 			enemyCount = Main.M.numLevel4Enemies;
+			break;
+
+		case "Level5(Clone)":
+			GameObject boss = Instantiate<GameObject> (zomPhant);
+			boss.transform.parent = transform;
+			boss.transform.position = new Vector3 (0.4f, 0.1f, -1);
+			enemyCount = 1;
 			break;
 
 		case "Level6(Clone)":
