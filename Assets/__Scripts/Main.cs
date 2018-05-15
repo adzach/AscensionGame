@@ -18,12 +18,17 @@ public class Main : MonoBehaviour {
 	public int numLevel3Enemies;
 	public int numLevel4Enemies;
 	public int numLevel6Enemies;
-	public bool level2ChestOpened;
-	public bool level3ChestOpened;
-	public bool level6ChestOpened;
+	public GameObject[] memories;
+	public GameObject memoryCanvas;
+	public GameObject memoryScreen;
 
 	[Header ("Set Dynamically")]
 	public GameObject level;
+	public int memoryCount;
+	public bool level2ChestOpened;
+	public bool level3ChestOpened;
+	public bool level6ChestOpened;
+	public GameObject _memoryScreen;
 
 	private GameObject _mainScreen;
 	private GameObject _characterSelect;
@@ -39,6 +44,10 @@ public class Main : MonoBehaviour {
 	void Start () {
 		_mainScreen = Instantiate<GameObject> (mainScreen);
 		mainAudio = GetComponent<AudioSource> ();
+		memoryCount = 0;
+		level2ChestOpened = false;
+		level3ChestOpened = false;
+		level6ChestOpened = false;
 	}
 
 	public void goToCharacterSelection() {
@@ -64,6 +73,7 @@ public class Main : MonoBehaviour {
 
 		CameraMain.hero = hero;
 		CameraMain.gameStarted = true;
+		triggerMemory ();
 	}
 
 	public void changeLevel(GameObject levelToLeadTo, string directionComingFrom) {
@@ -130,6 +140,10 @@ public class Main : MonoBehaviour {
 
 	public void triggerMemory() {
 		// Enemies should all be dead in level, so just freeze hero position and put the memory over the level
-		print ("Memory triggered");
+		Time.timeScale = 0;
+		GameObject go = Instantiate<GameObject> (memories [memoryCount]);
+		_memoryScreen = Instantiate<GameObject> (memoryScreen);
+		go.transform.SetParent (memoryCanvas.transform);
+		memoryCount++;
 	}
 }

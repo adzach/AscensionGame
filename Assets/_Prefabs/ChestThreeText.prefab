@@ -1,0 +1,106 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1001 &100100000
+Prefab:
+  m_ObjectHideFlags: 1
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications: []
+    m_RemovedComponents: []
+  m_ParentPrefab: {fileID: 0}
+  m_RootGameObject: {fileID: 1380683921882450}
+  m_IsPrefabParent: 1
+--- !u!1 &1380683921882450
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 224316921272445602}
+  - component: {fileID: 222981854370065482}
+  - component: {fileID: 114643991078905328}
+  m_Layer: 5
+  m_Name: ChestThreeText
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &114643991078905328
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1380683921882450}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 708705254, guid: f70555f144d8491a825f0804e09c671c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 0, g: 0, b: 0, a: 1}
+  m_RaycastTarget: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
+      Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+  m_FontData:
+    m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
+    m_FontSize: 13
+    m_FontStyle: 0
+    m_BestFit: 0
+    m_MinSize: 0
+    m_MaxSize: 40
+    m_Alignment: 0
+    m_AlignByGeometry: 1
+    m_RichText: 1
+    m_HorizontalOverflow: 0
+    m_VerticalOverflow: 1
+    m_LineSpacing: 1
+  m_Text: "The pain returned to Ooga's head, but this time his fears were confirmed.\r
+    The scene displayed before him was not one of peace and tranquility as they had
+    been before.\r\nIt was one of death.\r\nA thick fog had rolled over the entire
+    clearing.\r Bodies of those he once knew were strewn across the jungle floor.\r
+    Small, grotesque beasts were dashing back and forth, sinking their teeth into
+    anything that tried to run.\r They reminded him of rabbits, only these creatures
+    definitely were not of the living.\r It was a chaotic sight that made Ooga shudder.\r
+    His family cowered in their hut, hoping the creatures would leave them unnoticed.\r
+    Ooga was about to call to them, to tell them to flee, but a tree came crashing
+    down on him, sending him to the ground in a daze.\r As his consciousness faded,
+    he could only remember one distinct memory.\r\nA large, booming sound echoed throughout
+    the clearing, as if the entire scene was being torn apart.\r Before losing conscienceness
+    entirely, Ooga looked back towards his hut, desperately hoping his family had
+    escaped.\r A large shape approached his hut and reared upwards, letting loose
+    a bloodcurdling scream.\r All of the small creatures fled the scene in a panic,
+    leaving only Ooga to watch as the shape came crashing down on his hut, leaving
+    nothing remaining.....\r\n\nOoga awakened from his trance, his worries now replaced
+    with rage.\r All the peace that was disrupted, all the life that was lost by the
+    hand of this scourge.\r Ooga would find the perpetrator, and make sure their life
+    was silenced.\n\n(Click to continue)"
+--- !u!222 &222981854370065482
+CanvasRenderer:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1380683921882450}
+--- !u!224 &224316921272445602
+RectTransform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1380683921882450}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 0.95, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 5.6842103, y: 132}
+  m_SizeDelta: {x: 650, y: 30}
+  m_Pivot: {x: 0.5, y: 0.5}
