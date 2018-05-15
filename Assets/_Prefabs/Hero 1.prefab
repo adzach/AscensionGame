@@ -535,6 +535,7 @@ MonoBehaviour:
     Head: {fileID: 0}
     Gun: {fileID: 0}
     health: 0
+  speed: 50
   health: 300
   curSpeed: 0
   sticks: 0

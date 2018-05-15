@@ -316,10 +316,10 @@ MonoBehaviour:
   characterSelect: {fileID: 1038853688541736, guid: 555149245f0740d499c427059d24565c,
     type: 2}
   jungleMusic: {fileID: 8300000, guid: f662bd5280b8c4e428fd6bb9603ceae8, type: 3}
-  numLevel2Enemies: 3
-  numLevel3Enemies: 3
+  numLevel2Enemies: 0
+  numLevel3Enemies: 0
   numLevel4Enemies: 0
-  numLevel6Enemies: 2
+  numLevel6Enemies: 0
   memories:
   - {fileID: 1200743709946518, guid: 3992524185e59e94ca7a9a27c801e456, type: 2}
   - {fileID: 1885209353477032, guid: 01a1215116995b3478b716fb4839d35e, type: 2}
@@ -328,11 +328,14 @@ MonoBehaviour:
   memoryCanvas: {fileID: 673132578}
   memoryScreen: {fileID: 1746093411877576, guid: 5cc487643ecd48f47987f3a1d153b8d7,
     type: 2}
+  memoryContinueButton: {fileID: 1351293855018964, guid: bfe806e66621dc840995e64ba2c1587f,
+    type: 2}
   level: {fileID: 0}
   memoryCount: 0
   level2ChestOpened: 0
   level3ChestOpened: 0
   level6ChestOpened: 0
+  _memoryScreen: {fileID: 0}
 --- !u!114 &1150931306
 MonoBehaviour:
   m_ObjectHideFlags: 0

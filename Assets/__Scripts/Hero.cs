@@ -7,7 +7,7 @@ public class Hero : MonoBehaviour {
     public HeroInfo heroInfo;
 //    public HeroSelector heroSelector;
     [Header ("Set in Inspector")]
-    private float speed = 20;
+    public float speed = 20;
     public float health = 300;
 //    private float walkSpeed;
     public float curSpeed;

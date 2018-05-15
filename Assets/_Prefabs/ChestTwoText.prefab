@@ -49,7 +49,7 @@ MonoBehaviour:
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   m_FontData:
     m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
-    m_FontSize: 16
+    m_FontSize: 22
     m_FontStyle: 0
     m_BestFit: 0
     m_MinSize: 0
@@ -67,7 +67,7 @@ MonoBehaviour:
     he awoke not too long ago.\r The landscape remains the same, but the air is dense
     and unclear.\r The difference is between the scene in Ooga's mind and the scene
     before him is quite clear.\r\n\nThat feeling in the air, all of the peace, all
-    of the.... life.\r\nIt's gone.\n\n(Click to continue)"
+    of the.... life.\r\nIt's gone."
 --- !u!222 &222945341354091428
 CanvasRenderer:
   m_ObjectHideFlags: 1

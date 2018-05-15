@@ -21,6 +21,7 @@ public class Main : MonoBehaviour {
 	public GameObject[] memories;
 	public GameObject memoryCanvas;
 	public GameObject memoryScreen;
+	public GameObject memoryContinueButton;
 
 	[Header ("Set Dynamically")]
 	public GameObject level;
@@ -141,9 +142,13 @@ public class Main : MonoBehaviour {
 	public void triggerMemory() {
 		// Enemies should all be dead in level, so just freeze hero position and put the memory over the level
 		Time.timeScale = 0;
-		GameObject go = Instantiate<GameObject> (memories [memoryCount]);
 		_memoryScreen = Instantiate<GameObject> (memoryScreen);
+		GameObject go = Instantiate<GameObject> (memories [memoryCount]);
+		GameObject button = Instantiate<GameObject> (memoryContinueButton);
+		go.transform.position = new Vector3 (memoryCanvas.transform.position.x + 20, memoryCanvas.transform.position.y + 250, -5);
+		button.transform.position = new Vector3 (memoryCanvas.transform.position.x -20, memoryCanvas.transform.position.y - 300, -5);
 		go.transform.SetParent (memoryCanvas.transform);
+		button.transform.SetParent (memoryCanvas.transform);
 		memoryCount++;
 	}
 }

@@ -49,7 +49,7 @@ MonoBehaviour:
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   m_FontData:
     m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
-    m_FontSize: 13
+    m_FontSize: 18
     m_FontStyle: 0
     m_BestFit: 0
     m_MinSize: 0
@@ -79,7 +79,7 @@ MonoBehaviour:
     nothing remaining.....\r\n\nOoga awakened from his trance, his worries now replaced
     with rage.\r All the peace that was disrupted, all the life that was lost by the
     hand of this scourge.\r Ooga would find the perpetrator, and make sure their life
-    was silenced.\n\n(Click to continue)"
+    was silenced."
 --- !u!222 &222981854370065482
 CanvasRenderer:
   m_ObjectHideFlags: 1

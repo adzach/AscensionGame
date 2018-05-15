@@ -9,6 +9,6 @@ public class PanelClicker : MonoBehaviour {
 			GameObject.Destroy(child.gameObject);
 		}
 		Time.timeScale = 1;
-		Destroy (this.gameObject);
+		Destroy (Main.M._memoryScreen.gameObject);
 	}
 }
