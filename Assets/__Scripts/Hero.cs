@@ -17,11 +17,14 @@ public class Hero : MonoBehaviour {
     public float sticks = 0;
     public float stones = 0;
     private GameObject club;
-    private GameObject spear;
+    public GameObject spear;
     private GameObject bow;
     public Collider2D clubcol;
     public Collider2D spearcol;
-
+    protected Animator anim;
+    protected SpriteRenderer sRend;
+    public TextSetter TS;
+    public HeroSelector heroselector;
 
     void Awake () {
 //        heroSelector = GameObject.Find("Main Camera").GetComponent<HeroSelector>();
@@ -34,18 +37,21 @@ public class Hero : MonoBehaviour {
         } else {
           Debug.LogError ("Attempted to assign second hero");
         }
-        PlayerPrefs.SetString("Hero_Name", "Ooga");
+        PlayerPrefs.SetString("Hero_Name", "Cowboy");
 //        selectHero();
 		// Temporary fix to problem
 		heroInfo.HeroName = "Ooga";
 		heroInfo.weapon = new Weapon ();
 
-//        walkSpeed = (float)(speed + (agility));
-//        sprintSpeed = walkSpeed + (walkSpeed / 2); 
+        anim = GameObject.Find("Body").GetComponent<Animator>();
+        sRend = GameObject.Find("Body").GetComponent<SpriteRenderer>();
     }
-
-	// Use this for initialization
-	void Start () {
+    void Start()
+    {
+        heroInfo.HeroName = "Ooga";
+        heroInfo.weapon = new Weapon();
+        walkSpeed = (float)(speed + (agility));
+        sprintSpeed = walkSpeed + (walkSpeed / 2);
         club = GameObject.Find("club");
         spear = GameObject.Find("spear");
         bow = GameObject.Find("bow");
@@ -65,11 +71,10 @@ public class Hero : MonoBehaviour {
 		Vector3 pos = transform.position;
 		pos.x += xAxis * speed * Time.deltaTime;
 		pos.y += yAxis * speed * Time.deltaTime;
-		transform.position = pos;
-
-        if (sticks >= 3 && stones >= 3)
+		transform.position = pos;*/
+        if (sticks > 2 && stones > 2)
         {
-            if (GetComponentInChildren<fire>().weaponNum < 2)
+            if (GetComponentInChildren<fire>().weaponNum != 2)
             {
             	club.SetActive(false);
                 spear.SetActive(false);
@@ -78,9 +83,9 @@ public class Hero : MonoBehaviour {
                 GetComponentInChildren<fire>().weaponNum = 2;
             }
         }
-        else if (sticks >= 1 && stones >= 1)
+        else if (sticks > 0 && stones > 0)
         {
-            if (GetComponentInChildren<fire>().weaponNum < 1)
+            if (GetComponentInChildren<fire>().weaponNum != 1)
             {
                 club.SetActive(false);
                 spear.SetActive(true);
@@ -100,6 +105,7 @@ public class Hero : MonoBehaviour {
                 GetComponentInChildren<fire>().weaponNum = 0;
             }
         }
+        damage(0);
     }
     
 //    void changeHero(string character)
@@ -134,6 +140,7 @@ public class Hero : MonoBehaviour {
     public void damage(float damage)
     {
         health -= damage;
+        GameObject.Find("healthtxt").GetComponent<TextSetter>().setText("Health: " + health);
         if (health <= 0)
         {
             die();
@@ -141,18 +148,22 @@ public class Hero : MonoBehaviour {
     }
     public void die()
     {
-
+        print("dead");
     }
-
+	
+	
     private void OnTriggerEnter2D(Collider2D other)
     {
-        if(other.CompareTag("stick")) {
+        if (other.CompareTag("stick"))
+        {
             Destroy(other.gameObject);
             sticks++;
+            GameObject.Find("sticktxt").GetComponent<setText>().set("" + Mathf.Round(sticks+0.49f));
         }
         if (other.CompareTag("rock")) {
             Destroy(other.gameObject);
             stones++;
+            GameObject.Find("rocktxt").GetComponent<setText>().set("" + Mathf.Round(stones + 0.49f));
         }
     }
 

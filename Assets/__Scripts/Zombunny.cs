@@ -10,6 +10,7 @@ public class Zombunny : Enemy {
 
     [Header("Set Dynamically: Zombunny")]
     public float stopAttack;
+    
 
 
     protected override void Awake()
@@ -21,6 +22,7 @@ public class Zombunny : Enemy {
 
     protected override void Update()
     {
+
         base.Update();
     }
 
@@ -32,9 +34,14 @@ public class Zombunny : Enemy {
         if (Time.time > coolDownDone)
         {
             // reset cooldown
-            coolDownDone = Time.time + attackCoolDown;
+            coolDownDone = Time.time + attackCoolDown + attackDurration;
             // start attacking and start timer for that attack
             stopAttack = Time.time + attackDurration;
+            offCooldown = true;
+        }
+        else
+        {
+            offCooldown = false;
         }
 
         // if attacking, go in, otherwise keep regular speed

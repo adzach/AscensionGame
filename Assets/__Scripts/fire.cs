@@ -24,18 +24,37 @@ public class fire : MonoBehaviour {
 
     void getWeapon()
     {
-        weapon = hero.heroInfo.weapon;
+        weapon = new CowboyWeapon();
     }
-
+    void decreaseCount()
+    {
+        hero.stones -= 0.1f;
+        hero.sticks -= 0.1f;
+        GameObject.Find("sticktxt").GetComponent<setText>().set("" + Mathf.Round(hero.sticks + 0.49f));
+        GameObject.Find("rocktxt").GetComponent<setText>().set("" + Mathf.Round(hero.stones + 0.49f));
+    }
+    public void enemyHit()
+    {
+        if (weaponNum == 1) decreaseCount();
+    }
 	// Update is called once per frame
 	void Update () {
+        hero.enabled = true;
         if (Input.GetMouseButtonDown(0))
         {
             if (weaponNum == 2)
             {
                 if (Time.time - weapon.LastFire > weapon.Firerate)
                 {
+                    decreaseCount();
+                    GameObject.Find("bow").GetComponent<Animator>().Play("bowAnim");
                     weapon.LastFire = Time.time;
+                    GetComponentsInChildren<Animator>()[0].SetBool("Walking", true);
+                    float dir = ((this.transform.eulerAngles.z) * Mathf.PI) / 180;
+                    dir = dir - (Mathf.PI / 2);
+                    dir = -dir;
+                    Vector3 direction = new Vector3(Mathf.Cos(dir), Mathf.Sin(dir), 0);
+                    weapon.Fire();
                     AS.Play();
                     GameObject bullet = Instantiate<GameObject>(arrow);
                     bullet.transform.position = transform.position;

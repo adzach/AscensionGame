@@ -19,10 +19,11 @@ public class Enemy : MonoBehaviour {
     public float coolDownDone;
     public float distance;
     public bool offCooldown = true;
-
+    public Vector3 tempHero;
+    public bool first = true;
+    public Vector3 heroPos;
 
     protected Animator anim;
-    protected Animator attackanim;
     protected Rigidbody2D rigid;
     protected SpriteRenderer sRend;
 
@@ -30,7 +31,6 @@ public class Enemy : MonoBehaviour {
     {
         health = maxHealth;
         anim = GetComponent<Animator>();
-        attackanim = GetComponent<Animator>();
         rigid = GetComponent<Rigidbody2D>();
         sRend = GetComponent<SpriteRenderer>();
         coolDownDone = Time.time + attackCoolDown;
@@ -44,21 +44,26 @@ public class Enemy : MonoBehaviour {
         followChar();
 
         flip();
+        if (health <= 0) Destroy(gameObject);
 
     }
 
     public void followChar()
     {
-//        Vector3 mousePos2D = Input.mousePosition;
-//        mousePos2D.z = -Camera.main.transform.position.z;
-//        Vector3 mousePos3D = Camera.main.ScreenToWorldPoint(mousePos2D);
-
-		Vector3 heroPos = Hero.S.transform.position;
+        //        Vector3 mousePos2D = Input.mousePosition;
+        //        mousePos2D.z = -Camera.main.transform.position.z;
+        //        Vector3 mousePos3D = Camera.main.ScreenToWorldPoint(mousePos2D);
+        
+        if (first)
+        {
+             heroPos = Hero.S.transform.position;
+        }
+        first = false;
 
         float x = rigid.position.x;
         float y = rigid.position.y;
         Vector3 enemyPos = new Vector3(x, y, 0);
-
+        
         dir = heroPos - enemyPos;
         distance = dir.magnitude;
 
@@ -66,10 +71,20 @@ public class Enemy : MonoBehaviour {
         {
             attack();
         }
-        else
+
+        if (distance < 1.1f)
         {
-            speed = defaultSpeed;
+            offCooldown = true;
         }
+
+        if (offCooldown)
+        {
+            heroPos = Hero.S.transform.position;
+            speed = defaultSpeed;
+            dir = heroPos - enemyPos;
+            distance = dir.magnitude;
+        }
+        
 
         // update velocity
         dir.Normalize();
@@ -98,6 +113,14 @@ public class Enemy : MonoBehaviour {
             coolDownDone = Time.time + attackCoolDown;
             offCooldown = true;
         }
+        
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        health -= collision.gameObject.GetComponent<DamageComponent>().damage;
+        collision.gameObject.SendMessage("makeBlood");
+        collision.gameObject.SendMessageUpwards("enemyHit");
     }
 
 }

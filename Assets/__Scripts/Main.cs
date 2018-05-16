@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -11,7 +12,8 @@ public class Main : MonoBehaviour {
 	public GameObject hero;
 	public GameObject abilityHolder;
 	public GameObject Canvas;
-	public GameObject mainScreen;
+    public GameObject imageCanvas;
+    public GameObject mainScreen;
 	public GameObject characterSelect;
 	public AudioClip jungleMusic;
 	public int numLevel2Enemies;
@@ -52,7 +54,12 @@ public class Main : MonoBehaviour {
 		level6ChestOpened = false;
 	}
 
-	public void goToCharacterSelection() {
+    internal void Restart()
+    {
+        throw new NotImplementedException();
+    }
+
+    public void goToCharacterSelection() {
 		Destroy (_mainScreen);
 		_characterSelect = Instantiate<GameObject> (characterSelect);
 	}
@@ -70,8 +77,10 @@ public class Main : MonoBehaviour {
 	    abilityHolder.name = "abilityHolder";
 	    Canvas = Instantiate<GameObject>(Canvas);
 	    Canvas.name = "Canvas";
+        imageCanvas = Instantiate<GameObject>(imageCanvas);
+        imageCanvas.name = "image Canvas";
 
-	    hero.transform.position = new Vector3 (hero.transform.position.x, hero.transform.position.y, hero.transform.position.z);
+        hero.transform.position = new Vector3 (hero.transform.position.x, hero.transform.position.y, hero.transform.position.z);
 
 		CameraMain.hero = hero;
 		CameraMain.gameStarted = true;

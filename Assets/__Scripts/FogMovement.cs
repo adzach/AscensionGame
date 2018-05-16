@@ -11,7 +11,7 @@ public class FogMovement : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-		transform.position = new Vector3 (0, 0, -1);
+		transform.position = new Vector3 (11110, 11110, -1);
 		startPosition = transform.position;
 	}
 	

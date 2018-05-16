@@ -30,6 +30,6 @@ public class pointatcursor : MonoBehaviour
 
         angle = xnega*Mathf.Atan(Mathf.Abs(diff.x) / Mathf.Abs(diff.y))*(180/Mathf.PI);
 
-		transform.rotation = Quaternion.Euler(0f, 0f,ynega * (-angle + -90) + 90);
+		transform.rotation = Quaternion.Euler(0f, 0f,ynega*(-angle + -90) +90);
 	}
 }

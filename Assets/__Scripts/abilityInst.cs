@@ -9,28 +9,33 @@ public class abilityInst : MonoBehaviour
     protected Animator anim;
     public Animation fireanim;
     public bool running = false;
+    public string animName = "fireAbility";
+    public bool WaitaFrame = false;
 
     // Use this for initialization
     void Start()
     {
-        
+        anim = GetComponent<Animator>();
+        running = true;
+        anim.Play(animName);
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (running&&(!anim.GetCurrentAnimatorStateInfo(0).IsName("fireAbility")))
+        if (WaitaFrame)
         {
-            Destroy(gameObject);
+            if (running && (!anim.GetCurrentAnimatorStateInfo(0).IsName(animName)))
+            {
+                Destroy(gameObject);
+            }
         }
+        WaitaFrame = true;
     }
 
     void OnTriggerEnter2D(Collider2D other)
     {
-        if (anim.GetCurrentAnimatorStateInfo(0).IsName("fireAbility") && other.gameObject.layer == LayerMask.NameToLayer("Enemies"))
-        {
-            Destroy(other.gameObject);
-        }
+       
     }
 
     public void ability1()

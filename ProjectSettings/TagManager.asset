@@ -21,6 +21,8 @@ TagManager:
   - Chest
   - Bramble
   - BrambleFinal
+  - PlayerBullet
+  - Enemy
   layers:
   - Default
   - TransparentFX
