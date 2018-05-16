@@ -113,6 +113,99 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!1 &673132578
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 673132582}
+  - component: {fileID: 673132581}
+  - component: {fileID: 673132580}
+  - component: {fileID: 673132579}
+  m_Layer: 5
+  m_Name: MemoryCanvas
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &673132579
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 673132578}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 1301386320, guid: f70555f144d8491a825f0804e09c671c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_IgnoreReversedGraphics: 1
+  m_BlockingObjects: 0
+  m_BlockingMask:
+    serializedVersion: 2
+    m_Bits: 4294967295
+--- !u!114 &673132580
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 673132578}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 1980459831, guid: f70555f144d8491a825f0804e09c671c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_UiScaleMode: 0
+  m_ReferencePixelsPerUnit: 100
+  m_ScaleFactor: 1
+  m_ReferenceResolution: {x: 800, y: 600}
+  m_ScreenMatchMode: 0
+  m_MatchWidthOrHeight: 0
+  m_PhysicalUnit: 3
+  m_FallbackScreenDPI: 96
+  m_DefaultSpriteDPI: 96
+  m_DynamicPixelsPerUnit: 1
+--- !u!223 &673132581
+Canvas:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 673132578}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_RenderMode: 0
+  m_Camera: {fileID: 0}
+  m_PlaneDistance: 100
+  m_PixelPerfect: 0
+  m_ReceivesEvents: 1
+  m_OverrideSorting: 0
+  m_OverridePixelPerfect: 0
+  m_SortingBucketNormalizedSize: 0
+  m_AdditionalShaderChannelsFlag: 0
+  m_SortingLayerID: 0
+  m_SortingOrder: 0
+  m_TargetDisplay: 0
+--- !u!224 &673132582
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 673132578}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 0, y: 0, z: 0}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 0, y: 0}
+  m_Pivot: {x: 0, y: 0}
 --- !u!1 &1150931300
 GameObject:
   m_ObjectHideFlags: 0
@@ -125,7 +218,6 @@ GameObject:
   - component: {fileID: 1150931302}
   - component: {fileID: 1150931301}
   - component: {fileID: 1150931305}
-  - component: {fileID: 1150931307}
   - component: {fileID: 1150931306}
   - component: {fileID: 1150931308}
   m_Layer: 0
@@ -214,18 +306,37 @@ MonoBehaviour:
   - {fileID: 1622898098240702, guid: 17ed93b8c317a284eaf8ac2c394df148, type: 2}
   - {fileID: 1669346932436430, guid: ccaf29e83729ca84b8977090e881cf6c, type: 2}
   - {fileID: 1789991605187314, guid: 797267554ef23854a8b8058768e355b3, type: 2}
+  - {fileID: 1698358292388456, guid: 278843e9a3eaab244a355c22cf46dc61, type: 2}
   levelPos: {x: 0, y: 0, z: 0}
   hero: {fileID: 1799879084446436, guid: 9b0421ad9206ffc44a48d36d9dfa07e8, type: 2}
   abilityHolder: {fileID: 1893244982324018, guid: 1b6f2f5e0122e7b4bb7fdd5dc5509356,
     type: 2}
   Canvas: {fileID: 1791717648971434, guid: 6d317ca178396b3408cc0236d8f9c0e9, type: 2}
-  imageCanvas: {fileID: 1786389811587588, guid: a259185148fd1324eb62c9237dd0d632,
-    type: 2}
   mainScreen: {fileID: 1939037191035388, guid: f3dfdaac1ae93414a8dff01d8dd38697, type: 2}
   characterSelect: {fileID: 1038853688541736, guid: 555149245f0740d499c427059d24565c,
     type: 2}
-  jungleMusic: {fileID: 0}
+  jungleMusic: {fileID: 8300000, guid: f662bd5280b8c4e428fd6bb9603ceae8, type: 3}
+  numLevel2Enemies: 3
+  numLevel3Enemies: 3
+  numLevel4Enemies: 0
+  numLevel5Enemies: 1
+  numLevel6Enemies: 3
+  memories:
+  - {fileID: 1200743709946518, guid: 3992524185e59e94ca7a9a27c801e456, type: 2}
+  - {fileID: 1885209353477032, guid: 01a1215116995b3478b716fb4839d35e, type: 2}
+  - {fileID: 1269856050536330, guid: 00d94277d8577be4a94bc5df67402784, type: 2}
+  - {fileID: 1380683921882450, guid: 9aa9d022358510e468b71d3b44684bdf, type: 2}
+  memoryCanvas: {fileID: 673132578}
+  memoryScreen: {fileID: 1746093411877576, guid: 5cc487643ecd48f47987f3a1d153b8d7,
+    type: 2}
+  memoryContinueButton: {fileID: 1351293855018964, guid: bfe806e66621dc840995e64ba2c1587f,
+    type: 2}
   level: {fileID: 0}
+  memoryCount: 0
+  level2ChestOpened: 0
+  level3ChestOpened: 0
+  level6ChestOpened: 0
+  _memoryScreen: {fileID: 0}
 --- !u!114 &1150931306
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -235,17 +346,6 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 7bd8f8a45dcaa11499c2fae634109a71, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &1150931307
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1150931300}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 02c1d7cd548cc234094560e3b347b9f2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!82 &1150931308

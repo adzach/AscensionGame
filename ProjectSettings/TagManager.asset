@@ -18,6 +18,9 @@ TagManager:
   - gun
   - head
   - club
+  - Chest
+  - Bramble
+  - BrambleFinal
   - PlayerBullet
   - Enemy
   layers:

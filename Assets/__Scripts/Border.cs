@@ -15,7 +15,6 @@ public class Border : MonoBehaviour {
 			break;
 
 		default:
-			print ("Something collided with a border. It was: " + go.name);
 			break;
 		}
 	}

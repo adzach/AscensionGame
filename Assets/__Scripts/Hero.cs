@@ -5,14 +5,15 @@ using UnityEngine;
 public class Hero : MonoBehaviour {
 	static public Hero S;
     public HeroInfo heroInfo;
+//    public HeroSelector heroSelector;
     [Header ("Set in Inspector")]
-    private float speed = 20;
+    public float speed = 20;
     public float health = 300;
-    private float walkSpeed;
+//    private float walkSpeed;
     public float curSpeed;
     private float maxSpeed;
-    private float agility = 5;
-    private float sprintSpeed;
+//    private float agility = 5;
+//    private float sprintSpeed;
     public float sticks = 0;
     public float stones = 0;
     private GameObject club;
@@ -26,12 +27,11 @@ public class Hero : MonoBehaviour {
     public HeroSelector heroselector;
 
     void Awake () {
-        /*
-        heroselector = GameObject.Find("Main Camera").GetComponent<HeroSelector>();
-		if (heroSelector == null) {
-			Debug.LogError ("heroSelector not assigned!");
-		}
-        */
+//        heroSelector = GameObject.Find("Main Camera").GetComponent<HeroSelector>();
+//		if (heroSelector == null) {
+//			Debug.LogError ("heroSelector not assigned!");
+//		}
+
         if (S == null) {
 			    S = this;
         } else {
@@ -41,9 +41,7 @@ public class Hero : MonoBehaviour {
 //        selectHero();
 		// Temporary fix to problem
 		heroInfo.HeroName = "Ooga";
-		heroInfo.weapon = new Weapon();
-        walkSpeed = (float)(speed + (this.agility));
-        sprintSpeed = walkSpeed + (walkSpeed / 2);
+		heroInfo.weapon = new Weapon ();
 
         anim = GameObject.Find("Body").GetComponent<Animator>();
         sRend = GameObject.Find("Body").GetComponent<SpriteRenderer>();
@@ -67,9 +65,8 @@ public class Hero : MonoBehaviour {
 
     // Update is called once per frame
     void Update () {
-                moveCode2();
-
-        /*float xAxis = Input.GetAxis ("Horizontal");
+//        moveCode2();
+		float xAxis = Input.GetAxis ("Horizontal");
 		float yAxis = Input.GetAxis ("Vertical");
 		Vector3 pos = transform.position;
 		pos.x += xAxis * speed * Time.deltaTime;
@@ -79,7 +76,7 @@ public class Hero : MonoBehaviour {
         {
             if (GetComponentInChildren<fire>().weaponNum != 2)
             {
-                club.SetActive(false);
+            	club.SetActive(false);
                 spear.SetActive(false);
                 bow.SetActive(true);
 
@@ -110,37 +107,36 @@ public class Hero : MonoBehaviour {
         }
         damage(0);
     }
-    void changeHero(string character)
-    {
-        if (PlayerPrefs.HasKey("Hero_Name"))
-        {
-            string oldPlayer = PlayerPrefs.GetString("Hero_Name");
-            PlayerPrefs.SetString("Hero_Name", character);
-            if (!selectHero())
-            {
-                PlayerPrefs.SetString("Hero_Name", oldPlayer);
-            }
-        }
-        PlayerPrefs.SetString("Hero_Name", character);
-        if (!selectHero())
-        {
-            PlayerPrefs.DeleteKey("Hero_Name");
-        }
-    }
-    bool selectHero()
-    {
-        if (PlayerPrefs.HasKey("Hero_Name"))
-        {
-            string Name = PlayerPrefs.GetString("Hero_Name");
-            HeroInfo HI = heroselector.getHero(Name);
-            print("Hi =" + HI);
-            this.heroInfo = HI;
-            print(" test "+this.heroInfo.HeroName);
-            return true;
-        }
-        Debug.LogError("failed to set character");
-        return false;
-    }
+    
+//    void changeHero(string character)
+//    {
+//        if (PlayerPrefs.HasKey("Hero_Name"))
+//        {
+//            string oldPlayer = PlayerPrefs.GetString("Hero_Name");
+//            PlayerPrefs.SetString("Hero_Name", character);
+//            if (!selectHero())
+//            {
+//                PlayerPrefs.SetString("Hero_Name", oldPlayer);
+//            }
+//        }
+//        PlayerPrefs.SetString("Hero_Name", character);
+//        if (!selectHero())
+//        {
+//            PlayerPrefs.DeleteKey("Hero_Name");
+//        }
+//    }
+//    bool selectHero()
+//    {
+//        if (PlayerPrefs.HasKey("Hero_Name"))
+//        {
+//            string Name = PlayerPrefs.GetString("Hero_Name");
+//            HeroInfo HI = heroSelector.getHero(Name);
+//            this.heroInfo = HI;
+//            return true;
+//        }
+//        Debug.LogError("failed to set character");
+//        return false;
+//    }
     public void damage(float damage)
     {
         health -= damage;
@@ -164,21 +160,41 @@ public class Hero : MonoBehaviour {
             sticks++;
             GameObject.Find("sticktxt").GetComponent<setText>().set("" + Mathf.Round(sticks+0.49f));
         }
-        if (other.CompareTag("rock"))
-        {
+        if (other.CompareTag("rock")) {
             Destroy(other.gameObject);
             stones++;
             GameObject.Find("rocktxt").GetComponent<setText>().set("" + Mathf.Round(stones + 0.49f));
         }
     }
 
-    void moveCode2()
-    {
-        curSpeed = walkSpeed;
-        maxSpeed = curSpeed;
+	void OnCollisionEnter2D(Collision2D coll) {
+		GameObject other = coll.gameObject;
+		if (other.CompareTag ("Chest")) {
+			switch (other.transform.parent.name) {
+			case "Level2(Clone)":
+				if (!Main.M.level2ChestOpened) {
+					Main.M.triggerMemory ();
+				}
+				Main.M.level2ChestOpened = true;
+				break;
 
-        // Move senteces
-        GetComponent<Rigidbody2D>().velocity = new Vector2(Mathf.Lerp(0, Input.GetAxis("Horizontal") * curSpeed, 0.8f),
-                                            Mathf.Lerp(0, Input.GetAxis("Vertical") * curSpeed, 0.8f));
-    }
+			case "Level3(Clone)":
+				if (!Main.M.level3ChestOpened) {
+					Main.M.triggerMemory ();
+				}
+				Main.M.level3ChestOpened = true;
+				break;
+
+			case "Level6(Clone)":
+				if (!Main.M.level6ChestOpened) {
+					Main.M.triggerMemory ();
+				}
+				Main.M.level6ChestOpened = true;
+				break;
+
+			default:
+				break;
+			}
+		}
+	}
 }

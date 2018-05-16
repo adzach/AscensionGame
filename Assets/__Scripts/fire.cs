@@ -16,50 +16,15 @@ public class fire : MonoBehaviour {
         AS = GetComponent<AudioSource>();
         getHero(this.transform.parent.GetComponent<Hero>());
         getWeapon();
-        getHead();
-//        getGun();
-        //AS.clip = weapon.Sound;
     }
 	void getHero(Hero Hero)
     {
         hero = Hero;
     }
-    public void updateCharacter()
-    {
-        AS.clip = weapon.Sound;
-        getWeapon();
-        getGun();
-        getHead();
-    }
+
     void getWeapon()
     {
         weapon = new CowboyWeapon();
-    }
-    void getHead()
-    {
-        head = hero.heroInfo.Head;
-        SpriteRenderer[] sr = GetComponentsInChildren<SpriteRenderer>();
-        foreach (SpriteRenderer s in sr)
-        {
-            if (s.tag == "head")
-            {
-                //s.sprite = head;
-            }
-        }
-    }
-    void getGun()
-    {
-        gun = hero.heroInfo.Gun;
-        Animator[] sr = GetComponentsInChildren<Animator>();
-        Animator a;
-        foreach(Animator s in sr)
-        {
-            if (s.tag == "gun")
-            {
-                a = s;
-            }
-        }
-        a = gun;
     }
     void decreaseCount()
     {
@@ -75,7 +40,6 @@ public class fire : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
         hero.enabled = true;
-        //GetComponentsInChildren<Animator>()[0].SetBool("Walking", false);
         if (Input.GetMouseButtonDown(0))
         {
             if (weaponNum == 2)
@@ -85,7 +49,6 @@ public class fire : MonoBehaviour {
                     decreaseCount();
                     GameObject.Find("bow").GetComponent<Animator>().Play("bowAnim");
                     weapon.LastFire = Time.time;
-                    //GetComponentsInChildren<Animator>()[0].SetBool("Walking", true);
                     float dir = ((this.transform.eulerAngles.z) * Mathf.PI) / 180;
                     dir = dir - (Mathf.PI / 2);
                     dir = -dir;
