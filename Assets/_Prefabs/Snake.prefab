@@ -23,6 +23,7 @@ GameObject:
   - component: {fileID: 95652536651786774}
   - component: {fileID: 50623694026797838}
   - component: {fileID: 58930490417408208}
+  - component: {fileID: 114444727752350314}
   m_Layer: 12
   m_Name: Snake
   m_TagString: Enemy
@@ -36,8 +37,8 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1434090575180380}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalRotation: {x: 0, y: 0, z: -0.4316641, w: -0.90203446}
+  m_LocalPosition: {x: -27.899632, y: 23.095692, z: 0}
   m_LocalScale: {x: 15, y: 15, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -50,7 +51,7 @@ Rigidbody2D:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1434090575180380}
-  m_BodyType: 1
+  m_BodyType: 0
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
@@ -62,7 +63,7 @@ Rigidbody2D:
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
-  m_Constraints: 0
+  m_Constraints: 4
 --- !u!58 &58930490417408208
 CircleCollider2D:
   m_ObjectHideFlags: 1
@@ -95,6 +96,30 @@ Animator:
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
+--- !u!114 &114444727752350314
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1434090575180380}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3704182af84c9be44835755e46a88e8f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  defaultSpeed: 10
+  maxHealth: 100
+  attackRange: 0
+  attackCoolDown: 0
+  speed: 10
+  health: 80
+  dir: {x: -0.7557388, y: 0.6453191, z: -0.11145494}
+  coolDownDone: 6.7899685
+  distance: 8.972236
+  offCooldown: 1
+  tempHero: {x: 0, y: 0, z: 0}
+  first: 0
+  heroPos: {x: -34.680298, y: 28.885647, z: -1}
 --- !u!212 &212557384858321584
 SpriteRenderer:
   m_ObjectHideFlags: 1
@@ -129,7 +154,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: baca076f45378c3418f9d7b1efd7c5bc, type: 3}
+  m_Sprite: {fileID: 21300014, guid: baca076f45378c3418f9d7b1efd7c5bc, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
