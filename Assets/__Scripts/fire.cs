@@ -49,7 +49,6 @@ public class fire : MonoBehaviour {
                     decreaseCount();
                     GameObject.Find("bow").GetComponent<Animator>().Play("bowAnim");
                     weapon.LastFire = Time.time;
-                    GetComponentsInChildren<Animator>()[0].SetBool("Walking", true);
                     float dir = ((this.transform.eulerAngles.z) * Mathf.PI) / 180;
                     dir = dir - (Mathf.PI / 2);
                     dir = -dir;
