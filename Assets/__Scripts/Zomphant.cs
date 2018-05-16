@@ -46,7 +46,7 @@ public class Zomphant : Enemy
         {
             speed = 0;
 
-            anim.CrossFade("Zomphant_Attack", 0);
+            anim.CrossFade("Zomphant_attack", 0);
             if (Time.time > startRipple)
             {
                 
