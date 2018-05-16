@@ -198,7 +198,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1437822410011162}
   m_LocalRotation: {x: 0.7071068, y: -0, z: -0, w: 0.7071068}
-  m_LocalPosition: {x: -0.415, y: 1, z: 2.38}
+  m_LocalPosition: {x: -0.415, y: 1, z: 0}
   m_LocalScale: {x: 0.5, y: 1, z: 0.50000024}
   m_Children: []
   m_Father: {fileID: 4414427966930650}
@@ -652,7 +652,6 @@ MonoBehaviour:
   clubcol: {fileID: 0}
   spearcol: {fileID: 0}
   TS: {fileID: 0}
-  heroselector: {fileID: 0}
 --- !u!114 &114316654309577134
 MonoBehaviour:
   m_ObjectHideFlags: 1

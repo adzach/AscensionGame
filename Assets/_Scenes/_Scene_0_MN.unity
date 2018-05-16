@@ -312,15 +312,17 @@ MonoBehaviour:
   abilityHolder: {fileID: 1893244982324018, guid: 1b6f2f5e0122e7b4bb7fdd5dc5509356,
     type: 2}
   Canvas: {fileID: 1791717648971434, guid: 6d317ca178396b3408cc0236d8f9c0e9, type: 2}
+  imageCanvas: {fileID: 1786389811587588, guid: a259185148fd1324eb62c9237dd0d632,
+    type: 2}
   mainScreen: {fileID: 1939037191035388, guid: f3dfdaac1ae93414a8dff01d8dd38697, type: 2}
   characterSelect: {fileID: 1038853688541736, guid: 555149245f0740d499c427059d24565c,
     type: 2}
   jungleMusic: {fileID: 8300000, guid: f662bd5280b8c4e428fd6bb9603ceae8, type: 3}
-  numLevel2Enemies: 3
-  numLevel3Enemies: 3
+  numLevel2Enemies: 0
+  numLevel3Enemies: 0
   numLevel4Enemies: 0
-  numLevel5Enemies: 1
-  numLevel6Enemies: 3
+  numLevel5Enemies: 0
+  numLevel6Enemies: 0
   memories:
   - {fileID: 1200743709946518, guid: 3992524185e59e94ca7a9a27c801e456, type: 2}
   - {fileID: 1885209353477032, guid: 01a1215116995b3478b716fb4839d35e, type: 2}

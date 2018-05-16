@@ -24,7 +24,6 @@ public class Hero : MonoBehaviour {
     protected Animator anim;
     protected SpriteRenderer sRend;
     public TextSetter TS;
-    public HeroSelector heroselector;
 
     void Awake () {
 //        heroSelector = GameObject.Find("Main Camera").GetComponent<HeroSelector>();
@@ -50,8 +49,6 @@ public class Hero : MonoBehaviour {
     {
         heroInfo.HeroName = "Ooga";
         heroInfo.weapon = new Weapon();
-        walkSpeed = (float)(speed + (agility));
-        sprintSpeed = walkSpeed + (walkSpeed / 2);
         club = GameObject.Find("club");
         spear = GameObject.Find("spear");
         bow = GameObject.Find("bow");
@@ -71,7 +68,7 @@ public class Hero : MonoBehaviour {
 		Vector3 pos = transform.position;
 		pos.x += xAxis * speed * Time.deltaTime;
 		pos.y += yAxis * speed * Time.deltaTime;
-		transform.position = pos;*/
+		transform.position = pos;
         if (sticks > 2 && stones > 2)
         {
             if (GetComponentInChildren<fire>().weaponNum != 2)
