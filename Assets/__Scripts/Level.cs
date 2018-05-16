@@ -9,28 +9,67 @@ public class Level : MonoBehaviour {
 	public Sprite level; // Sets the current level sprite for loading later.
 	public GameObject rock;
 	public GameObject stick;
+	public GameObject zomBunny;
+	public GameObject zomPhant;
 	public int numRocks;
 	public int numSticks;
 
 	[Header ("Set Dynamically")]
-	public List<Border> borders;
-	public List<Exit> exits;
+	public int enemyCount;
+	public GameObject bramble;
+	public GameObject brambleFinal;
 
 	// Use this for initialization
 	void Start () {
-		borders = new List<Border> ();
-		exits = new List<Exit> ();
 		
 		foreach (Transform t in this.GetComponentsInChildren<Transform>()) {
-			if (t.tag == "BorderObject") { // Adds collidable borders to list
-				borders.Add (t.GetComponent<Border> ());
-			} else {
-				if (t.tag != "Untagged") { // What's remaining is an exit, so add it
-					exits.Add(t.GetComponent<Exit> ());
-				}
+			if (t.tag == "Bramble") {
+				bramble = t.gameObject;
+			}
+			if (t.tag == "BrambleFinal") {
+				brambleFinal = t.gameObject;
+			}
+		}
+		spawnTerrain ();
+		spawnEnemies ();
+	}
+
+	void Update() {
+		switch (transform.name) {
+		case "Level2(Clone)":
+			enemyCount = Main.M.numLevel2Enemies;
+			break;
+		case "Level3(Clone)":
+			enemyCount = Main.M.numLevel3Enemies;
+			break;
+		case "Level4(Clone)":
+			enemyCount = Main.M.numLevel4Enemies;
+			break;
+		case "Level5(Clone)":
+			enemyCount = Main.M.numLevel5Enemies;
+			break;
+		case "Level6(Clone)":
+			enemyCount = Main.M.numLevel6Enemies;
+			break;
+		default:
+			break;
+		}
+		if (enemyCount == 0) {
+			if (bramble != null) {
+				Destroy (bramble);
+			}
+			if (transform.name == "Level5(Clone)") {
+				Main.M.endGame ();
 			}
 		}
 
+		bool allChestsCleared = Main.M.level2ChestOpened && Main.M.level3ChestOpened && Main.M.level6ChestOpened;
+		if (brambleFinal != null && allChestsCleared) {
+			Destroy (brambleFinal);
+		}
+	}
+
+	public void spawnTerrain() {
 		for (int i = 0; i < numRocks; i++)
 		{
 			GameObject temprock = Instantiate<GameObject>(rock);
@@ -43,6 +82,55 @@ public class Level : MonoBehaviour {
 			GameObject tempstick = Instantiate<GameObject>(stick);
 			tempstick.transform.parent = transform;
 			tempstick.transform.position = new Vector3(Random.Range(-1f, 1f) * maxpos.x, Random.Range(-1f, 1f) * maxpos.y, -1);
+		}
+	}
+
+	public void spawnEnemies() {
+		switch (transform.name) {
+		case "Level2(Clone)":
+			for (int i = 0; i < Main.M.numLevel2Enemies; i++) {
+				GameObject bunny = Instantiate<GameObject> (zomBunny);
+				bunny.transform.parent = transform;
+				bunny.transform.position = new Vector3 (Random.Range (-1f, 1f) * maxpos.x, Random.Range (-1f, 1f) * maxpos.y, -1);
+			}
+			enemyCount = Main.M.numLevel2Enemies;
+			break;
+		case "Level3(Clone)":
+			for (int i = 0; i < Main.M.numLevel3Enemies; i++) {
+				GameObject bunny = Instantiate<GameObject> (zomBunny);
+				bunny.transform.parent = transform;
+				bunny.transform.position = new Vector3 (Random.Range (-1f, 1f) * maxpos.x, Random.Range (-1f, 1f) * maxpos.y, -1);
+			}
+			enemyCount = Main.M.numLevel3Enemies;
+			break;
+
+		case "Level4(Clone)":
+			for (int i = 0; i < Main.M.numLevel4Enemies; i++) {
+				GameObject bunny = Instantiate<GameObject> (zomBunny);
+				bunny.transform.parent = transform;
+				bunny.transform.position = new Vector3 (Random.Range (-1f, 1f) * maxpos.x, Random.Range (-1f, 1f) * maxpos.y, -1);
+			}
+			enemyCount = Main.M.numLevel4Enemies;
+			break;
+
+		case "Level5(Clone)":
+			GameObject boss = Instantiate<GameObject> (zomPhant);
+			boss.transform.parent = transform;
+			boss.transform.position = new Vector3 (0.4f, 0.1f, -1);
+			enemyCount = 1;
+			break;
+
+		case "Level6(Clone)":
+			for (int i = 0; i < Main.M.numLevel6Enemies; i++) {
+				GameObject bunny = Instantiate<GameObject> (zomBunny);
+				bunny.transform.parent = transform;
+				bunny.transform.position = new Vector3 (Random.Range (-1f, 1f) * maxpos.x, Random.Range (-1f, 1f) * maxpos.y, -1);
+			}
+			enemyCount = Main.M.numLevel6Enemies;
+			break;
+
+		default:
+			break;
 		}
 	}
 }

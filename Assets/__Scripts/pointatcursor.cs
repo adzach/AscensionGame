@@ -16,17 +16,17 @@ public class pointatcursor : MonoBehaviour
         diff.z = 0;
 		diff.Normalize();
 		if(diff.x<0) {
-      xnega = -1;
-    }
+      		xnega = -1;
+    	}
 		else {
-      xnega = 1;
-    }
+      		xnega = 1;
+    	}
 		if(diff.y<0) {
-      ynega = -1;
-    }
+      		ynega = -1;
+    	}
 		else {
-      ynega = 1;
-    }
+      		ynega = 1;
+    	}
 
         angle = xnega*Mathf.Atan(Mathf.Abs(diff.x) / Mathf.Abs(diff.y))*(180/Mathf.PI);
 

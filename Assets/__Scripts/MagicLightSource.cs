@@ -7,7 +7,7 @@ public class MagicLightSource : MonoBehaviour
 {
 
     public Material reveal;
-    public Light light;
+    public Light mLight;
 
 	// Use this for initialization
 	void Start () {
@@ -17,8 +17,8 @@ public class MagicLightSource : MonoBehaviour
 	// Update is called once per frame
 	void Update ()
     {
-        reveal.SetVector("_LightPosition", light.transform.position);
-        reveal.SetVector("_LightDirection", -light.transform.forward);
-        reveal.SetFloat("_LightAngle", light.spotAngle);
+        reveal.SetVector("_LightPosition", mLight.transform.position);
+        reveal.SetVector("_LightDirection", -mLight.transform.forward);
+//        reveal.SetFloat("_LightAngle", light.spotAngle);
     }
 }
