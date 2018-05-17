@@ -114,7 +114,7 @@ public class Enemy : MonoBehaviour {
 
 	public void makeBlood(Collider2D collision)
 	{
-		Instantiate(blood, collision.transform.position+ collision.transform.TransformDirection(Vector3.up), collision.transform.rotation, abilityHolder.transform);
+		Instantiate(blood, collision.transform.position + collision.transform.TransformDirection(Vector3.up), collision.transform.rotation, abilityHolder.transform);
 	}
 
 	public void OnTriggerEnter2D(Collider2D collision)
@@ -123,10 +123,10 @@ public class Enemy : MonoBehaviour {
 		case "Arrow(Clone)":
 			health -= 25;
 			break;
-		case "Club":
+		case "club":
 			health -= 50;
 			break;
-		case "Spear":
+		case "spear":
 			health -= 75;
 			fire.F.enemyHit ();
 			break;
@@ -135,7 +135,6 @@ public class Enemy : MonoBehaviour {
 			break;
 		}
 		makeBlood (collision);
-		Destroy (collision.gameObject);
     }
 
 }

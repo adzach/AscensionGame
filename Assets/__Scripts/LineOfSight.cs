@@ -60,7 +60,6 @@ public class LineOfSight : MonoBehaviour {
             if (!seeing.Contains(hit.collider.gameObject))
             {
                 seeing.Add(hit.collider.gameObject);
-                print("did something 010");
                     
             }
         }

@@ -27,7 +27,7 @@ GameObject:
   - component: {fileID: 114213497553618366}
   m_Layer: 12
   m_Name: Zombunny
-  m_TagString: hideLOS
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -40,7 +40,7 @@ Transform:
   m_GameObject: {fileID: 1072193938843996}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: -1}
-  m_LocalScale: {x: 10, y: 10, z: 0.75}
+  m_LocalScale: {x: 15, y: 15, z: 0.75}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -120,7 +120,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9a122c2fe91c7a44f9685556b77f2b5e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  defaultSpeed: 10
+  defaultSpeed: 5
   maxHealth: 100
   attackRange: 20
   attackCoolDown: 5

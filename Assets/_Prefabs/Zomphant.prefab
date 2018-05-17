@@ -27,7 +27,7 @@ GameObject:
   - component: {fileID: 114384285497905178}
   m_Layer: 12
   m_Name: Zomphant
-  m_TagString: hideLOS
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -121,7 +121,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   defaultSpeed: 1
-  maxHealth: 100
+  maxHealth: 500
   attackRange: 14
   attackCoolDown: 5
   blood: {fileID: 1960361784622668, guid: f8b1776581a29f24287621d8f24b56d3, type: 2}

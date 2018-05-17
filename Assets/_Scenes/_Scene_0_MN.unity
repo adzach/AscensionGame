@@ -318,11 +318,11 @@ MonoBehaviour:
   characterSelect: {fileID: 1038853688541736, guid: 555149245f0740d499c427059d24565c,
     type: 2}
   jungleMusic: {fileID: 8300000, guid: f662bd5280b8c4e428fd6bb9603ceae8, type: 3}
-  numLevel2Enemies: 0
-  numLevel3Enemies: 0
+  numLevel2Enemies: 3
+  numLevel3Enemies: 3
   numLevel4Enemies: 0
-  numLevel5Enemies: 0
-  numLevel6Enemies: 0
+  numLevel5Enemies: 1
+  numLevel6Enemies: 3
   memories:
   - {fileID: 1200743709946518, guid: 3992524185e59e94ca7a9a27c801e456, type: 2}
   - {fileID: 1885209353477032, guid: 01a1215116995b3478b716fb4839d35e, type: 2}
