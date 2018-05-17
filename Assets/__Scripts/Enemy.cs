@@ -9,8 +9,7 @@ public class Enemy : MonoBehaviour {
     public float maxHealth = 100;
     public float attackRange;
     public float attackCoolDown;  //in seconds
-
-
+	public GameObject blood;
 
     [Header("Set Dynamically: Enemy")]
     public int speed;
@@ -26,6 +25,7 @@ public class Enemy : MonoBehaviour {
     protected Animator anim;
     protected Rigidbody2D rigid;
     protected SpriteRenderer sRend;
+	GameObject abilityHolder;
 
     protected virtual void Awake()
     {
@@ -34,7 +34,7 @@ public class Enemy : MonoBehaviour {
         rigid = GetComponent<Rigidbody2D>();
         sRend = GetComponent<SpriteRenderer>();
         coolDownDone = Time.time + attackCoolDown;
-
+		abilityHolder = GameObject.Find("abilityHolder");
     }
 
     protected virtual void Update()
@@ -112,6 +112,11 @@ public class Enemy : MonoBehaviour {
         
     }
 
+	public void makeBlood(Collider2D collision)
+	{
+		Instantiate(blood, collision.transform.position+ collision.transform.TransformDirection(Vector3.up), collision.transform.rotation, abilityHolder.transform);
+	}
+
 	public void OnTriggerEnter2D(Collider2D collision)
     {
 		switch (collision.gameObject.name) {
@@ -123,13 +128,13 @@ public class Enemy : MonoBehaviour {
 			break;
 		case "Spear":
 			health -= 75;
+			fire.F.enemyHit ();
 			break;
 		default:
 			print ("Enemy triggered by non-weapon: " + collision.gameObject.name);
 			break;
 		}
-        collision.gameObject.SendMessage("makeBlood");
-        collision.gameObject.SendMessage("enemyHit");
+		makeBlood (collision);
 		Destroy (collision.gameObject);
     }
 
