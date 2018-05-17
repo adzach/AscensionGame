@@ -221,7 +221,7 @@ MonoBehaviour:
   Canvas: {fileID: 1791717648971434, guid: 6d317ca178396b3408cc0236d8f9c0e9, type: 2}
   imageCanvas: {fileID: 1786389811587588, guid: a259185148fd1324eb62c9237dd0d632,
     type: 2}
-  mainScreen: {fileID: 1939037191035388, guid: f3dfdaac1ae93414a8dff01d8dd38697, type: 2}
+  mainScreen: {fileID: 1973526019861544, guid: ae118f909146f3242bb8a7c7827c08bf, type: 2}
   characterSelect: {fileID: 1038853688541736, guid: 555149245f0740d499c427059d24565c,
     type: 2}
   jungleMusic: {fileID: 0}
