@@ -39,8 +39,8 @@ GameObject:
   - component: {fileID: 212055962503504312}
   - component: {fileID: 61261196405031324}
   - component: {fileID: 50190137803703650}
-  - component: {fileID: 114664309997400686}
   - component: {fileID: 114465724801880740}
+  - component: {fileID: 114848064535659376}
   m_Layer: 9
   m_Name: Arrow
   m_TagString: Untagged
@@ -132,7 +132,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   blood: {fileID: 1960361784622668, guid: f8b1776581a29f24287621d8f24b56d3, type: 2}
---- !u!114 &114664309997400686
+--- !u!114 &114848064535659376
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
@@ -140,10 +140,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 1228636520323090}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f632861e029c57e479bb74a0baaa7766, type: 3}
+  m_Script: {fileID: 11500000, guid: 4d48aa4031b2e38488cbd6ccf2f4aed5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damage: 50
 --- !u!198 &198814405300277670
 ParticleSystem:
   m_ObjectHideFlags: 1

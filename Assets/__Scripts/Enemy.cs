@@ -49,11 +49,7 @@ public class Enemy : MonoBehaviour {
     }
 
     public void followChar()
-    {
-        //        Vector3 mousePos2D = Input.mousePosition;
-        //        mousePos2D.z = -Camera.main.transform.position.z;
-        //        Vector3 mousePos3D = Camera.main.ScreenToWorldPoint(mousePos2D);
-        
+    {        
         if (first)
         {
              heroPos = Hero.S.transform.position;
@@ -116,11 +112,25 @@ public class Enemy : MonoBehaviour {
         
     }
 
-    private void OnTriggerEnter2D(Collider2D collision)
+	public void OnTriggerEnter2D(Collider2D collision)
     {
-        health -= collision.gameObject.GetComponent<DamageComponent>().damage;
+		switch (collision.gameObject.name) {
+		case "Arrow(Clone)":
+			health -= 25;
+			break;
+		case "Club":
+			health -= 50;
+			break;
+		case "Spear":
+			health -= 75;
+			break;
+		default:
+			print ("Enemy triggered by non-weapon: " + collision.gameObject.name);
+			break;
+		}
         collision.gameObject.SendMessage("makeBlood");
-        collision.gameObject.SendMessageUpwards("enemyHit");
+        collision.gameObject.SendMessage("enemyHit");
+		Destroy (collision.gameObject);
     }
 
 }

@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class fire : MonoBehaviour {
+	public static fire F;
     public Weapon weapon;
     public Hero hero;
     public float Speed = 10;
@@ -11,6 +12,14 @@ public class fire : MonoBehaviour {
     public AudioSource AS;
     public int weaponNum = 0;
     public GameObject arrow;
+
+	void Awake() {
+		if (F == null) {
+			F = this;
+		} else {
+			Debug.LogError ("Attempted to assign second fire");
+		}
+	}
     // Use this for initialization
     void Start () {
         AS = GetComponent<AudioSource>();
@@ -35,7 +44,9 @@ public class fire : MonoBehaviour {
     }
     public void enemyHit()
     {
-        if (weaponNum == 1) decreaseCount();
+		if (weaponNum == 1) {
+			decreaseCount ();
+		}
     }
 	// Update is called once per frame
 	void Update () {
@@ -58,8 +69,6 @@ public class fire : MonoBehaviour {
                     bullet.transform.eulerAngles = new Vector3(0, 0, this.transform.eulerAngles.z);
                     Rigidbody2D rigid = bullet.GetComponent<Rigidbody2D>();
                     rigid.velocity = Speed * transform.TransformDirection(Vector3.up);
-                    bullet.AddComponent<DamageComponent>();
-                    bullet.GetComponent<DamageComponent>().damage = weapon.Damage;
                 }
             }
             if (weaponNum == 1)

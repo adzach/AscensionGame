@@ -16,9 +16,9 @@ public class Hero : MonoBehaviour {
 //    private float sprintSpeed;
     public float sticks = 0;
     public float stones = 0;
-    private GameObject club;
+    public GameObject club;
     public GameObject spear;
-    private GameObject bow;
+    public GameObject bow;
     public Collider2D clubcol;
     public Collider2D spearcol;
     protected Animator anim;

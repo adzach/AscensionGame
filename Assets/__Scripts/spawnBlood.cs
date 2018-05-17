@@ -9,11 +9,6 @@ public class spawnBlood : MonoBehaviour {
 	void Start () {
         abilityHolder = GameObject.Find("abilityHolder");
     }
-	
-	// Update is called once per frame
-	void Update () {
-		
-	}
 
     public void makeBlood()
     {

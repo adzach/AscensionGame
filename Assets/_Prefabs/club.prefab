@@ -22,9 +22,8 @@ GameObject:
   - component: {fileID: 212100751505322186}
   - component: {fileID: 61085118168195272}
   - component: {fileID: 114323149738766846}
-  - component: {fileID: 114770033373683520}
   m_Layer: 0
-  m_Name: club
+  m_Name: Club
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -79,18 +78,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f34d90867adc3a34590dd58016b67b8d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &114770033373683520
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1747017390883700}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f632861e029c57e479bb74a0baaa7766, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  damage: 50
+  animname: 
 --- !u!212 &212100751505322186
 SpriteRenderer:
   m_ObjectHideFlags: 1
