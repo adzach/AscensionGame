@@ -67,7 +67,7 @@ public class Main : MonoBehaviour {
 	public void startGame() {
 		mainAudio.clip = jungleMusic;
 		mainAudio.Play ();
-		Destroy (_characterSelect);
+		Destroy (_mainScreen);
 		level = Instantiate<GameObject> (levels [0]);
 		level.transform.position = levelPos;
 
