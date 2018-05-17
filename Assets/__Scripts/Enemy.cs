@@ -44,7 +44,26 @@ public class Enemy : MonoBehaviour {
         followChar();
 
         flip();
-        if (health <= 0) Destroy(gameObject);
+		if (health <= 0) {
+			Destroy (gameObject);
+			switch (Main.M.level.name) {
+			case "Level2(Clone)":
+				Main.M.numLevel2Enemies--;
+				break;
+			case "Level3(Clone)":
+				Main.M.numLevel3Enemies--;
+				break;
+			case "Level6(Clone)":
+				Main.M.numLevel6Enemies--;
+				break;
+			case "Level5(Clone)":
+				Main.M.numLevel5Enemies--;
+				if (Main.M.numLevel5Enemies <= 0) {
+					Main.M.endGame ();
+				}
+				break;
+			}
+		}
 
     }
 
@@ -122,22 +141,25 @@ public class Enemy : MonoBehaviour {
 		switch (collision.gameObject.name) {
 		case "Arrow(Clone)":
 			health -= 25;
+			makeBlood (collision);
 			break;
 		case "club":
 			health -= 50;
+			makeBlood (collision);
 			break;
 		case "spear":
 			health -= 75;
+			makeBlood (collision);
 			fire.F.enemyHit ();
 			break;
         case "ability (1)(Clone)":
             health -= 90;
+			makeBlood (collision);
             break;
         default:
-			print ("Enemy triggered by non-weapon: " + collision.gameObject.name);
 			break;
 		}
-		makeBlood (collision);
+
     }
 
 }

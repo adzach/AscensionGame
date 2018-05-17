@@ -318,11 +318,11 @@ MonoBehaviour:
   characterSelect: {fileID: 1038853688541736, guid: 555149245f0740d499c427059d24565c,
     type: 2}
   jungleMusic: {fileID: 8300000, guid: f662bd5280b8c4e428fd6bb9603ceae8, type: 3}
-  numLevel2Enemies: 3
-  numLevel3Enemies: 3
-  numLevel4Enemies: 0
-  numLevel5Enemies: 1
-  numLevel6Enemies: 3
+  numLevel2EnemiesMax: 10
+  numLevel3EnemiesMax: 5
+  numLevel4EnemiesMax: 0
+  numLevel5EnemiesMax: 1
+  numLevel6EnemiesMax: 15
   memories:
   - {fileID: 1200743709946518, guid: 3992524185e59e94ca7a9a27c801e456, type: 2}
   - {fileID: 1885209353477032, guid: 01a1215116995b3478b716fb4839d35e, type: 2}
@@ -333,12 +333,21 @@ MonoBehaviour:
     type: 2}
   memoryContinueButton: {fileID: 1351293855018964, guid: bfe806e66621dc840995e64ba2c1587f,
     type: 2}
+  gameOverButton: {fileID: 1261900780338804, guid: 8f8af1064fe9682458e5089349a51749,
+    type: 2}
+  victoryButton: {fileID: 1481794498037950, guid: e15c463cfedba1d40a8dbc893cfa35ed,
+    type: 2}
   level: {fileID: 0}
   memoryCount: 0
   level2ChestOpened: 0
   level3ChestOpened: 0
   level6ChestOpened: 0
   _memoryScreen: {fileID: 0}
+  numLevel2Enemies: 3
+  numLevel3Enemies: 10
+  numLevel4Enemies: 0
+  numLevel5Enemies: 1
+  numLevel6Enemies: 3
 --- !u!114 &1150931306
 MonoBehaviour:
   m_ObjectHideFlags: 0

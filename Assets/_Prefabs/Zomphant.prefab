@@ -122,7 +122,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   defaultSpeed: 1
   maxHealth: 500
-  attackRange: 14
+  attackRange: 20
   attackCoolDown: 5
   blood: {fileID: 1960361784622668, guid: f8b1776581a29f24287621d8f24b56d3, type: 2}
   speed: 1

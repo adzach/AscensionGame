@@ -13,7 +13,9 @@ public class CameraMain : MonoBehaviour {
 
 	void LateUpdate () {
 		if (gameStarted) {
-			transform.position = hero.transform.position + offset;
+			if (hero != null) {
+				transform.position = hero.transform.position + offset;
+			}
 		}
 	}
 }

@@ -601,14 +601,18 @@ MonoBehaviour:
     Head: {fileID: 0}
     Gun: {fileID: 0}
     health: 0
-  heroSelector: {fileID: 0}
-  health: 300
+  speed: 20
+  health: 1
   curSpeed: 0
   sticks: 0
   stones: 0
+  club: {fileID: 0}
   spear: {fileID: 0}
+  bow: {fileID: 0}
   clubcol: {fileID: 0}
   spearcol: {fileID: 0}
+  TS: {fileID: 0}
+  lastHit: 0
 --- !u!114 &114140001653783180
 MonoBehaviour:
   m_ObjectHideFlags: 1

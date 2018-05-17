@@ -8,7 +8,7 @@ public class Hero : MonoBehaviour {
 //    public HeroSelector heroSelector;
     [Header ("Set in Inspector")]
     public float speed = 20;
-    public float health = 300;
+	public float health;
 //    private float walkSpeed;
     public float curSpeed;
     private float maxSpeed;
@@ -24,6 +24,7 @@ public class Hero : MonoBehaviour {
     protected Animator anim;
     protected SpriteRenderer sRend;
     public TextSetter TS;
+	public float lastHit;
 
     void Awake () {
 //        heroSelector = GameObject.Find("Main Camera").GetComponent<HeroSelector>();
@@ -57,7 +58,8 @@ public class Hero : MonoBehaviour {
         spearcol.enabled = false;
         bow.SetActive(false);
         spear.SetActive(false);
-
+		lastHit = Time.time;
+		GameObject.Find("healthtxt").GetComponent<TextSetter>().setText("Health: " + health);
     }
 
     // Update is called once per frame
@@ -102,7 +104,6 @@ public class Hero : MonoBehaviour {
                 GetComponentInChildren<fire>().weaponNum = 0;
             }
         }
-        damage(0);
     }
     
 //    void changeHero(string character)
@@ -136,7 +137,10 @@ public class Hero : MonoBehaviour {
 //    }
     public void damage(float damage)
     {
-        health -= damage;
+		if (Time.time - lastHit > 1f) {
+			health -= damage;
+			lastHit = Time.time;
+		}
         GameObject.Find("healthtxt").GetComponent<TextSetter>().setText("Health: " + health);
         if (health <= 0)
         {
@@ -145,7 +149,7 @@ public class Hero : MonoBehaviour {
     }
     public void die()
     {
-        print("dead");
+		Main.M.endGame ();
     }
 	
 	
@@ -157,11 +161,16 @@ public class Hero : MonoBehaviour {
             sticks++;
             GameObject.Find("sticktxt").GetComponent<setText>().set("" + Mathf.Round(sticks+0.49f));
         }
-        if (other.CompareTag("rock")) {
+        else if (other.CompareTag("rock")) {
             Destroy(other.gameObject);
             stones++;
             GameObject.Find("rocktxt").GetComponent<setText>().set("" + Mathf.Round(stones + 0.49f));
         }
+		else if (other.CompareTag ("Enemy")) {
+			damage (15);
+		} else if (other.CompareTag ("Earthquake")) {
+			damage (50);
+		}
     }
 
 	void OnCollisionEnter2D(Collision2D coll) {

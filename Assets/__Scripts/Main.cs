@@ -16,15 +16,17 @@ public class Main : MonoBehaviour {
     public GameObject mainScreen;
 	public GameObject characterSelect;
 	public AudioClip jungleMusic;
-	public int numLevel2Enemies;
-	public int numLevel3Enemies;
-	public int numLevel4Enemies;
-	public int numLevel5Enemies;
-	public int numLevel6Enemies;
+	public int numLevel2EnemiesMax;
+	public int numLevel3EnemiesMax;
+	public int numLevel4EnemiesMax;
+	public int numLevel5EnemiesMax;
+	public int numLevel6EnemiesMax;
 	public GameObject[] memories;
 	public GameObject memoryCanvas;
 	public GameObject memoryScreen;
 	public GameObject memoryContinueButton;
+	public GameObject gameOverButton;
+	public GameObject victoryButton;
 
 	[Header ("Set Dynamically")]
 	public GameObject level;
@@ -35,8 +37,14 @@ public class Main : MonoBehaviour {
 	public GameObject _memoryScreen;
 
 	private GameObject _mainScreen;
-	private GameObject _characterSelect;
+//	private GameObject _characterSelect;
 	private AudioSource mainAudio;
+	public int numLevel2Enemies;
+	public int numLevel3Enemies;
+	public int numLevel4Enemies;
+	public int numLevel5Enemies;
+	public int numLevel6Enemies;
+
 
 	void Awake () {
 		if (M == null) {
@@ -52,16 +60,16 @@ public class Main : MonoBehaviour {
 		level2ChestOpened = false;
 		level3ChestOpened = false;
 		level6ChestOpened = false;
+		numLevel2Enemies = numLevel2EnemiesMax;
+		numLevel3Enemies = numLevel3EnemiesMax;
+		numLevel4Enemies = numLevel4EnemiesMax;
+		numLevel5Enemies = numLevel5EnemiesMax;
+		numLevel6Enemies = numLevel6EnemiesMax;
 	}
-
-    internal void Restart()
-    {
-        throw new NotImplementedException();
-    }
 
     public void goToCharacterSelection() {
 		Destroy (_mainScreen);
-		_characterSelect = Instantiate<GameObject> (characterSelect);
+//		_characterSelect = Instantiate<GameObject> (characterSelect);
 	}
 
 	public void startGame() {
@@ -85,6 +93,12 @@ public class Main : MonoBehaviour {
 		CameraMain.hero = hero;
 		CameraMain.gameStarted = true;
 		triggerMemory ();
+	}
+
+	void Update() {
+		if (Input.GetKey ("escape")) {
+			Application.Quit ();
+		}
 	}
 
 	public void changeLevel(GameObject levelToLeadTo, string directionComingFrom) {
@@ -151,6 +165,8 @@ public class Main : MonoBehaviour {
 
 	public void triggerMemory() {
 		// Enemies should all be dead in level, so just freeze hero position and put the memory over the level
+		Hero.S.health += 100;
+		GameObject.Find("healthtxt").GetComponent<TextSetter>().setText("Health: " + Hero.S.health);
 		Time.timeScale = 0;
 		_memoryScreen = Instantiate<GameObject> (memoryScreen);
 		GameObject go = Instantiate<GameObject> (memories [memoryCount]);
@@ -163,6 +179,18 @@ public class Main : MonoBehaviour {
 	}
 
 	public void endGame() {
-		// Do something to end the game.
+		Destroy (level);
+		Destroy (hero);
+		_memoryScreen = Instantiate<GameObject> (memoryScreen);
+		GameObject button;
+		if (Hero.S.health <= 0) {
+			button = Instantiate<GameObject> (gameOverButton);
+			button.transform.position = new Vector3 (memoryCanvas.transform.position.x - 20, memoryCanvas.transform.position.y - 300, -5);
+		} else {
+			button = Instantiate<GameObject> (victoryButton);
+			button.transform.position = new Vector3 (memoryCanvas.transform.position.x -20, memoryCanvas.transform.position.y - 300, -5);
+		}
+
+		button.transform.SetParent (memoryCanvas.transform);
 	}
 }
