@@ -87,7 +87,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f632861e029c57e479bb74a0baaa7766, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damage: 1
+  damage: 75
 --- !u!114 &114146297226375830
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -102,6 +102,8 @@ MonoBehaviour:
   curchar: 0
   fireanim: {fileID: 0}
   running: 0
+  animName: fireAbility
+  WaitaFrame: 0
 --- !u!212 &212240881526432904
 SpriteRenderer:
   m_ObjectHideFlags: 1

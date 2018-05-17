@@ -130,7 +130,10 @@ public class Enemy : MonoBehaviour {
 			health -= 75;
 			fire.F.enemyHit ();
 			break;
-		default:
+        case "ability (1)(Clone)":
+            health -= 90;
+            break;
+        default:
 			print ("Enemy triggered by non-weapon: " + collision.gameObject.name);
 			break;
 		}
