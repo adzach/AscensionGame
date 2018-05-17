@@ -20,16 +20,16 @@ public class legs : MonoBehaviour {
         d = Input.GetKey("d");
         w = Input.GetKey("w");
         
-        GetComponent<Animator>().SetBool("Walking", (a || s || d || w));
-        if (d)
+        GetComponent<Animator>().SetBool("Walking", ((a&&!d) || (d&&!a) || (s&&!w)|| (w&&!s)));
+        if (d&&!a)
         {
             angle = 270;
         }
-        if (a)
+        if (a&&!d)
         {
             angle = 90;
         }
-        if (w)
+        if (w && !s)
         {
             angle = 0;
             if (a)
@@ -44,7 +44,7 @@ public class legs : MonoBehaviour {
                 }
             }
         }
-        if (s)
+        if (s&&!w)
         {
             angle = 180;
             if (a)
@@ -55,11 +55,11 @@ public class legs : MonoBehaviour {
             {
                 if (d)
                 {
-                    angle = 225f;
+                    angle = 225;
                 }
             }
         }
         if (a || s || d || w)
-            this.gameObject.transform.rotation = Quaternion.Euler(0f, 0f,angle);
+            this.gameObject.transform.rotation = Quaternion.Euler(0f, 0f,angle-180);
     }
 }
